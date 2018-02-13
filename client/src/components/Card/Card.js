@@ -1,9 +1,9 @@
 // CHANGE EVERYTHING HERE TO CARD SPECIFIC
 
 import React, { Component } from "react";
-import "./Deck.css";
+import "./components/Card.css";
 
-class Deck extends Component {
+class Card extends Component {
   // Setting the component's initial state
   state = {
     deckName: "",
@@ -26,7 +26,7 @@ class Deck extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
-    alert(`You entered a Deck called: ${this.state.deckName} with ${this.state.numCards} cards in it. Each card has ${this.state.numFields} pieces of information on it.`);
+    alert(`You entered card number ${this.state.numCards} with ${this.state.numCards} cards in it. Each card has ${this.state.numFields} pieces of information on it.`);
     this.setState({
       deckName: "",
       numCards: "",
