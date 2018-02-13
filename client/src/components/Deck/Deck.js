@@ -25,6 +25,16 @@ class Deck extends Component {
     event.preventDefault();
 
     alert(`You entered a Deck called: ${this.state.deckName} with ${this.state.numCards} cards in it. Each card has ${this.state.numFields} pieces of information on it.`);
+
+    // API call to database to set info
+    var objectToPassToAPI = {
+      deckName: this.state.deckName,
+      numCards: this.state.numCards,
+      numFields: this.state.numFields
+    };
+
+    //axios.post("url", objectToPassToAPI);
+
     this.setState({
       deckName: "",
       numCards: "",
@@ -41,7 +51,7 @@ class Deck extends Component {
           {this.state.deckName}
         </p>
         {/*the next line may not call the route correctly */}
-        <form className="form" action="/submitDeck" method="post"> 
+        <form className="form"> 
           <input
             value={this.state.firstName}
             name="deckName"
@@ -63,6 +73,7 @@ class Deck extends Component {
             type="number"
             placeholder="number of information fields"
           />
+          
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
