@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Deck.css";
+import "./components/Deck.css";
 
 class Deck extends Component {
   // Setting the component's initial state
@@ -40,7 +40,8 @@ class Deck extends Component {
           Enter a Deck of Cards (basic Deck structure) 
           {this.state.deckName}
         </p>
-        <form className="form" action="/submitDeck" method="post">
+        {/*the next line may not call the route correctly */}
+        <form className="form" action="/submitDeck" method="post"> 
           <input
             value={this.state.firstName}
             name="deckName"
@@ -49,14 +50,14 @@ class Deck extends Component {
             placeholder="Deck Name"
           />
           <input
-            value={this.state.lastName}
+            value={this.state.numCards}
             name="numCards"
             onChange={this.handleInputChange}
             type="number"
             placeholder="number of cards"
           />
           <input
-            value={this.state.lastName}
+            value={this.state.numFields}
             name="numFields"
             onChange={this.handleInputChange}
             type="number"
