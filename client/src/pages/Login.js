@@ -6,10 +6,8 @@ import Col from "../components/Col";
 
 const Login = () =>
   <div>
-    <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
-      <h1>Pupster</h1>
-      <h2>They're the Good Boys and Girls</h2>
-    </Hero>
+    // <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
+    // </Hero>
     <Container style={{ marginTop: 30 }}>
       <Row>
         <Col size="md-12">
