@@ -3,7 +3,7 @@ var express        = require('express');
 var bodyParser     = require("body-parser");
 var mongoose       = require('mongoose');
 var routes         = require("./routes/index.js");
-var methodOverride = require("method-override");
+//var methodOverride = require("method-override");
 
 var PORT = process.env.PORT || 3005;
 
@@ -14,7 +14,7 @@ var app  = express();
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(methodOverride("_method"));
+//app.use(methodOverride("_method"));
 app.use(routes);
 
 //===============================================
