@@ -43,7 +43,62 @@ db.once('open', function() {
     });
 });
 
+// Routes
+// ======
 
+// This POST route handles the creation of a new Card in our mongodb cards collection
+app.post("/submitDeck", function(req, res) {
 
+    var newDeck = new Deck(req.body);
+  
+  // Save the new Deck of Cards
+    newDeck.save(function(err, doc) {
+      // Send an error to the browser if there's something wrong
+      if (err) {
+        res.send(err);
+      }
+      // Otherwise...
+      else {
+        //create a new tableDB in the firebase here
+      }
+    });
+  });
+  
+// This POST route handles the creation of a new Card in our mongodb cards collection
+app.post("/submitCard", function(req, res) {
+
+    // NEED TO DO
+    // #1 find what deck to utilize... maybe the last one entered into FireBase
+    // #2 loop through # cards in deck
+    // #3 loop through # fields on each card, entering the information as it goes
+    // #4 future nifty: make this live with React
+
+    var newCard = new Card(req.body);
+  
+    // Save the new card to the deck
+    newCard.save(function(err, doc) {
+      // Send an error to the browser if there's something wrong
+      if (err) {
+        res.send(err);
+      }
+      // Otherwise...
+      else {
+
+  
+      // ALSO: We need "{new: true}" in our call,
+      // or else our query will return the object as it was before it was updated
+        Deck.findOneAndUpdate({}, { $push: { "cards": doc._id } }, { new: true }, function(error, doc) {
+          // Send any errors to the browser
+          if (error) {
+            res.send(error);
+          }
+          // Or send the doc to the browser
+          else {
+            res.send(doc);
+          }
+        });
+      }
+    });
+  });
 
 
