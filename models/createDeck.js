@@ -18,7 +18,8 @@ var DeckSchema = new Schema({
   numFields: { // how many information fields will be on each card
     type: Number,
     required: true 
-  }
+  },
+  cards: []
 
 });
 
