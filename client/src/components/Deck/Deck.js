@@ -74,6 +74,23 @@ class Deck extends Component {
             placeholder="number of information fields"
           />
           
+          {(() => {
+            let cardRow = []
+            for (var i = 0; i < this.state.numCards; i++) {
+              cardRow.push(<ObjectRow key={i} />)
+
+              {(() => {
+                let fieldRow = []
+                for (var ii = 0; ii < this.state.numfields; ii++) {
+                    fieldRow.push(<ObjectRow key={ii} />)
+                }
+                return fieldRow
+              })()}
+
+            }
+            return cardRow
+          })()}
+
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
