@@ -1,25 +1,27 @@
 {
-  "name": "on_deck",
+  "name": "mern",
   "version": "1.0.0",
-  "description": "rapid card prototyping and card playing app",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "seed": "node scripts/seedDB.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "yarn && cd client && yarn"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OnDeckDunderMifflin/ProjectThree.git"
-  },
-  "author": "Rich Tranter, Emily Fritz, Sam DeFrank, Chris Ferril",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/OnDeckDunderMifflin/ProjectThree/issues"
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
   },
-  "homepage": "https://github.com/OnDeckDunderMifflin/ProjectThree#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongoose": "^5.0.4",
-    "react-bootstrap": "^0.32.1"
+    "mongoose": "^5.0.5",
+    "react-router-dom": "^4.2.2"
   }
 }
