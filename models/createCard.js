@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 // Create Schema class
 var Schema = mongoose.Schema;
 
-// Create article schema
+// Create article schema This will need to change
 var CardSchema = new Schema({
   fieldInfo: [] 
 });
