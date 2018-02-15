@@ -46,41 +46,48 @@ const cardSeed = [
 //====================================
 
 
+
 db.Deck
+
+  //delete cards collection
   .remove({})
-  .then(() => db.Deck.collection.insertOne(deckSeed[0]))
+
+  //then delete cards collection
+  .then(db.Card.remove({})
+
+  //then insert the seed deck
+  .then(() => db.Deck.collection.insertOne(deckSeed[0])
+
+  //then...
   .then(data => {
-    console.log(".then for db.deck.collection.insertone() executing");
 
-    for (var i = 0; i < cardSeed.length; i++) {
+    //set cards to empty array
+    let cards = [];
 
-      let tempCard = new db.Card(cardSeed[i])
+    //fill cards array with instances of db.card based on the info in cardSeed
+    //(theres is probably a better way to go about this)
+    for(card in cardSeed){
+      cards.push(new db.Card(cardSeed[card]))
+    };
+    
+    //insert all the cards into the cards collection
+    db.Card.insertMany(cards, function(err, insertedDocs){
+
+      if(err) throw err;
+
+      //create array of ids of inserted cards
+      const ids = insertedDocs.map(element => element._id)
       
-      tempCard.save(function(err, doc){
-        console.log("tempcard.save() callback executing");
+      //find the deck that the cards belong to and set the deck's allCards property to the ids array
+      db.Deck.findOneAndUpdate({deckName: data.ops[0].deckName}, {$set:{ allCards: ids }}, {new: true}, function(err, doc){
 
         if (err) {
           console.log(err);
-
+          process.exit(0);
         } else {
-
-          db.Deck.findOneAndUpdate({"deckName":doc.fromDeck}, {$push:{"allCards":doc._id}}, {new: true}, function(err,doc){
-
-            if (err) {
-
-              console.log(err);
-            } else {
-
-              console.log("line 64", doc);
-            }
-          })
-        
+          
+          process.exit(0);
         };
-      
-      })
-
-    };
-
-    //console.log(data.insertedIds.length + " records inserted!");
-    process.exit(0);
-  })
+      });
+    });
+  })));
