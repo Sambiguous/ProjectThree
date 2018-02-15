@@ -2,14 +2,8 @@ const mongoose = require("mongoose");
 const db = require("../models");
 mongoose.Promise = global.Promise;
 
-// This file empties the Books collection and inserts the books below
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/onDeck_DB",
-  {
-    useMongoClient: true
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/onDeck_DB");
 
 const deckSeed = [
   {
@@ -47,35 +41,46 @@ const cardSeed = [
   }
 ];
 
+//====================================
+//ABANDON ALL HOPE, YE WHO ENTER HERE
+//====================================
+
 
 db.Deck
   .remove({})
-  .then(() => db.Deck.collection.insertMany(deckSeed))
+  .then(() => db.Deck.collection.insertOne(deckSeed[0]))
   .then(data => {
+    console.log(".then for db.deck.collection.insertone() executing");
 
     for (var i = 0; i < cardSeed.length; i++) {
-      tempCard = new db.Card (cardSeed[i])
+
+      let tempCard = new db.Card(cardSeed[i])
       
-      tempCard.save(function(err, doc) {
+      tempCard.save(function(err, doc){
+        console.log("tempcard.save() callback executing");
+
         if (err) {
           console.log(err);
+
         } else {
-          // db.Deck.findOneAndUpdate({"deckName":doc.fromDeck}, {$push:{"allCards":doc._id}}, {new: true}, function(err,doc) {
-          //   if (err) {
-          //     console.log(err);
-          //   } else {
-          //     console.log(doc);
-          //   }
-          // })
-          console.log(tempCard);
+
+          db.Deck.findOneAndUpdate({"deckName":doc.fromDeck}, {$push:{"allCards":doc._id}}, {new: true}, function(err,doc){
+
+            if (err) {
+
+              console.log(err);
+            } else {
+
+              console.log("line 64", doc);
+            }
+          })
+        
         };
+      
       })
+
     };
 
-    console.log(data.insertedIds.length + " records inserted!");
+    //console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);
   })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
