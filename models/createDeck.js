@@ -19,7 +19,7 @@ var DeckSchema = new Schema({
     type: Number,
     required: true 
   },
-  cards: []
+  cardInfo: []
 
 });
 
