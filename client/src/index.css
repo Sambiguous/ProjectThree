@@ -2,11 +2,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: black;
+  background-color: #181717;
 
 }
 
 h1 {
 	color: white;
 	text-align: center;
+}
+
+img {
+	align-items: center;
+	width: 70%;
 }

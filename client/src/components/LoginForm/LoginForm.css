@@ -1,0 +1,38 @@
+
+input[type="text"], textarea {
+outline: none;
+box-shadow:none !important;
+border:0px !important;
+border-bottom:1px solid #ccc !important;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+form.login {
+  overflow: auto;
+  margin: 30px;
+}
+
+
+form.login button[type="submit"] {
+  align-items: center;
+  background-color: #8D0000;
+  color: white;
+}
+
+#username {
+	margin-bottom: 15px;
+	outline: none;
+	background-color: #181717;
+}
+
+#password{ 
+	margin-bottom: 15px;
+	background-color: #181717;
+}
+
+.container {
+	background-color: #181717;
+}
