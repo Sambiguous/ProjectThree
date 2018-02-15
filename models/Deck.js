@@ -19,7 +19,10 @@ var DeckSchema = new Schema({
     type: Number,
     required: true 
   },
-  cards: []
+  allCards: [{
+    type: Schema.Types.ObjectId,
+    ref: "Card"
+  }]
 
 });
 
