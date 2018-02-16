@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Discover from "./pages/Discover";
 import Wrapper from "./components/Wrapper";
 import Game from "./components/Game";
+import Navbar from "./components/Navbar";
 
 class App extends Component {
 
@@ -12,11 +13,13 @@ class App extends Component {
     return (
       <Router>
         <div>
+        <Navbar />
           <Wrapper>
             <Route exact path="/" component={Login} />
             <Route exact path="/play" component={About} />
             <Route exact path="/discover" component={Discover} />
           </Wrapper>
+
         </div>
       </Router>
     )

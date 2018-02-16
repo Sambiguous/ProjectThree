@@ -1,4 +1,5 @@
 import React from "react";
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
@@ -13,44 +14,16 @@ const About = () =>
       <Row>
         <Col size="md-12">
           <div>
-          <Game>
-          Classic Deck
-          </Game>
+          <Game />
           </div>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col size="md-12">
-          <Game>
-          Cards against humanity
-          </Game>
         </Col>
       </Row>
 
       <Row>
         <Col size="md-12">
           <div>
-          <Game>
-          Apples to Apples
-          </Game>
+          <Game />
           </div>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col size="md-12">
-          <Game>
-          something
-          </Game>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col size="md-12">
-          <Game>
-          something else
-          </Game>
         </Col>
       </Row>
 
