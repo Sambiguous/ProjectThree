@@ -41,15 +41,9 @@ const cardSeed = [
   }
 ];
 
-//====================================
-//ABANDON ALL HOPE, YE WHO ENTER HERE
-//====================================
-
-
-
 db.Deck
 
-  //delete cards collection
+  //delete deck collection
   .remove({})
 
   //then delete cards collection
@@ -61,10 +55,9 @@ db.Deck
   //then...
   .then(data => {
 
-    //set cards to empty array
     let cards = [];
 
-    //fill cards array with instances of db.card based on the info in cardSeed
+    //fill cards array with instances of db.Card based on the info in cardSeed
     //(theres is probably a better way to go about this)
     for(card in cardSeed){
       cards.push(new db.Card(cardSeed[card]))
