@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import "./components/Deck.css";
 
+//Create a Deck of cards with card specs
+
 class Deck extends Component {
   // Setting the component's initial state
   state = {
     deckName: "",
     numCards: "",
     numFields: "",
-    allCards: {
-      cardInfo: {
-        id: "",
-        fieldInfo: []
-      }
+    allCards: {}
     }
   };
 
@@ -41,36 +39,14 @@ class Deck extends Component {
 
     //axios.post("url", objectToPassToAPI);
 
-    // this.setState({
-    //   deckName: "",
-    //   numCards: "",
-    //   numFields: ""
-    // });
+    this.setState({
+      deckName: "",
+      numCards: "",
+      numFields: ""
+    });
   };
 
-  handleFieldSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
-    event.preventDefault();
-
-    alert(`Card # ${this.state.allCards.cardInfo.id} entered`);
-
-    // API call to database to set info
-    var objectToPassToAPI = {
-      cardId: this.state.allCards.cardInfo.id,
-      cardField: this.state.allCards.cardInfo.fieldInfo
-    };
-
-    //axios.post("url", objectToPassToAPI);
-
-    // DO THIS AFTER ALL CARD ARE ENTERED
-    // this.setState({
-    //   deckName: "",
-    //   numCards: "",
-    //   numFields: ""
-    // });
-  };
-
-  renderDeck() {
+  render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
@@ -101,48 +77,12 @@ class Deck extends Component {
             type="number"
             placeholder="number of information fields"
           />
-          
-          {/* {(() => {
-            let cardRow = []
-            for (var i = 0; i < this.state.numCards; i++) {
-              // cardRow.push(<ObjectRow key={i} />)
-              console.log("new card");
-            }
-            return cardRow
-          })()} */}
 
           <button onClick={this.handleDeckSubmit}>Submit</button>
         </form>
-        {this.renderCards}
+        
       </div>
     );
   }
-
-  renderCards() {
-    // let cardRow = {
-    //   id = "",
-    //   fields = []
-    // }
-    for (var i = 0; i < this.state.numCards; i++) {
-      this.state.allCards.cardInfo.id = i
-      for (var ii = 0; ii < this.state.numFields; ii++) {
-        return (
-        <div>
-          <form>
-            <input
-            value={this.state.allCards.cardInfo.fieldInfo}
-            name="fieldInfo"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="card info field"
-            />
-            <button onClick={this.handleFieldSubmit}>Submit field</button>
-        </form>
-        </div>
-      )}
-    };
-  }
-
-}
 
 export default Deck;

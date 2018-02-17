@@ -8,7 +8,7 @@ var CardSchema = new Schema({
   fromDeck: {
     type: String,
     required: true,
-    unique: true
+    unique: false
   },
   fieldInfo: []
 });
