@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./components/Deck.css";
+import axios from "axios";
+import "./Deck.css";
 
 //Create a Deck of cards with card specs
 
@@ -12,7 +13,6 @@ class Deck extends Component {
     createdBy: "",
     handSize: "",
     allCards: {}
-    }
   };
 
   handleInputChange = event => {
@@ -43,7 +43,7 @@ class Deck extends Component {
 
     //axios.post("url", objectToPassToAPI);
 
-    axios.post('/decks', objectToPassToAPI)
+    axios.post('/api/test', objectToPassToAPI)
     .then(function (response) {
       console.log(response);
     })
@@ -100,7 +100,7 @@ class Deck extends Component {
           />
           <input
             value={this.state.handSize}
-            name="handsize"
+            name="handSize"
             onChange={this.handleInputChange}
             type="number"
             placeholder="number of cards in each 'hand' during play"
@@ -110,8 +110,8 @@ class Deck extends Component {
         </form>
         
       </div>
-    )
-  };
-
+    );
+  }
+};
 
 export default Deck;

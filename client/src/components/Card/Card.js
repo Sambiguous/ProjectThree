@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./components/Card.css";
+import "./Card.css";
 
 //Create a Card constructor and add card to deck
 
@@ -9,8 +9,7 @@ class Card extends Component {
       cardInfo: {
         fieldInfo: []
       }
-    }
-  };
+    };
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change

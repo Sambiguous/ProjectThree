@@ -6,6 +6,7 @@ import Discover from "./pages/Discover";
 import Wrapper from "./components/Wrapper";
 import Game from "./components/Game";
 import Navbar from "./components/Navbar";
+import Deck from "./components/Deck";
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path="/" component={Login} />
             <Route exact path="/play" component={About} />
             <Route exact path="/discover" component={Discover} />
+            <Route exact path="/deck" component={Deck} />
           </Wrapper>
 
         </div>
