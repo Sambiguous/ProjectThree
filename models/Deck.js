@@ -19,6 +19,14 @@ var DeckSchema = new Schema({
     type: Number,
     required: true 
   },
+  createdBy: {
+    type: String,
+    required: true
+  },
+  handSize: {
+    type: Number,
+    required: true
+  },
   allCards: [{
     type: Schema.Types.ObjectId,
     ref: "Card"
