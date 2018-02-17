@@ -33,9 +33,8 @@ const LoginForm = props =>
       <button
         type="submit"
         onClick={props.handleFormSubmit}
-        className="btn"
-      >
-        Login
+        className="btn" 
+      >Login
       </button>
     </div>
   </form>;

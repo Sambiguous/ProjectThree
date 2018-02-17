@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import Game from "../components/Game";
 import Roulette from "../components/Roulette";
 
+
 class About extends Component {
       constructor(props) {
         super(props);
@@ -48,8 +49,5 @@ class About extends Component {
 
 
 }
-
-
- 
 
 export default About;
