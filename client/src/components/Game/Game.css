@@ -1,10 +1,11 @@
 .game {
-	font-size: 20px;
-	padding: 30px;
+	font-size: 50px;
+	padding: 70px;
 	margin: 10px;
-	background-color: grey;
-	border: 10px solid black;
+	font-family: 'Pathway Gothic One', sans-serif;
+	background-color: #D4D4D4;
 	text-align: center;
-	color: white;
+	color: #181717;
+	text-transform: uppercase;
 	display: block;
 }
