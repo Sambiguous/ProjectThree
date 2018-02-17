@@ -2,14 +2,8 @@ const mongoose = require("mongoose");
 const db = require("../models");
 mongoose.Promise = global.Promise;
 
-// This file empties the Books collection and inserts the books below
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/onDeck_DB",
-  {
-    useMongoClient: true
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/onDeck_DB");
 
 const deckSeed = [
   {
@@ -47,35 +41,53 @@ const cardSeed = [
   }
 ];
 
+//====================================
+//ABANDON ALL HOPE, YE WHO ENTER HERE
+//====================================
+
+
 
 db.Deck
+
+  //delete cards collection
   .remove({})
-  .then(() => db.Deck.collection.insertMany(deckSeed))
+
+  //then delete cards collection
+  .then(db.Card.remove({})
+
+  //then insert the seed deck
+  .then(() => db.Deck.collection.insertOne(deckSeed[0])
+
+  //then...
   .then(data => {
 
-    for (var i = 0; i < cardSeed.length; i++) {
-      tempCard = new db.Card (cardSeed[i])
+    //set cards to empty array
+    let cards = [];
+
+    //fill cards array with instances of db.card based on the info in cardSeed
+    //(theres is probably a better way to go about this)
+    for(card in cardSeed){
+      cards.push(new db.Card(cardSeed[card]))
+    };
+    
+    //insert all the cards into the cards collection
+    db.Card.insertMany(cards, function(err, insertedDocs){
+
+      if(err) throw err;
+
+      //create array of ids of inserted cards
+      const ids = insertedDocs.map(element => element._id)
       
-      tempCard.save(function(err, doc) {
+      //find the deck that the cards belong to and set the deck's allCards property to the ids array
+      db.Deck.findOneAndUpdate({deckName: data.ops[0].deckName}, {$set:{ allCards: ids }}, {new: true}, function(err, doc){
+
         if (err) {
           console.log(err);
+          process.exit(0);
         } else {
-          // db.Deck.findOneAndUpdate({"deckName":doc.fromDeck}, {$push:{"allCards":doc._id}}, {new: true}, function(err,doc) {
-          //   if (err) {
-          //     console.log(err);
-          //   } else {
-          //     console.log(doc);
-          //   }
-          // })
-          console.log(tempCard);
+          
+          process.exit(0);
         };
-      })
-    };
-
-    console.log(data.insertedIds.length + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+      });
+    });
+  })));

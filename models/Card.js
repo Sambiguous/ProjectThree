@@ -8,9 +8,9 @@ var CardSchema = new Schema({
   fromDeck: {
     type: String,
     required: true,
-    unique: false
   },
-  fieldInfo: []
+  fieldInfo: [""
+  ]
 });
 
 // Create the Article model with the ArticleSchema

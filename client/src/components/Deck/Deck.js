@@ -9,6 +9,8 @@ class Deck extends Component {
     deckName: "",
     numCards: "",
     numFields: "",
+    createdBy: "",
+    handSize: "",
     allCards: {}
     }
   };
@@ -34,15 +36,27 @@ class Deck extends Component {
     var objectToPassToAPI = {
       deckName: this.state.deckName,
       numCards: this.state.numCards,
-      numFields: this.state.numFields
+      numFields: this.state.numFields,
+      createdBy: this.state.createdBy,
+      handSize: this.state.handSize
     };
 
     //axios.post("url", objectToPassToAPI);
 
+    axios.post('/decks', objectToPassToAPI)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
     this.setState({
       deckName: "",
       numCards: "",
-      numFields: ""
+      numFields: "",
+      createdBy: "",
+      handSize: ""
     });
   };
 
@@ -77,12 +91,27 @@ class Deck extends Component {
             type="number"
             placeholder="number of information fields"
           />
+          <input
+            value={this.state.createdBy}
+            name="createdBy"
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="who made this Deck?"
+          />
+          <input
+            value={this.state.handSize}
+            name="handsize"
+            onChange={this.handleInputChange}
+            type="number"
+            placeholder="number of cards in each 'hand' during play"
+          />
 
           <button onClick={this.handleDeckSubmit}>Submit</button>
         </form>
         
       </div>
-    );
-  }
+    )
+  };
+
 
 export default Deck;
