@@ -1,0 +1,10 @@
+.game {
+	font-size: 20px;
+	padding: 30px;
+	margin: 10px;
+	background-color: grey;
+	border: 10px solid black;
+	text-align: center;
+	color: white;
+	display: block;
+}

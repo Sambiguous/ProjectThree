@@ -3,11 +3,10 @@ import "./PlayGame.css";
 
 const PlayGame = props =>
 
-  <form className="playgame">
+<form className="playgame">
     <div className="form-group">
-      <h3> Join a game ? </h3>
+      <h2> Join a game</h2>
       <input
-        value={props.playgame}
         type="text"
         className="form-control"
         placeholder="GAME CODE"
@@ -16,8 +15,33 @@ const PlayGame = props =>
 
       <button
         type="submit"
-        onClick={props.handleFormSubmit}
         className="join-btn"
+      >
+        Play!
+      </button>
+
+      <h2> Start a new game </h2>
+      <input
+        type="text"
+        className="form-control"
+        placeholder="# of players"
+        id="startgame-input"
+      />
+      <input
+        type="text"
+        className="form-control"
+        placeholder="# of cards"
+        id="startgame-input"
+      />
+      <input
+        type="text"
+        className="form-control"
+        placeholder="display discard Y/N"
+        id="startgame-input"
+      />
+      <button
+        type="submit"
+        className="start-btn"
       >
         Play!
       </button>
