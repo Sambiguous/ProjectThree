@@ -7,51 +7,6 @@ import Navbar from "../components/Navbar";
 import Game from "../components/Game";
 import Roulette from "../components/Roulette";
 
-<<<<<<< HEAD
-const About = () =>
-  <div>
-      <h1>Pick a game</h1>
-    <Container style={{ marginTop: 30 }}>
-
-      <Row>
-        <Col size="md-12">
-          <div>
-          <Game>
-          Classic Deck
-          </Game>
-          </div>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col size="md-12">
-          <Game>
-          Cards against humanity
-          </Game>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col size="md-12">
-          <div>
-          <Game>
-          Apples to Apples
-          </Game>
-          </div>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col size="md-12">
-          <Game>
-          UNO
-          </Game>
-        </Col>
-      </Row>
-
-    </Container>
-  </div>;
-=======
 class About extends Component {
       constructor(props) {
         super(props);
@@ -93,9 +48,5 @@ class About extends Component {
 
 
 }
-
-
- 
->>>>>>> 646097289686897589e38aa9e0a88d76075d78b2
 
 export default About;
