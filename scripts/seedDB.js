@@ -5,6 +5,13 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/onDeck_DB");
 
+const userSeed = [
+  {
+    username: 'devman1',
+    password: '12345',
+  }
+]
+
 const deckSeed = [
   {
     deckName: "USSR jest",
@@ -41,30 +48,35 @@ const cardSeed = [
   }
 ];
 
-//====================================
-//ABANDON ALL HOPE, YE WHO ENTER HERE
-//====================================
-
-
-
 db.Deck
 
-  //delete cards collection
+  //delete deck collection
   .remove({})
 
   //then delete cards collection
   .then(db.Card.remove({})
 
+  //then delete the User collection
+  .then(db.User.remove({})
+
+  //then insert the seed user
+  .then(() => db.User.collection.insertOne(userSeed[0]))
+
   //then insert the seed deck
-  .then(() => db.Deck.collection.insertOne(deckSeed[0])
+  .then(userData => db.Deck.collection.insertOne(deckSeed[0])
 
   //then...
-  .then(data => {
+  .then(deckData => {
 
-    //set cards to empty array
+    //update update the seed user so that the inserted deck belongs to him
+    db.User.findOneAndUpdate({_id: userData.insertedId}, {$set:{createdDecks: [deckData.insertedId]} }, {new: true}, function(err, doc){
+      if(err) throw err
+
+      console.log(doc)
+    })
+
     let cards = [];
-
-    //fill cards array with instances of db.card based on the info in cardSeed
+    //fill cards array with instances of db.Card based on the info in cardSeed
     //(theres is probably a better way to go about this)
     for(card in cardSeed){
       cards.push(new db.Card(cardSeed[card]))
@@ -79,7 +91,7 @@ db.Deck
       const ids = insertedDocs.map(element => element._id)
       
       //find the deck that the cards belong to and set the deck's allCards property to the ids array
-      db.Deck.findOneAndUpdate({deckName: data.ops[0].deckName}, {$set:{ allCards: ids }}, {new: true}, function(err, doc){
+      db.Deck.findOneAndUpdate({deckName: deckData.ops[0].deckName}, {$set:{ allCards: ids }}, {new: true}, function(err, doc){
 
         if (err) {
           console.log(err);
@@ -90,4 +102,4 @@ db.Deck
         };
       });
     });
-  })));
+  }))));
