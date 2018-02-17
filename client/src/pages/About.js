@@ -41,15 +41,7 @@ const About = () =>
       <Row>
         <Col size="md-12">
           <Game>
-          something
-          </Game>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col size="md-12">
-          <Game>
-          something else
+          UNO
           </Game>
         </Col>
       </Row>
