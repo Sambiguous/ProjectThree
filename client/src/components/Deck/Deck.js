@@ -43,9 +43,9 @@ class Deck extends Component {
 
     //axios.post("url", objectToPassToAPI);
 
-    axios.post('/api/test', objectToPassToAPI)
+    axios.post('/api', objectToPassToAPI)
     .then(function (response) {
-      console.log(response);
+      console.log(response.data);
     })
     .catch(function (error) {
       console.log(error);

@@ -68,7 +68,7 @@ db.Deck
   //then...
   .then(deckData => {
 
-    //update update the seed user so that the inserted deck belongs to him
+    //update the seed user so that the inserted deck belongs to him
     db.User.findOneAndUpdate({_id: userData.insertedId}, {$set:{createdDecks: [deckData.insertedId]} }, {new: true}, function(err, doc){
       if(err) throw err
 
@@ -76,6 +76,7 @@ db.Deck
     })
 
     let cards = [];
+
     //fill cards array with instances of db.Card based on the info in cardSeed
     //(theres is probably a better way to go about this)
     for(card in cardSeed){
