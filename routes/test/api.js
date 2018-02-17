@@ -2,10 +2,12 @@ const router = require("express").Router();
 
 
 router.get("/", function(req, res){
+    console.log(req.body);
     res.send("test route worked")
 });
 
-router.post("/api/test", function(req, res){
+router.post("/", function(req, res){
+    console.log(req.body);
     res.send("test route worked")
 });
 
