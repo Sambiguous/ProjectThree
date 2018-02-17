@@ -4,7 +4,6 @@ import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import "./Game.css";
 import PlayGame from "../PlayGame";
 
-
 class Game extends Component {
 	constructor(props) {
     	super(props);

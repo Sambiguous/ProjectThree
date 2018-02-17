@@ -30,20 +30,14 @@ const PlayGame = props =>
       <input
         type="text"
         className="form-control"
-        placeholder="# of cards"
-        id="startgame-input"
-      />
-      <input
-        type="text"
-        className="form-control"
-        placeholder="display discard Y/N"
-        id="startgame-input"
+        placeholder="password"
+        id="password-input"
       />
       <button
         type="submit"
         className="start-btn"
       >
-        Play!
+        Create
       </button>
     </div>
   </form>;

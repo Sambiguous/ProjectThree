@@ -7,14 +7,14 @@ import PlayGame from "../PlayGame";
 
 class Roulette extends Component {
 	constructor(props) {
-    	super(props);
-    	this.toggle = this.toggle.bind(this);
-    	this.state = { collapse: false };
-  	}
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = { collapse: false };
+  }
 
-  	toggle() {
-    	this.setState({ collapse: !this.state.collapse });
-  	}
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
+  }
 
   render() {
   	return (
@@ -23,10 +23,9 @@ class Roulette extends Component {
         	<Collapse isOpen={this.state.collapse}>
             	<PlayGame />
         	</Collapse>
-      	</div>
+      </div>
   	)
   }
-
 }
 
 export default Roulette; 
