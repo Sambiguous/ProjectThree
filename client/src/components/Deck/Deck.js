@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import "./components/Deck.css";
+import axios from "axios";
+import "./Deck.css";
+
+//Create a Deck of cards with card specs
 
 class Deck extends Component {
   // Setting the component's initial state
@@ -7,12 +10,9 @@ class Deck extends Component {
     deckName: "",
     numCards: "",
     numFields: "",
-    allCards: {
-      cardInfo: {
-        id: "",
-        fieldInfo: []
-      }
-    }
+    createdBy: "",
+    handSize: "",
+    allCards: {}
   };
 
   handleInputChange = event => {
@@ -36,41 +36,31 @@ class Deck extends Component {
     var objectToPassToAPI = {
       deckName: this.state.deckName,
       numCards: this.state.numCards,
-      numFields: this.state.numFields
+      numFields: this.state.numFields,
+      createdBy: this.state.createdBy,
+      handSize: this.state.handSize
     };
 
     //axios.post("url", objectToPassToAPI);
 
-    // this.setState({
-    //   deckName: "",
-    //   numCards: "",
-    //   numFields: ""
-    // });
+    axios.post('/api/test', objectToPassToAPI)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+    this.setState({
+      deckName: "",
+      numCards: "",
+      numFields: "",
+      createdBy: "",
+      handSize: ""
+    });
   };
 
-  handleFieldSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
-    event.preventDefault();
-
-    alert(`Card # ${this.state.allCards.cardInfo.id} entered`);
-
-    // API call to database to set info
-    var objectToPassToAPI = {
-      cardId: this.state.allCards.cardInfo.id,
-      cardField: this.state.allCards.cardInfo.fieldInfo
-    };
-
-    //axios.post("url", objectToPassToAPI);
-
-    // DO THIS AFTER ALL CARD ARE ENTERED
-    // this.setState({
-    //   deckName: "",
-    //   numCards: "",
-    //   numFields: ""
-    // });
-  };
-
-  renderDeck() {
+  render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
@@ -101,48 +91,27 @@ class Deck extends Component {
             type="number"
             placeholder="number of information fields"
           />
-          
-          {/* {(() => {
-            let cardRow = []
-            for (var i = 0; i < this.state.numCards; i++) {
-              // cardRow.push(<ObjectRow key={i} />)
-              console.log("new card");
-            }
-            return cardRow
-          })()} */}
+          <input
+            value={this.state.createdBy}
+            name="createdBy"
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="who made this Deck?"
+          />
+          <input
+            value={this.state.handSize}
+            name="handSize"
+            onChange={this.handleInputChange}
+            type="number"
+            placeholder="number of cards in each 'hand' during play"
+          />
 
           <button onClick={this.handleDeckSubmit}>Submit</button>
         </form>
-        {this.renderCards}
+        
       </div>
     );
   }
-
-  renderCards() {
-    // let cardRow = {
-    //   id = "",
-    //   fields = []
-    // }
-    for (var i = 0; i < this.state.numCards; i++) {
-      this.state.allCards.cardInfo.id = i
-      for (var ii = 0; ii < this.state.numFields; ii++) {
-        return (
-        <div>
-          <form>
-            <input
-            value={this.state.allCards.cardInfo.fieldInfo}
-            name="fieldInfo"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="card info field"
-            />
-            <button onClick={this.handleFieldSubmit}>Submit field</button>
-        </form>
-        </div>
-      )}
-    };
-  }
-
-}
+};
 
 export default Deck;
