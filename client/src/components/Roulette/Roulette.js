@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
-import "./Game.css";
+import "./Roulette.css";
 import PlayGame from "../PlayGame";
 
 
-class Game extends Component {
+class Roulette extends Component {
 	constructor(props) {
     	super(props);
     	this.toggle = this.toggle.bind(this);
@@ -19,14 +19,14 @@ class Game extends Component {
   render() {
   	return (
   		<div>
-        	<Button className="game" onClick={this.toggle}> Classic Deck</Button>
+        	<Button className="game" onClick={this.toggle}> Roulette?</Button>
         	<Collapse isOpen={this.state.collapse}>
             	<PlayGame />
-          </Collapse>
+        	</Collapse>
       	</div>
   	)
   }
 
 }
 
-export default Game; 
+export default Roulette; 
