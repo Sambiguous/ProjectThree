@@ -4,7 +4,7 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import Navbar from "../components/Navbar";
-import Game from "../components/Game";
+import ClassicDeck from "../components/ClassicDeck";
 import Roulette from "../components/Roulette";
 
 class About extends Component {
@@ -21,13 +21,12 @@ class About extends Component {
   render() {
     return (
       <div>
-          <h1>Pick a game</h1>
+        <h1>Pick a deck</h1>
         <Container style={{ marginTop: 30 }}>
-
           <Row>
             <Col size="md-12">
               <div>
-                <Game />
+                <ClassicDeck />
               </div>
             </Col>
           </Row>
@@ -39,14 +38,10 @@ class About extends Component {
               </div>
             </Col>
           </Row>
-
         </Container>
       </div>
     )
-
   }
-
-
 }
 
 export default About;
