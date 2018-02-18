@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./PlayGame.css";
+import "./GameForm.css";
 
-class PlayGame extends Component {
+class GameForm extends Component {
   state = {
 
   };
@@ -18,12 +18,14 @@ class PlayGame extends Component {
   };
 
   handleFormSubmit = event => {
+    event.preventDefault();
+    
 
   }
 
   render() {
     return (
-      <form className="playgame">
+      <form className="gameform">
         <div className="form-group">
           <h2> Join a game</h2>
           <input
@@ -70,4 +72,4 @@ class PlayGame extends Component {
   }
 }
 
-export default PlayGame;
+export default GameForm;

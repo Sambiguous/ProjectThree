@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
-import "./Game.css";
-import PlayGame from "../PlayGame";
+import "./ClassicDeck.css";
+import GameForm from "../GameForm";
 
-class Game extends Component {
+class ClassicDeck extends Component {
 	constructor(props) {
     	super(props);
     	this.toggle = this.toggle.bind(this);
@@ -18,9 +18,9 @@ class Game extends Component {
   render() {
   	return (
   		<div>
-        	<Button className="game" onClick={this.toggle}> Classic Deck</Button>
+        	<Button className="classicdeck" onClick={this.toggle}> Classic Deck</Button>
         	<Collapse isOpen={this.state.collapse}>
-            	<PlayGame />
+            	<GameForm />
           </Collapse>
       	</div>
   	)
@@ -28,4 +28,4 @@ class Game extends Component {
 
 }
 
-export default Game; 
+export default ClassicDeck; 

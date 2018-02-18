@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import "./Roulette.css";
-import PlayGame from "../PlayGame";
+import GameForm from "../GameForm";
 
 
 class Roulette extends Component {
@@ -19,9 +19,9 @@ class Roulette extends Component {
   render() {
   	return (
   		<div>
-        	<Button className="game" onClick={this.toggle}> Roulette?</Button>
+        	<Button className="roulette" onClick={this.toggle}> Roulette</Button>
         	<Collapse isOpen={this.state.collapse}>
-            	<PlayGame />
+            	<GameForm />
         	</Collapse>
       </div>
   	)

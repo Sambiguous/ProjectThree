@@ -4,7 +4,7 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import Navbar from "../components/Navbar";
-import Game from "../components/Game";
+import ClassicDeck from "../components/ClassicDeck";
 import Roulette from "../components/Roulette";
 
 
@@ -27,7 +27,7 @@ class About extends Component {
           <Row>
             <Col size="md-12">
               <div>
-                <Game />
+                <ClassicDeck />
               </div>
             </Col>
           </Row>
