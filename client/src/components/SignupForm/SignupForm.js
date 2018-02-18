@@ -31,21 +31,30 @@ class SignupForm extends React.Component {
     event.preventDefault();
 
     let email = this.state.email;
-    let username = this.state.username;
-    let password = this.state.password;
-    //--------validations go here--------------
-    //TODO: ensure email is valid email address
-    //pasword is at least 6 characters long
-    //username is not blank
-    //-----------------------------------------
-    
-    const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
-    promise.catch(e => console.log(e.message));
-    promise.then(user =>{
-      user.updateProfile({displayName: username}).then(() =>{
-        firebase.database().ref().child('users').child(username).set(user.email)
-      })
-    });
+    let username = this.state.username.trim();
+    let password = this.state.password.trim();
+
+
+    if(!validateEmail(email)){
+      //invalid email code goes here
+      console.log("invalid email address");
+    } else if(username.length < 1) {
+      //username too short code goes here
+      console.log("username can't be blank")
+    } else if(password.length < 6){
+      //password too short code goes here
+      console.log("password must be at least 6 characters");
+    } else {
+      //if all validations are met, create a new user
+      const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+      promise.catch(e => console.log(e.message));
+      promise.then(user =>{
+        user.updateProfile({displayName: username}).then(() =>{
+          firebase.database().ref().child('users').child(username).set(user.email)
+        });
+      });
+    };
+
   };
   render = () =>
   <form className="login">
