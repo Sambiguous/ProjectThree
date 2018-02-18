@@ -24,18 +24,18 @@ form.login button[type="submit"] {
   color: white;
 }
 
-#username {
+#username_input {
 	margin-bottom: 15px;
 	outline: none;
 	background-color: #181717;
 }
 
-#password{ 
+#password_input{ 
 	margin-bottom: 15px;
 	background-color: #181717;
 }
 
-#email{ 
+#email_input{ 
   margin-bottom: 15px;
   background-color: #181717;
 }
