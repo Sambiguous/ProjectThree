@@ -1,24 +1,47 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+} from 'reactstrap';
 
-// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-const Navbar = props =>
-  <nav className="ml-auto">
-    <div className="container-fluid">
-      <div className="navbar-header">
+export default class Example extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Navbar class="navbar">
+          <NavbarBrand class="navbar-brand" href="/">onDeck</NavbarBrand>
+          <NavbarToggler class="navbar-toggler-right" onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink id="play" href="/play">Play a Game</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink id="deck" href="/deck">Create a Deck</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
       </div>
-      <ul className="nav navbar-nav">
-        <li
-          className={window.location.pathname === "/play" ? "active" : ""}
-        >
-          <Link to="/play">Play</Link>
-        </li>
-        <li className={window.location.pathname === "/create" ? "active" : ""}>
-          <Link to="/create">Create</Link>
-        </li>
-      </ul>
-    </div>
-  </nav>;
-
-export default Navbar;
+    );
+  }
+}

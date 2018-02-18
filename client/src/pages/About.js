@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Button, CardBody, Card } from 'reactstrap';
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import Navbar from "../components/Navbar";
 import ClassicDeck from "../components/ClassicDeck";
 import Roulette from "../components/Roulette";
-
 
 class About extends Component {
       constructor(props) {

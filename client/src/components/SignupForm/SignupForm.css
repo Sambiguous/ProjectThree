@@ -6,13 +6,6 @@ border:0px !important;
 border-bottom:1px solid #ccc !important;
 }
 
-input[type="password"], textarea {
-outline: none;
-box-shadow:none !important;
-border:0px !important;
-border-bottom:1px solid #ccc !important;
-}
-
 * {
   border-radius: 0 !important;
 }
@@ -40,6 +33,11 @@ form.login button[type="submit"] {
 #password{ 
 	margin-bottom: 15px;
 	background-color: #181717;
+}
+
+#email{ 
+  margin-bottom: 15px;
+  background-color: #181717;
 }
 
 .container {

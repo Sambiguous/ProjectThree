@@ -1,3 +1,19 @@
-nav.navbar.navbar-default {
-  margin-bottom: 0;
+.navbar {
+	background-color: #181717;
+	color: white;
 }
+
+#toggle{
+	background-color: grey !important;
+}
+
+.navbar-brand {
+	color: #D4D4D4;
+}
+
+#play, #create {
+	color: #D4D4D4 !important;
+}
+/*.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;..");
+}*/

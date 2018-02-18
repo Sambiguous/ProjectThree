@@ -1,11 +1,22 @@
 import React from "react";
-import "./LoginForm.css";
+import "./SignupForm.css";
 
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
-const LoginForm = props =>
+const SignupForm = props =>
 
   <form className="login">
     <div className="form-group">
+
+      <input
+        value={props.email}
+        type="text"
+        className="form-control"
+        placeholder="EMAIL"
+        id="email"
+      />
+      <datalist id="email">
+        {/*props.logins.map(username => <option value={username} key={username} />)*/}
+      </datalist>
 
       <input
         value={props.username}
@@ -34,10 +45,9 @@ const LoginForm = props =>
         type="submit"
         onClick={props.handleFormSubmit}
         className="btn" 
-      >LOGIN
+      >SIGN UP
       </button>
-
     </div>
   </form>;
 
-export default LoginForm;
+export default SignupForm;
