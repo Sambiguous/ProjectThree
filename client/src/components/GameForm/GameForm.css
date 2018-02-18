@@ -1,3 +1,57 @@
+* {
+	border-radius: 0 !important;
+}
+
 h2 {
+	font-size: 35px;
+	font-family: 'Pathway Gothic One', sans-serif;
 	color: white;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+input[type="text"], textarea {
+	outline: none;
+	box-shadow:none !important;
+	border:0px !important;
+	border-bottom:1px solid #ccc !important;
+	margin-top: 25px;
+}
+
+form.gameform {
+	overflow: auto;
+	margin-left: 55px;
+	margin-right: 55px;
+	margin-top: 30px;
+}
+
+
+form.gameform button[type="submit"] {
+	background-color: #8D0000;
+	color: white;
+	padding: 10px;
+	width: 30%;
+	border: none !important;
+	margin-bottom: 50px;
+}
+
+#password-input, #startgame-input, #joingame-input { 
+	margin-bottom: 15px;
+	background-color: #181717;
+	text-align: center;
+}
+
+#start-btn, #join-btn {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#start-btn:hover, #join-btn:hover {
+	background-color: #BC1515;
+}
+
+
+.container {
+	background-color: #181717;
 }

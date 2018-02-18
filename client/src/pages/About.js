@@ -6,6 +6,7 @@ import Col from "../components/Col";
 import Navbar from "../components/Navbar";
 import ClassicDeck from "../components/ClassicDeck";
 import Roulette from "../components/Roulette";
+import CardsAgainst from "../components/CardsAgainst";
 
 class About extends Component {
       constructor(props) {
@@ -21,7 +22,7 @@ class About extends Component {
   render() {
     return (
       <div>
-        <h1>Pick a deck</h1>
+        <h1>PICK A DECK</h1>
         <Container style={{ marginTop: 30 }}>
           <Row>
             <Col size="md-12">
@@ -38,6 +39,15 @@ class About extends Component {
               </div>
             </Col>
           </Row>
+
+          <Row>
+            <Col size="md-12">
+              <div>
+                <CardsAgainst />
+              </div>
+            </Col>
+          </Row>
+
         </Container>
       </div>
     )
