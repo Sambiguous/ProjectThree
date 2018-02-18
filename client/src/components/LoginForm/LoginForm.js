@@ -34,6 +34,11 @@ class LoginForm extends React.Component {
     let pass = this.state.password;
     let user = this.state.emailOrUsername;
 
+    if(user === ""){
+      console.log("username or email is blank");
+      return;
+    }
+
     if(validateEmail(user)){
       const promise = firebase.auth().signInWithEmailAndPassword(user, pass)
       promise.catch(e => console.log(e.message));
@@ -41,11 +46,21 @@ class LoginForm extends React.Component {
       firebase.database().ref().child('users').child(user).once('value', snap => {
         let email = snap.val();
 
-        const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message));
-      })
-    }
-  }
+        if(email){
+          const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
+          promise.catch(e => {
+            if(e.code === "auth/wrong-password"){
+              console.log('incorrect username or password')
+            } else {
+              console.log(e.message)
+            }
+          });
+        } else {
+          console.log('incorrect username or password')
+        }
+      });
+    };
+  };
 
   handleLogout = event => {
     event.preventDefault();
@@ -59,7 +74,7 @@ class LoginForm extends React.Component {
         if(e){
           console.log(e);
         } else {
-          console.log("user id: " + currentUser.email + " is now logged out");
+          console.log("user: " + currentUser.displayName + " is now logged out");
         }
       }))
 

@@ -54,8 +54,8 @@ class SignupForm extends React.Component {
         });
       });
     };
-
   };
+
   render = () =>
   <form className="login">
     <div className="form-group">
@@ -107,6 +107,6 @@ class SignupForm extends React.Component {
       >SIGN UP
       </button>
     </div>
-  </form>;
+  </form>
 }
 export default SignupForm;
