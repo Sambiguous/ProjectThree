@@ -31,13 +31,13 @@ form.login button[type="submit"] {
   color: white;
 }
 
-#username {
+#emailOrUsername {
 	margin-bottom: 15px;
 	outline: none;
 	background-color: #181717;
 }
 
-#password{ 
+#password_login{ 
 	margin-bottom: 15px;
 	background-color: #181717;
 }
