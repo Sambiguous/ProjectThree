@@ -4,7 +4,7 @@ import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props =>
-  <nav className="ml-auto" navbar>
+  <nav className="ml-auto">
     <div className="container-fluid">
       <div className="navbar-header">
       </div>

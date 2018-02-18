@@ -1,5 +1,10 @@
 /* Emily - this is all you! :) */
 
+input {
+	display: block;
+	margin: 5px;
+}
+
 .deck {
     margin: 20px;
 }
