@@ -18,7 +18,7 @@ class CardsAgainst extends Component {
   render() {
   	return (
   		<div>
-        	<Button className="classicdeck" onClick={this.toggle}> Cards Against Humanity</Button>
+        	<Button className="cardsagainst" onClick={this.toggle}> Cards Against Humanity</Button>
         	<Collapse isOpen={this.state.collapse}>
             	<GameForm />
           </Collapse>

@@ -1,14 +1,21 @@
 import React, { Component } from "react";
+import Row from "../components/Row";
+import Col from "../components/Col";
 import Container from "../components/Container";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
 
 
 class Login extends Component {
-  state = {
-  };
+      constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = { collapse: false };
+      }
 
-  // When the component mounts, get a list of all available base breeds and update this.state.breeds
+      toggle() {
+        this.setState({ collapse: !this.state.collapse });
+      }
 
   render() {
     return (

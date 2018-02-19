@@ -1,6 +1,11 @@
+button:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
 .classicdeck {
 	font-size: 50px;
-	padding: 70px;
+	padding: 25px !important;
 	font-family: 'Pathway Gothic One', sans-serif;
 	background-color: #D4D4D4;
 	text-align: center;
@@ -10,4 +15,9 @@
 
 .btn {
 	width: 100%;
+}
+
+.image {
+	margin-top: -10px;
+	max-width: 140px;
 }
