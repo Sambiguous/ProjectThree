@@ -10,15 +10,14 @@ border-bottom:1px solid #ccc !important;
   border-radius: 0 !important;
 }
 
-form.login {
+form.signup {
   overflow: auto;
   margin-left: 55px;
   margin-right: 55px;
   margin-top: 30px;
 }
 
-
-form.login button[type="submit"] {
+form.signup button[type="submit"] {
   align-items: center;
   background-color: #8D0000;
   color: white;

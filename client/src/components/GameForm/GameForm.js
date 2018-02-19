@@ -39,6 +39,7 @@ class GameForm extends Component {
           <button
             type="submit"
             className="join-btn"
+            id="join-btn"
             onClick={this.handleFormSubmit}
           >
             Play!
@@ -49,19 +50,20 @@ class GameForm extends Component {
             type="text"
             className="form-control"
             onChange={this.handleInputChange}
-            placeholder="# of players"
+            placeholder="# OF PLAYERS"
             id="startgame-input"
           />
           <input
             type="text"
             className="form-control"
             onChange={this.handleInputChange}
-            placeholder="password"
+            placeholder="PASSWORD"
             id="password-input"
           />
           <button
             type="submit"
             className="start-btn"
+            id="start-btn"
             onClick={this.handleFormSubmit}
           >
             Create
