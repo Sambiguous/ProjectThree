@@ -1,11 +1,13 @@
 * {
 	border-radius: 0 !important;
+	vertical-align: center !important;
 }
 
-h2 {
-	font-size: 35px;
+h3 {
+	font-size: 38px;
 	font-family: 'Pathway Gothic One', sans-serif;
-	color: white;
+	color: #181717;
+	margin-top: 12px;
 	text-transform: uppercase;
 	text-align: center;
 }
@@ -13,36 +15,39 @@ h2 {
 input[type="text"], textarea {
 	outline: none;
 	box-shadow:none !important;
-	border:0px !important;
-	border-bottom:1px solid #ccc !important;
-	margin-top: 25px;
+	border-bottom: 3px solid #141414 !important;
+	margin-top: 20px;
 }
 
 form.gameform {
 	overflow: auto;
-	margin-left: 55px;
-	margin-right: 55px;
-	margin-top: 30px;
+	background-color: #D4D4D4;
+	padding-left: 70px;
+	padding-right: 70px;
+	width: 100%;
+	margin-top: -10px;
+	margin-left: 7px;
 }
 
 
 form.gameform button[type="submit"] {
 	background-color: #8D0000;
 	color: white;
-	padding: 10px;
 	width: 30%;
 	border: none !important;
 	margin-bottom: 50px;
 }
 
 #password-input, #startgame-input, #joingame-input { 
-	margin-bottom: 15px;
-	background-color: #181717;
+	margin-bottom: 10px !important;
+	background-color: #B7B6B6;
 	text-align: center;
+	color: #181717;
 }
 
 #start-btn, #join-btn {
 	display:block;
+	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 }

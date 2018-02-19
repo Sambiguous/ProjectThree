@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Container from "../Container";
+import Row from "../Row";
+import Col from "../Col";
 import "./Deck.css";
 
 //Create a Deck of cards with card specs
@@ -64,51 +67,77 @@ class Deck extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
-        <p>
-          Enter a Deck of Cards (basic Deck structure) 
+        <h2>
+          Create a New Deck
           {this.state.deckName}
-        </p>
+        </h2>
         {/*the next line may not call the route correctly */}
-        <form className="form"> 
-          <input
-            value={this.state.firstName}
-            name="deckName"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Deck Name"
-          />
-          <input
-            value={this.state.numCards}
-            name="numCards"
-            onChange={this.handleInputChange}
-            type="number"
-            placeholder="number of cards"
-          />
-          <input
-            value={this.state.numFields}
-            name="numFields"
-            onChange={this.handleInputChange}
-            type="number"
-            placeholder="number of information fields"
-          />
-          <input
-            value={this.state.createdBy}
-            name="createdBy"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="who made this Deck?"
-          />
-          <input
-            value={this.state.handSize}
-            name="handSize"
-            onChange={this.handleInputChange}
-            type="number"
-            placeholder="number of cards in each 'hand' during play"
-          />
+        <form className="deck-form"> 
+      <Container style={{ marginTop: 30 }}>
+        <Row>
+          <Col size="sm-12">
+            <input
+              value={this.state.firstName}
+              name="deckName"
+              onChange={this.handleInputChange}
+              type="text"
+              class="deck"
+              placeholder="Deck Name"
+            /> 
+          </Col>
+        </Row>
+        <Row>
+          <Col size="sm-12">
+            <input
+              value={this.state.createdBy}
+              name="createdBy"
+              onChange={this.handleInputChange}
+              type="text"
+              class="deck"
+              placeholder="creator"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col size="sm-12">
+            <input
+              value={this.state.numCards}
+              name="numCards"
+              onChange={this.handleInputChange}
+              type="number"
+              class="deck"
+              placeholder="# of cards"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col size="sm-12">
+            <input
+              value={this.state.numFields}
+              name="numFields"
+              onChange={this.handleInputChange}
+              type="number"
+              class="deck"
+              placeholder="# of fields"
+            />
+           </Col>
+        </Row>
+        <Row>
+          <Col size="sm-12">
+            <input
+              value={this.state.handSize}
+              name="handSize"
+              onChange={this.handleInputChange}
+              type="number"
+              class="deck"
+              placeholder="cards in hand"
+            />
+          </Col>
+        </Row>
 
           <button onClick={this.handleDeckSubmit}>Submit</button>
+        </Container>
         </form>
-        
       </div>
     );
   }

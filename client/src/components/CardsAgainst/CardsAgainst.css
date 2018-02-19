@@ -1,6 +1,11 @@
-.classicdeck {
+button:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.cardsagainst {
 	font-size: 50px;
-	padding: 70px;
+	padding: 50px;
 	font-family: 'Pathway Gothic One', sans-serif;
 	background-color: #D4D4D4;
 	text-align: center;
