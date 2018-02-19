@@ -6,6 +6,7 @@ import Col from "../components/Col";
 import ClassicDeck from "../components/ClassicDeck";
 import Roulette from "../components/Roulette";
 import CardsAgainst from "../components/CardsAgainst";
+import "../index.css"
 
 class About extends Component {
       constructor(props) {

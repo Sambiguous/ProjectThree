@@ -11,7 +11,7 @@ class CardPile extends Component {
 		return (
 			<div>
 				<div className="card-pile">
-					<h1> Card Pile </h1>
+					<h4> Card Pile </h4>
 				</div>
 			</div>
 		)
