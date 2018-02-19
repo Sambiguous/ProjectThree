@@ -16,10 +16,10 @@ h1 {
 	font-family: 'Pathway Gothic One', sans-serif;
 }
 
-.image {
+#logo {
+	width: 80% !important;
 	margin-top: 20%;
 	align-content: center !important;
-	width: 90%;
 	display: block;
 	margin-left: auto;
     margin-right: auto;
