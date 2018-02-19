@@ -19,29 +19,12 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <Container style={{ marginTop: 30 }}>
+      <Container style={{ minHeight: "80%" }}>
         <img className="image" src={require("../onDeckLogo.png")} />
-
-          <Row>
-            <Col size="md-12">
-              <div>
-                <LoginForm />
-              </div>
-            </Col>
-          </Row>
-
-          <Row>
-            <Col size="md-12">
-              <div>
-                <SignupForm />
-              </div>
-            </Col>
-          </Row>
-
-        </Container>
-      </div>
-    )
+          <LoginForm />
+          <SignupForm />
+      </Container>
+    );
   }
 }
 
