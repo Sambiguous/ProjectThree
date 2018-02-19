@@ -4,8 +4,8 @@ import Login from "./pages/Login";
 import About from "./pages/About";
 import Discover from "./pages/Discover";
 import Wrapper from "./components/Wrapper";
-import ClassicDeck from "./components/ClassicDeck";
-import Roulette from "./components/Roulette";
+// import ClassicDeck from "./components/ClassicDeck";
+// import Roulette from "./components/Roulette";
 import Navbar from "./components/Navbar";
 import Deck from "./components/Deck";
 
