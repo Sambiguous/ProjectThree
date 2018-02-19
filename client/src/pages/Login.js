@@ -1,23 +1,47 @@
 import React, { Component } from "react";
+import Row from "../components/Row";
+import Col from "../components/Col";
 import Container from "../components/Container";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
 
 
 class Login extends Component {
-  state = {
-  };
+      constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = { collapse: false };
+      }
 
-  // When the component mounts, get a list of all available base breeds and update this.state.breeds
+      toggle() {
+        this.setState({ collapse: !this.state.collapse });
+      }
 
   render() {
     return (
-      <Container style={{ minHeight: "80%" }}>
+      <div>
+        <Container style={{ marginTop: 30 }}>
         <img className="image" src={require("../onDeckLogo.png")} />
-          <LoginForm />
-          <SignupForm />
-      </Container>
-    );
+
+          <Row>
+            <Col size="md-12">
+              <div>
+                <LoginForm />
+              </div>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col size="md-12">
+              <div>
+                <SignupForm />
+              </div>
+            </Col>
+          </Row>
+
+        </Container>
+      </div>
+    )
   }
 }
 
