@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Container from "../components/Container";
 import LoginForm from "../components/LoginForm";
+import SignupForm from "../components/SignupForm";
 
 
 class Login extends Component {
@@ -10,8 +11,10 @@ class Login extends Component {
   render() {
     return (
       <Container style={{ minHeight: "80%" }}>
-        <img src={require("../onDeckLogo.png")} alt="onDeck logo" />
+
+        <img className="image" src={require("../onDeckLogo.png")} alt="onDeck logo" />
           <LoginForm />
+          <SignupForm />
       </Container>
     );
   }

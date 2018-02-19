@@ -10,7 +10,19 @@ h1 {
 	text-align: center;
 }
 
-img {
-	align-items: center;
-	width: 50%;
+.image {
+	margin-top: 20%;
+	align-content: center !important;
+	width: 90%;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+	width: 30%;
+	align-items: center !important;
+	margin: 7px;
+	font-size: 14px;
+	font-kerning: normal;
 }

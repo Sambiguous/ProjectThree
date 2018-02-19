@@ -1,28 +1,17 @@
 import React, { Component } from "react";
-import Row from "../components/Row";
-import Col from "../components/Col";
+import Container from "../components/Container";
+import LeftPanel from "../components/LeftPanel";
 
 class Game extends Component {
 
-
-
-
-
-
 	render() {
 		return (
-			<div>
-			<GameNav />
-			<LeftPanel />
-			
+			<Container>
+				<LeftPanel />
 
-
-
-			</div>
-
-
-
-
-		)
+			</Container>		
+		);
 	}
 }
+
+export default Game;
