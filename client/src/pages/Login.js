@@ -20,8 +20,7 @@ class Login extends Component {
   render() {
     return (
       <Container style={{ minHeight: "80%" }}>
-
-        <img className="image" src={require("../onDeckLogo.png")} alt="onDeck logo" />
+      <img className="logo-image" id="logo" src={require("../onDeckLogo.png")} />
           <LoginForm />
           <SignupForm />
       </Container>

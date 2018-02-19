@@ -5,7 +5,7 @@ button:focus {
 
 .classicdeck {
 	font-size: 50px;
-	padding: 25px !important;
+	padding-top: 25px !important;
 	font-family: 'Pathway Gothic One', sans-serif;
 	background-color: #D4D4D4;
 	text-align: center;
@@ -17,7 +17,7 @@ button:focus {
 	width: 100%;
 }
 
-.image {
-	margin-top: -10px;
+.classic-image {
+	margin-top: -40px;
 	max-width: 140px;
 }
