@@ -11,14 +11,9 @@ import Navbar from "./components/Navbar";
 import Deck from "./components/Deck";
 import firebase from './firebase';
 
-const isAuthed = () => {
-  console.log(firebase.auth.Auth.currentUser)
-  return firebase.auth.Auth.currentUser !== null
-}
-
 const PrivateRoute = ({component: Component, ...rest}) => (
   <Route {...rest} render={(props) => (
-    isAuthed()
+    firebase.auth().currentUser
     ? <Component {...props} />
     : <Redirect to='/'/>
   )} />
