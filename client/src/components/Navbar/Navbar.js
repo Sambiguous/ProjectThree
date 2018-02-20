@@ -4,11 +4,14 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
+  //NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
+  //the navlink component causes weird behaviour and is off limits for now.
+  //NavLink,
 } from 'reactstrap';
+  //use this link instead
+import { Link } from "react-router-dom";
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -32,13 +35,13 @@ export default class Example extends React.Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink id="home" href="/">Home</NavLink>
+                  <Link id="home" to="/">Home</Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink id="play" href="/play">Play a Game</NavLink>
+                  <Link id="play" to="/play">Play a Game</Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink id="deck" href="/deck">Create a Deck</NavLink>
+                  <Link id="deck" to="/deck">Create a Deck</Link>
                 </NavItem>
               </Nav>
           </Collapse>

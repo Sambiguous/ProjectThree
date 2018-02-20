@@ -18,7 +18,7 @@ class ClassicDeck extends Component {
   	return (
   		<div>
         	<Button className="classicdeck" onClick={this.toggle}> Classic Deck
-          <br/> <img className="classic-image" src={require("./classic.png")} />
+          <br/> <img className="classic-image" alt="" src={require("./classic.png")} />
           </Button>
         	<Collapse isOpen={this.state.collapse}>
             	<GameForm />

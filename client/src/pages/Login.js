@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Row from "../components/Row";
-import Col from "../components/Col";
+//import Row from "../components/Row";
+//import Col from "../components/Col";
 import Container from "../components/Container";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
@@ -20,7 +20,7 @@ class Login extends Component {
   render() {
     return (
       <Container style={{ minHeight: "80%" }}>
-      <img className="logo-image" id="logo" src={require("../onDeckLogo.png")} />
+      <img className="logo-image" alt="" id="logo" src={require("../onDeckLogo.png")} />
           <LoginForm />
           <SignupForm />
       </Container>
