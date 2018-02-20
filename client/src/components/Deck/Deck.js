@@ -81,7 +81,7 @@ class Deck extends Component {
               name="deckName"
               onChange={this.handleInputChange}
               type="text"
-              class="deck"
+              className="deck"
               placeholder="Deck Name"
             /> 
           </Col>
@@ -93,7 +93,7 @@ class Deck extends Component {
               name="createdBy"
               onChange={this.handleInputChange}
               type="text"
-              class="deck"
+              className="deck"
               placeholder="creator"
             />
           </Col>
@@ -105,7 +105,7 @@ class Deck extends Component {
               name="numCards"
               onChange={this.handleInputChange}
               type="number"
-              class="deck"
+              className="deck"
               placeholder="# of cards"
             />
           </Col>
@@ -117,7 +117,7 @@ class Deck extends Component {
               name="numFields"
               onChange={this.handleInputChange}
               type="number"
-              class="deck"
+              className="deck"
               placeholder="# of fields"
             />
            </Col>
@@ -129,7 +129,7 @@ class Deck extends Component {
               name="handSize"
               onChange={this.handleInputChange}
               type="number"
-              class="deck"
+              className="deck"
               placeholder="cards in hand"
             />
           </Col>
