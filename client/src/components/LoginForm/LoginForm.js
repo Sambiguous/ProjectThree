@@ -4,8 +4,8 @@ import firebase from '../../firebase';
 import { database } from "firebase";
 
 
-//this is a regex function literally copy/pasted from stack overflow useed to 
-//see if a given string is a valid email address. I have no idea how it works
+//this is a regex function literally copy/pasted from stack overflow. it checks 
+//to see if a given string is a valid email address. I have no idea how it works
 function validateEmail(email) {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
 
   handleInputChange = event => {
 
-    const{name, value} = event.target
+    const{name, value} = event.target;
 
     this.setState({[name]: value});
   };
@@ -40,8 +40,14 @@ class LoginForm extends React.Component {
     }
 
     if(validateEmail(user)){
-      const promise = firebase.auth().signInWithEmailAndPassword(user, pass)
-      promise.catch(e => console.log(e.message));
+      const promise = firebase.auth().signInWithEmailAndPassword(user, pass);
+      promise.catch(e => {
+        if(e.code === "auth/wrong-password"){
+          console.log('incorrect email or password');
+        } else {
+          console.log(e.message);
+        }
+      });
     } else {
       firebase.database().ref().child('users').child(user).once('value', snap => {
         let email = snap.val();
@@ -50,22 +56,26 @@ class LoginForm extends React.Component {
           const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
           promise.catch(e => {
             if(e.code === "auth/wrong-password"){
-              console.log('incorrect username or password')
+              console.log('incorrect username or password');
             } else {
-              console.log(e.message)
+              console.log(e.message);
             }
           });
         } else {
-          console.log('incorrect username or password')
+          console.log('incorrect username or password');
         }
       });
     };
+    this.setState({
+      emailOrUsername: "",
+      password: "",
+    })
   };
 
   handleLogout = event => {
     event.preventDefault();
 
-    let currentUser = firebase.auth().currentUser
+    let currentUser = firebase.auth().currentUser;
 
     if(currentUser){
       firebase.database().ref().child('loggedIn').child(currentUser.uid).remove()
@@ -76,8 +86,7 @@ class LoginForm extends React.Component {
         } else {
           console.log("user: " + currentUser.displayName + " is now logged out");
         }
-      }))
-
+      }));
     } else {
       console.log("user is already logged out");
     }
@@ -128,8 +137,7 @@ class LoginForm extends React.Component {
         className="btn"
         >temporary logout button
       </button>
-
     </div>
-  </form>;
+  </form>
 }
 export default LoginForm;

@@ -54,6 +54,12 @@ class SignupForm extends React.Component {
         });
       });
     };
+    
+    this.setState({
+      email: "",
+      username: "",
+      password: ""
+    });
   };
 
   render = () =>
