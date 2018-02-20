@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(user => {
             if(e){
                 console.log(e)
             } else{
-                firebase.database().ref().child('loggedIn').once('value', snap => console.log(snap.val()))
+                //firebase.database().ref().child('loggedIn').once('value', snap => console.log(snap.val()))
             }
             
         });
