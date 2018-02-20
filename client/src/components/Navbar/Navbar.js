@@ -35,13 +35,13 @@ export default class Example extends React.Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <Link id="home" href="/">Home</Link>
+                  <Link id="home" to="/">Home</Link>
                 </NavItem>
                 <NavItem>
-                  <Link id="play" href="/play">Play a Game</Link>
+                  <Link id="play" to="/play">Play a Game</Link>
                 </NavItem>
                 <NavItem>
-                  <Link id="deck" href="/deck">Create a Deck</Link>
+                  <Link id="deck" to="/deck">Create a Deck</Link>
                 </NavItem>
               </Nav>
           </Collapse>
