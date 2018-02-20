@@ -13,9 +13,11 @@ class Game extends Component {
 		return (
 			<Container className="card-container">
 				<Row>
+					<Row>
 					<Col size="sm-4">
 						<LeftPanel />
 					</Col>
+					</Row>
 					<Col size="sm-8">
 						<RightPanel />
 					</Col>
