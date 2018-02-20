@@ -4,7 +4,7 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
+  //NavbarBrand,
   Nav,
   NavItem,
   //the navlink component causes weird behaviour and is off limits for now.

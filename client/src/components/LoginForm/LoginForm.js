@@ -1,12 +1,12 @@
 import React from "react";
 import "./LoginForm.css";
 import firebase from '../../firebase';
-import { database } from "firebase";
 
 
 //this is a regex function literally copy/pasted from stack overflow. it checks 
 //to see if a given string is a valid email address. I have no idea how it works
 function validateEmail(email) {
+  //eslint-disable-next-line
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
