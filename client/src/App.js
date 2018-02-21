@@ -28,9 +28,9 @@ class App extends Component {
           <Navbar />
           <Wrapper>
             <Route exact path="/" component={Login} />
-            <PrivateRoute exact path="/play" component={About} />
-            <PrivateRoute exact path="/game" component={Game} />
-            <PrivateRoute exact path="/deck" component={Deck} />
+            <Route exact path="/play" component={About} />
+            <Route exact path="/game" component={Game} />
+            <Route exact path="/deck" component={Deck} />
           </Wrapper>
         </div>
       </Router>

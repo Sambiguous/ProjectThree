@@ -7,45 +7,465 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/onDeck_DB");
 
 const userSeed = [
   {
-    username: 'devman1',
+    username: 'OnDeck',
     password: '12345',
+    createdDecks: []
   }
 ]
 
 const deckSeed = [
   {
     deckName: "USSR jest",
-    numCards: "6",
-    numFields: "1",
+    numCards: 6,
+    numFields: 1,
+    createBy: "onDeck",
+    handSize: 1,
+    allCards: []
+  },
+  {
+    deckName: "Classic Deck",
+    numCards: 52,
+    numFields: 2,
+    createdBy: "onDeck",
+    handSize: 5,
     allCards: []
   }
 ];
 
 const cardSeed = [
   {
-    fromDeck: "USSR jest",
-    fieldInfo: ["Loaded barrel"]
+    fromDeck: "Classic Deck",
+    fieldInfo: ["A", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["2", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["3", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["4", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["5", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["6", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["7", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["8", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["9", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["10", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["J", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["Q", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["K", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["A", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["2", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["3", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["4", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["5", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["6", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["7", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["8", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["9", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["10", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["J", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["Q", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["K", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["A", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["2", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["3", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["4", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["5", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["6", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["7", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["8", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["9", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["10", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["J", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["Q", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["K", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["A", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["2", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["3", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["4", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["5", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["6", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["7", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["8", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["9", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["10", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["J", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["Q", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["K", "Diamonds"]
   },
   {
     fromDeck: "USSR jest",
     fieldInfo: ["Loaded barrel"]
   },
   {
-    fromDeck: "USSR jest",
-    fieldInfo: ["Loaded barrel"]
+    fromDeck: "Classic Deck",
+    fieldInfo: ["1", "Spades"]
   },
   {
-    fromDeck: "USSR jest",
-    fieldInfo: ["Loaded barrel"]
+    fromDeck: "Classic Deck",
+    fieldInfo: ["2", "Spades"]
   },
   {
-    fromDeck: "USSR jest",
-    fieldInfo: ["Loaded barrel"]
+    fromDeck: "Classic Deck",
+    fieldInfo: ["3", "Spades"]
   },
   {
-    fromDeck: "USSR jest",
-    fieldInfo: ["NOT loaded barrel"]
+    fromDeck: "Classic Deck",
+    fieldInfo: ["4", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["5", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["6", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["7", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["8", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["9", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["10", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["J", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["Q", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["K", "Spades"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["A", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["1", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["2", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["3", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["4", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["5", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["6", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["7", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["8", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["9", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["10", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["J", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["Q", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["K", "Hearts"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["A", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["1", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["2", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["3", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["4", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["5", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["6", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["7", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["8", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["9", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["10", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["J", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["Q", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["K", "Clubs"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["A", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["1", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["2", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["3", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["4", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["5", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["6", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["7", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["8", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["9", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["10", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["J", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["Q", "Diamonds"]
+  },
+  {
+    fromDeck: "Classic Deck",
+    fieldInfo: ["K", "Diamonds"]
   }
+
 ];
 
 db.Deck
@@ -63,44 +483,48 @@ db.Deck
   .then(() => db.User.collection.insertOne(userSeed[0]))
 
   //then insert the seed deck
-  .then(userData => db.Deck.collection.insertOne(deckSeed[0])
+  .then(userData => db.Deck.collection.insertMany(deckSeed)
 
   //then...
   .then(deckData => {
 
+    //create array of ids of inserted decks
+    let deckIds = Object.keys(deckData.insertedIds).map(key => deckData.insertedIds[key])
+
     //update the seed user so that the inserted deck belongs to him
-    db.User.findOneAndUpdate({_id: userData.insertedId}, {$set:{createdDecks: [deckData.insertedId]} }, {new: true}, function(err, doc){
+    db.User.findOneAndUpdate({_id: userData.insertedId}, {$set:{createdDecks: deckIds} }, {new: true}, function(err, doc){
       if(err) throw err
-
-      console.log(doc)
-    })
-
-    let cards = [];
+    });
 
     //fill cards array with instances of db.Card based on the info in cardSeed
-    //(theres is probably a better way to go about this)
-    for(card in cardSeed){
-      cards.push(new db.Card(cardSeed[card]))
-    };
+    let cards = cardSeed.map(card => new db.Card(card));
     
     //insert all the cards into the cards collection
     db.Card.insertMany(cards, function(err, insertedDocs){
-
+      console.log(deckData);
       if(err) throw err;
+     
+      //seperate _ids of cards into arrays based on the fromDeck property and put them in an object
+      let ids = {
+        "Classic Deck": insertedDocs.filter(element => element.fromDeck === "Classic Deck").map(element => element._id),
+        "USSR jest": insertedDocs.filter(element => element.fromDeck === "USSR jest").map(element => element._id)
+      }
 
-      //create array of ids of inserted cards
-      const ids = insertedDocs.map(element => element._id)
-      
       //find the deck that the cards belong to and set the deck's allCards property to the ids array
-      db.Deck.findOneAndUpdate({deckName: deckData.ops[0].deckName}, {$set:{ allCards: ids }}, {new: true}, function(err, doc){
+      for(var i=0; i < deckData.ops.length; i++){
+        let name = deckData.ops[i].deckName
 
-        if (err) {
-          console.log(err);
-          process.exit(0);
-        } else {
-          
-          process.exit(0);
-        };
-      });
+        db.Deck.findOneAndUpdate({deckName: name}, {$set:{ allCards: ids[name] }}, {new: true}, function(err, doc){
+
+          if (err) {
+            console.log(err);
+
+          } else {
+            
+            console.log("all good yo");
+          };
+        });
+      }
     });
-  }))));
+  })
+)));

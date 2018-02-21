@@ -5,6 +5,14 @@ import Row from "../Row";
 import Col from "../Col";
 import "./Deck.css";
 
+//working on the cards themselves to be added to the deck
+
+const Card = props => {
+    return (
+      <h1>this is a card</h1>
+    )
+}
+
 //Create a Deck of cards with card specs
 
 class Deck extends Component {
@@ -69,74 +77,74 @@ class Deck extends Component {
       <div>
         <h2>
           Create a New Deck
-          {this.state.deckName}
+
         </h2>
         {/*the next line may not call the route correctly */}
         <form className="deck-form"> 
-      <Container style={{ marginTop: 30 }}>
-        <Row>
-          <Col size="sm-12">
-            <input
-              value={this.state.firstName}
-              name="deckName"
-              onChange={this.handleInputChange}
-              type="text"
-              className="deck"
-              placeholder="Deck Name"
-            /> 
-          </Col>
-        </Row>
-        <Row>
-          <Col size="sm-12">
-            <input
-              value={this.state.createdBy}
-              name="createdBy"
-              onChange={this.handleInputChange}
-              type="text"
-              className="deck"
-              placeholder="creator"
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col size="sm-12">
-            <input
-              value={this.state.numCards}
-              name="numCards"
-              onChange={this.handleInputChange}
-              type="number"
-              className="deck"
-              placeholder="# of cards"
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col size="sm-12">
-            <input
-              value={this.state.numFields}
-              name="numFields"
-              onChange={this.handleInputChange}
-              type="number"
-              className="deck"
-              placeholder="# of fields"
-            />
-           </Col>
-        </Row>
-        <Row>
-          <Col size="sm-12">
-            <input
-              value={this.state.handSize}
-              name="handSize"
-              onChange={this.handleInputChange}
-              type="number"
-              className="deck"
-              placeholder="cards in hand"
-            />
-          </Col>
-        </Row>
-
+        <Container style={{ marginTop: 30 }}>
+          <Row>
+            <Col size="sm-12">
+              <input
+                value={this.state.firstName}
+                name="deckName"
+                onChange={this.handleInputChange}
+                type="text"
+                className="deck"
+                placeholder="Deck Name"
+              /> 
+            </Col>
+          </Row>
+          <Row>
+            <Col size="sm-12">
+              <input
+                value={this.state.createdBy}
+                name="createdBy"
+                onChange={this.handleInputChange}
+                type="text"
+                className="deck"
+                placeholder="creator"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col size="sm-12">
+              <input
+                value={this.state.numCards}
+                name="numCards"
+                onChange={this.handleInputChange}
+                type="number"
+                className="deck"
+                placeholder="# of cards"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col size="sm-12">
+              <input
+                value={this.state.numFields}
+                name="numFields"
+                onChange={this.handleInputChange}
+                type="number"
+                className="deck"
+                placeholder="# of fields"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col size="sm-12">
+              <input
+                value={this.state.handSize}
+                name="handSize"
+                onChange={this.handleInputChange}
+                type="number"
+                className="deck"
+                placeholder="cards in hand"
+              />
+            </Col>
+          </Row>
+          <Card/>
           <button onClick={this.handleDeckSubmit}>Submit</button>
-        </Container>
+          </Container>
         </form>
       </div>
     );
