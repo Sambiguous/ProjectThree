@@ -29,8 +29,8 @@ class App extends Component {
           <Wrapper>
             <Route exact path="/" component={Login} />
             <Route exact path="/play" component={About} />
-            <Route exact path="/game" component={Game} />
             <Route exact path="/deck" component={Deck} />
+            <Route exact path="/game" component={Game} />
           </Wrapper>
         </div>
       </Router>
