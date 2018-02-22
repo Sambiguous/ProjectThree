@@ -2,6 +2,7 @@
 .navbar {
 	background-color: #181717;
 	color: white;
+	height: 60px;
 }
 
 .navbar-toggler-right{

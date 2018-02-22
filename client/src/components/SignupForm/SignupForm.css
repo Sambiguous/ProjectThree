@@ -26,16 +26,21 @@ form.signup button[type="submit"] {
 #username_input {
 	margin-bottom: 15px;
 	outline: none;
+  color: white;
+  text-transform: none;
 	background-color: #181717;
 }
 
 #password_input{ 
 	margin-bottom: 15px;
+  color: white;
 	background-color: #181717;
 }
 
 #email_input{ 
   margin-bottom: 15px;
+  color: white;
+  text-transform: none;
   background-color: #181717;
 }
 

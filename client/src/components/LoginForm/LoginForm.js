@@ -135,7 +135,7 @@ class LoginForm extends React.Component {
         type="submit"
         onClick={this.handleLogout}
         className="btn"
-        >temporary logout button
+        >LOGOUT
       </button>
     </div>
   </form>
