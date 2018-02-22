@@ -34,6 +34,7 @@ form.signup button[type="submit"] {
 #password_input{ 
 	margin-bottom: 15px;
   color: white;
+  text-transform: none;
 	background-color: #181717;
 }
 
