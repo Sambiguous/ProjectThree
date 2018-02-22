@@ -19,11 +19,14 @@ const PrivateRoute = ({component: Component, ...rest}) => (
   )} />
 )
 
+const 
+
 class App extends Component {
   constructor(props){
     super(props);
+
     this.state = {
-      gameCode:""
+      gameCode: null
     }
   }
 
@@ -40,26 +43,22 @@ class App extends Component {
             console.log("an error occured trying to join the match");
           }else{
             this.setState({gameCode: code});
+            
           };
         });
       };
     });
   };
 
-  createGame = (code, gameObject) => {
-    //this is gonna be tough
-    //firebase.database().ref().child('games').child(code).set(game)
-  }
-
-
   render(){
-    return (
+    return ( 
+      
       <Router>
         <div>
           <Navbar />
           <Wrapper>
             <Route exact path="/" component={Login} />
-            <Route exact path="/play" render={() => <About connectToGame={this.connectToGame} /> }/>
+            <Route exact path="/play" render={() => <About connectToGame={this.connectToGame} />} />
             <Route exact path="/deck" component={Deck} />
             <Route exact path="/game" render={Game} />
           </Wrapper>

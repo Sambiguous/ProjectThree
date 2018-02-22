@@ -47,6 +47,7 @@ class GameForm extends Component {
 
   render() {
     return (
+      
       <form className="gameform">
         <div className="form-group">
           <h3>Join a game</h3>

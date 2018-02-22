@@ -68,9 +68,6 @@ class Game extends Component {
 		}
 	}
 
-	componentDidMount = () => {
-		firebase.database().ref()
-	}
 
 	render() {
 		return (
