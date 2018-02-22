@@ -1,8 +1,8 @@
 .card-pile {
-	margin-left: 25px;
-	margin-top: 5px;
-	width: 150px;
-	height: 200px;
+
+	margin: 5px;
+	width: 175px;
+	height: 250px;
 	background-color: grey;
 	box-shadow: 5px;
 }

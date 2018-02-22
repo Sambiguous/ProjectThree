@@ -246,226 +246,25 @@ const cardSeed = [
     fieldInfo: ["Loaded barrel"]
   },
   {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["1", "Spades"]
+    fromDeck: "USSR jest",
+    fieldInfo: ["Loaded barrel"]
   },
   {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["2", "Spades"]
+    fromDeck: "USSR jest",
+    fieldInfo: ["Loaded barrel"]
   },
   {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["3", "Spades"]
+    fromDeck: "USSR jest",
+    fieldInfo: ["Loaded barrel"]
   },
   {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["4", "Spades"]
+    fromDeck: "USSR jest",
+    fieldInfo: ["Loaded barrel"]
   },
   {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["5", "Spades"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["6", "Spades"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["7", "Spades"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["8", "Spades"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["9", "Spades"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["10", "Spades"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["J", "Spades"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["Q", "Spades"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["K", "Spades"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["A", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["1", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["2", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["3", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["4", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["5", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["6", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["7", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["8", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["9", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["10", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["J", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["Q", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["K", "Hearts"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["A", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["1", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["2", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["3", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["4", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["5", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["6", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["7", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["8", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["9", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["10", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["J", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["Q", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["K", "Clubs"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["A", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["1", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["2", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["3", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["4", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["5", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["6", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["7", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["8", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["9", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["10", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["J", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["Q", "Diamonds"]
-  },
-  {
-    fromDeck: "Classic Deck",
-    fieldInfo: ["K", "Diamonds"]
+    fromDeck: "USSR jest",
+    fieldInfo: ["NOT loaded barrel"]
   }
-
 ];
 
 db.Deck
