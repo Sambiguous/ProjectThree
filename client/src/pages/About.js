@@ -15,6 +15,10 @@ class About extends Component {
         this.state = { collapse: false };
       }
 
+      componentDidMount(){
+        console.log(this.props.connectToGame);
+      }
+
       toggle() {
         this.setState({ collapse: !this.state.collapse });
       }
@@ -35,7 +39,7 @@ class About extends Component {
           <Row>
             <Col size="md-12">
               <div>
-                <Roulette />
+                <Roulette connectToGame={this.props.connectToGame}/>
               </div>
             </Col>
           </Row>

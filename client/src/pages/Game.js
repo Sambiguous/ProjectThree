@@ -11,6 +11,65 @@ class Game extends Component {
 
 	constructor(props){
 		super(props)
+		this.state = {
+			code: "12345",
+			name: "Roulette",
+			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
+			allCards: [  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["bullet"]
+			  },
+			],
+			discardPile: [{
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["bullet"]
+			  },],
+			hand:[]
+		}
+	}
+
+	componentDidMount = () => {
+		firebase.database().ref()
 	}
 
 	render() {

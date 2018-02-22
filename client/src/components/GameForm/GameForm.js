@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Wrapper from "../Wrapper";
-import {Redirect} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import Game from "../../pages/Game";
 import firebase from '../../firebase';
 import "./GameForm.css";
@@ -15,7 +14,6 @@ class GameForm extends Component {
       foundGame: false
     }
   }
-
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -40,31 +38,16 @@ class GameForm extends Component {
       return;
     }
 
-    
-    firebase.database().ref().child('games').child(code).once('value', snap => {
-      const game = snap.val()
-      if(game){
-        if(Object.keys(game.players).length < game.maxPlayers){
-          firebase.database().ref().child('games').child(code).child('players').push(firebase.auth().currentUser.displayName);
-          this.setState({foundGame: true})
-
-          //this is where we will follow a route to the table div, passing in the game object as props
-        }
-      }
-    })
+    this.props.connectToGame(code);
   };
 
   handleCreate = event => {
     event.preventDefault();
   }
 
-
-
   render() {
     return (
-      
       <form className="gameform">
-        {this.state.foundGame ? <Redirect to="/game" /> : null}
         <div className="form-group">
           <h3>Join a game</h3>
           <input
@@ -83,7 +66,7 @@ class GameForm extends Component {
             id="join-btn"
             onClick={this.handlePlay}
           >
-            Play!
+            Play
           </button>
 
           <h3> Start a new game </h3>

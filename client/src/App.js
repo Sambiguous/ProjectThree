@@ -20,6 +20,37 @@ const PrivateRoute = ({component: Component, ...rest}) => (
 )
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      gameCode:""
+    }
+  }
+
+  connectToGame = code => {
+    firebase.database().ref().child('games').child(code).once('value', snap => {
+      const game = snap.val()
+      if(!game){
+        console.log("no game was found with that password");
+        return;
+      };
+      if(Object.keys(game.players).length < game.maxPlayers){
+        firebase.database().ref().child('games').child(code).child('players').push(firebase.auth().currentUser.displayName, e => {
+          if(e){
+            console.log("an error occured trying to join the match");
+          }else{
+            this.setState({gameCode: code});
+          };
+        });
+      };
+    });
+  };
+
+  createGame = (code, gameObject) => {
+    //this is gonna be tough
+    //firebase.database().ref().child('games').child(code).set(game)
+  }
+
 
   render(){
     return (
@@ -28,9 +59,9 @@ class App extends Component {
           <Navbar />
           <Wrapper>
             <Route exact path="/" component={Login} />
-            <Route exact path="/play" component={About} />
+            <Route exact path="/play" render={() => <About connectToGame={this.connectToGame} /> }/>
             <Route exact path="/deck" component={Deck} />
-            <Route exact path="/game" component={Game} />
+            <Route exact path="/game" render={Game} />
           </Wrapper>
         </div>
       </Router>
