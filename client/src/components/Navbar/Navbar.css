@@ -7,6 +7,7 @@
 
 .navbar-toggler-right{
 	box-shadow: #181717 !important;
+
 	margin-left: 93%;
 	/*background-color: #181717 !important;*/
 	background-color: grey;
@@ -28,8 +29,4 @@
 	text-transform: uppercase;
 	font-family: 'Pathway Gothic One', sans-serif;
 	text-align: center;
-}
-
-.glyphicon {
-	background-color: white !important;
 }
