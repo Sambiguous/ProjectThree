@@ -41,7 +41,7 @@ export default class Example extends React.Component {
                   <Link id="play" to="/play">Play a Game</Link>
                 </NavItem>
                 <NavItem>
-                  <Link id="deck" to="/deck">Create a Deck</Link>
+                  <Link id="deck" to="/deckmake">Create a Deck</Link>
                 </NavItem>
               </Nav>
           </Collapse>

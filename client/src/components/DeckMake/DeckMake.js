@@ -1,21 +1,26 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import axios from "axios";
 import Container from "../Container";
 import Row from "../Row";
 import Col from "../Col";
-import "./Deck.css";
+import "./DeckMake.css";
+import CardMake from "../CardMake";
 
-//working on the cards themselves to be added to the deck
+// var cardArr = [];
 
-const Card = props => {
-    return (
-      <h1>this is a card</h1>
-    )
-}
+// function makeCardArr(number){
+
+//     for (var i=0; i<number; i++) {
+//       console.log(`card to be entered` + [i]);
+//       cardArr.push(i);
+//     }
+//     console.log(cardArr);
+// }
 
 //Create a Deck of cards with card specs
 
-class Deck extends Component {
+class DeckMake extends Component {
   // Setting the component's initial state
   state = {
     deckName: "",
@@ -23,7 +28,9 @@ class Deck extends Component {
     numFields: "",
     createdBy: "",
     handSize: "",
-    allCards: {}
+    allCards: {},
+    cardArr: [],
+    fieldArr: []
   };
 
   handleInputChange = event => {
@@ -41,7 +48,7 @@ class Deck extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
-    alert(`You entered a Deck called: ${this.state.deckName} with ${this.state.numCards} cards in it. Each card has ${this.state.numFields} pieces of information on it.`);
+    // alert(`You entered a Deck called: ${this.state.deckName} with ${this.state.numCards} cards in it. Each card has ${this.state.numFields} pieces of information on it.`);
 
     // API call to database to set info
     var objectToPassToAPI = {
@@ -49,36 +56,53 @@ class Deck extends Component {
       numCards: this.state.numCards,
       numFields: this.state.numFields,
       createdBy: this.state.createdBy,
-      handSize: this.state.handSize
+      handSize: this.state.handSize,
+      allCards: {},
+      cardArr: [],
+      fieldArr: []
     };
 
-    //axios.post("url", objectToPassToAPI);
+    this.props.addNewDeck(objectToPassToAPI);  
 
-    axios.post('/api', objectToPassToAPI)
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    console.log(objectToPassToAPI);
+
+    // axios.post('/api', objectToPassToAPI)
+    //   .then(function (response) {
+    //     console.log(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+
+    //   makeCardArr(this.state.numCards)
 
     this.setState({
       deckName: "",
       numCards: "",
       numFields: "",
       createdBy: "",
-      handSize: ""
+      handSize: "",
+      cardArr: [],
+      fieldArr: []
     });
+
+    //ROUTE TO CARDS
+    return (
+      <Route exact path="/cardmake" render={()=><CardMake passDeckInfo={this.passDeckInfo}/>} />
+      
+    )
+
   };
 
   render() {
+
+    // const arrayOfStuff = [["A", "spades"], ["K", "hearts"], ["3", "diamonds"], ["10", "clubs"]];
+
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
-        <h2>
-          Create a New Deck
-
-        </h2>
+        <h2>Step One:</h2>
+        <h2>Input New Deck Basics</h2>
         {/*the next line may not call the route correctly */}
         <form className="deck-form"> 
         <Container style={{ marginTop: 30 }}>
@@ -142,8 +166,26 @@ class Deck extends Component {
               />
             </Col>
           </Row>
-          <Card/>
-          <button onClick={this.handleDeckSubmit}>Submit</button>
+          
+          {/* Works, removing   */}
+          {/* <div>
+          {arrayOfStuff}
+          </div> */}
+          {/* Works   */}
+          {/* <div>
+            {(()=>{
+              let container =[];
+              let arr = arrayOfStuff //can be anything array, object 
+              arr.forEach((val,index)=>{
+                container.push(<div key={index}>
+                              <h2>'this is a {val[0]} {val[1]} card'</h2>
+                              </div>)
+                            });
+                        return container;     
+            })()}
+          </div> */}
+          
+          <button onClick={this.handleDeckSubmit}>on to Step Two</button>
           </Container>
         </form>
       </div>
@@ -151,4 +193,4 @@ class Deck extends Component {
   }
 };
 
-export default Deck;
+export default DeckMake;
