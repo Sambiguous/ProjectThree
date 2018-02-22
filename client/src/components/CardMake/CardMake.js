@@ -103,7 +103,7 @@ class CardMake extends Component {
                 onChange={this.handleInputChange}
                 type="text"
                 className="deck"
-                placeholder="Deck Name"
+                placeholder="DECK NAME"
               /> 
             </Col>
           </Row>
@@ -115,7 +115,7 @@ class CardMake extends Component {
                 onChange={this.handleInputChange}
                 type="text"
                 className="deck"
-                placeholder="creator"
+                placeholder="CREATOR"
               />
             </Col>
           </Row>
@@ -127,7 +127,7 @@ class CardMake extends Component {
                 onChange={this.handleInputChange}
                 type="number"
                 className="deck"
-                placeholder="# of cards"
+                placeholder="# OF CARDS"
               />
             </Col>
           </Row>
@@ -139,7 +139,7 @@ class CardMake extends Component {
                 onChange={this.handleInputChange}
                 type="number"
                 className="deck"
-                placeholder="# of fields"
+                placeholder="# OF FIELDS"
               />
             </Col>
           </Row>
@@ -151,7 +151,7 @@ class CardMake extends Component {
                 onChange={this.handleInputChange}
                 type="number"
                 className="deck"
-                placeholder="cards in hand"
+                placeholder="CARDS IN HAND"
               />
             </Col>
           </Row>

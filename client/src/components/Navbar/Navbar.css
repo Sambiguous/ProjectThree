@@ -2,14 +2,20 @@
 .navbar {
 	background-color: #181717;
 	color: white;
+	height: 60px;
 }
 
 .navbar-toggler-right{
 	box-shadow: #181717 !important;
-	margin: 0;
-	background-color: #181717 !important;
-	width: 100%;
+
+	margin-left: 93%;
+	/*background-color: #181717 !important;*/
+	background-color: grey;
+	/*background-image: url("../spade.jpeg");*/
+	width: 30px;
+	height: 30px;
 	outline: none !important;
+	float: right !important;
 }
 
 .navbar-brand {
@@ -23,8 +29,4 @@
 	text-transform: uppercase;
 	font-family: 'Pathway Gothic One', sans-serif;
 	text-align: center;
-}
-
-.glyphicon {
-	background-color: white !important;
 }
