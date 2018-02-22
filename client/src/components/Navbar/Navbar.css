@@ -7,10 +7,14 @@
 
 .navbar-toggler-right{
 	box-shadow: #181717 !important;
-	margin: 0;
-	background-color: #181717 !important;
-	width: 100%;
+	margin-left: 93%;
+	/*background-color: #181717 !important;*/
+	background-color: grey;
+	/*background-image: url("../spade.jpeg");*/
+	width: 30px;
+	height: 30px;
 	outline: none !important;
+	float: right !important;
 }
 
 .navbar-brand {

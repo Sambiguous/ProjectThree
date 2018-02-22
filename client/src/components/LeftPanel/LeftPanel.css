@@ -4,4 +4,6 @@
 
 .card-container {
 	background-color: white;
+	margin: 25px;
+	border: 2px solid blue;
 }
