@@ -1,5 +1,6 @@
 .card-pile {
-	margin: 5px;
+	margin-left: 25px;
+	margin-top: 5px;
 	width: 150px;
 	height: 200px;
 	background-color: grey;

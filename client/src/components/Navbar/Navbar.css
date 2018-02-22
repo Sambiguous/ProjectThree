@@ -8,9 +8,10 @@
 .navbar-toggler-right{
 	box-shadow: #181717 !important;
 	margin: 0;
-	background-color: #181717 !important;
-	width: 100%;
+	background-color: #303030 !important;
+	width: 5%;
 	outline: none !important;
+	content: url('../../onDeckLogo.png');
 }
 
 .navbar-brand {
@@ -24,8 +25,4 @@
 	text-transform: uppercase;
 	font-family: 'Pathway Gothic One', sans-serif;
 	text-align: center;
-}
-
-.glyphicon {
-	background-color: white !important;
 }
