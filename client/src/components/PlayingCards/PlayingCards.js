@@ -11,7 +11,7 @@ class PlayingCards extends Component {
 		return (
 			<div>
 				<div className="playing-cards">
-					<h4> Playing Cards </h4>
+					<h4> {this.state.code}</h4>
 				</div>
 			</div>
 		)

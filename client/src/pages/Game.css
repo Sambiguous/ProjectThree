@@ -2,6 +2,11 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
+.game-title, .game-players {
+	color: black;
+	text-align: center;
+}
+
 body {
   margin: 0;
   padding: 0;

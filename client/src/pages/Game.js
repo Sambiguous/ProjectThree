@@ -9,14 +9,77 @@ import "./Game.css";
 
 class Game extends Component {
 
+
+
+	constructor(props) {
+		super(props)
+		this.state = {
+			code: "12345",
+			name: "Roulette",
+			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
+			allCards: [  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["bullet"]
+			  },
+			],
+			discardPile: [{
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["bullet"]
+			  },],
+			hand:[]
+		}
+	}
+
 	render() {
 		return (
 			<Container className="card-container">
+			<h1 className="game-title"> {this.state.name}</h1>
+			<h4 className="game-players">{this.state.players[0]} </h4>
 				<Row>
-					<Col size="sm-4">
+					<Col size="sm-6">
 						<LeftPanel />
 					</Col>
-					<Col size="sm-8">
+					<Col size="sm-6">
 						<RightPanel />
 					</Col>
 				</Row>
