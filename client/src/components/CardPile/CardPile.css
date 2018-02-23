@@ -4,11 +4,12 @@
 	margin-left: 70px;
 	width: 175px;
 	height: 250px;
-	background-color: grey;
+	background-color: white;
 	box-shadow: 5px;
+	border-radius: 10px !important;
+	color: black;
 }
 
 h4 {
 	font-size: 30px;
-	color: white;
 }

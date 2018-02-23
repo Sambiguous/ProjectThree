@@ -11,7 +11,8 @@ class Game extends Component {
 
 	constructor(props) {
 		super(props)
-			this.state = {
+
+		this.state = {
 			code: "12345",
 			name: "Roulette",
 			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
@@ -75,7 +76,7 @@ class Game extends Component {
 			<h4 className="game-players">{this.state.players[0]} </h4>
 				<Row>
 					<CardPile />
-					<DiscardPile />
+					<DiscardPile /> 
 					<PlayingCards />
 				</Row>
 			</Container>		
