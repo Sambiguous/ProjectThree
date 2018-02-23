@@ -1,5 +1,7 @@
 .discard-pile {
-	margin: 5px;
+	margin: 20px;
+	margin-left: 70px;
+	padding: 5px;
 	width: 175px;
 	height: 250px;
 	background-color: grey;

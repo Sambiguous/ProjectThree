@@ -9,18 +9,9 @@ import "./Game.css";
 
 class Game extends Component {
 
-<<<<<<< HEAD
-
-
 	constructor(props) {
-		super(props)
-		this.state = {
-=======
-	constructor(props) {
-
 		super(props)
 			this.state = {
->>>>>>> 714cad14f74c5aed7a8fa27d103960bb77d4e098
 			code: "12345",
 			name: "Roulette",
 			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
@@ -83,18 +74,9 @@ class Game extends Component {
 			<h1 className="game-title"> {this.state.name}</h1>
 			<h4 className="game-players">{this.state.players[0]} </h4>
 				<Row>
-<<<<<<< HEAD
-					<Col size="sm-6">
-						<LeftPanel />
-					</Col>
-					<Col size="sm-6">
-						<RightPanel />
-					</Col>
-=======
 					<CardPile />
 					<DiscardPile />
 					<PlayingCards />
->>>>>>> 714cad14f74c5aed7a8fa27d103960bb77d4e098
 				</Row>
 			</Container>		
 		);
