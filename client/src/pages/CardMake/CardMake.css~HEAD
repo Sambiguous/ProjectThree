@@ -1,0 +1,80 @@
+/* Emily - this is all you! :) */
+
+.card {
+    margin: 20px;
+}
+
+.card input {
+display: block;
+margin-top: 5px;
+margin-bottom: 5px;
+width: 100%;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type="text"], [type="number"], textarea {
+	outline: none;
+	box-shadow:none !important;
+	border:0px !important;
+	border-bottom:1px solid #ccc !important;
+	margin-top: 25px;
+	color: white;
+	text-transform: none;
+}
+
+h2 {
+	font-size: 60px;
+	font-family: 'Pathway Gothic One', sans-serif;
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+h4 {
+	font-size: 20px;
+	font-family: 'Pathway Gothic One', sans-serif;
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+form.deck-form {
+	overflow: auto;
+	text-transform: none;
+	margin-left: 55px;
+	margin-right: 55px;
+	margin-top: 30px;
+
+}
+
+button {
+	background-color: #8D0000;
+	color: white;
+	padding: 10px;
+	width: 30%;
+	border: none !important;
+	margin-bottom: 50px;
+	display:block;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.deck { 
+	margin-bottom: 15px;
+	background-color: #181717;
+	text-align: center;
+	width: 100%;
+}
+
+
+button:hover {
+	background-color: #BC1515;
+}
+

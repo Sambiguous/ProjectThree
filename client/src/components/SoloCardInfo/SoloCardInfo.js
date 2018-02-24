@@ -1,10 +1,9 @@
-
-import "./CardMake.css";
+import "./SoloCardInfo.css";
 import React, { Component } from "react";
 import axios from "axios";
 import Container from "../Container";
-import Row from "../../components/Row";
-import Col from "../../components/Col";
+import Row from "../Row";
+import Col from "../Col";
 
 
 var cardArr = [];
@@ -21,28 +20,18 @@ function makeCardArr(number){
     console.log(cardArr);
 }
 
-// function makeFieldArr(number){
-
-//   for (var i=0; i<number; i++) {
-//     console.log(`card to be entered` + [i]);
-//     fieldArr.push(i);
-//   }
-//   console.log(fieldArr);
-// }
-
-//Create a Deck of cards with card specs
-
-class CardMake extends Component {
+class SoloCardInfo extends Component {
   // Setting the component's initial state
   constructor (props) {
     super (props)
   
-    this.state = props.newDeck
+    this.state = props.newSingleCard
   }
 
   componentDidMount() {
-    console.log(this.state);
+    console.log(this.props);
   }
+
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -158,4 +147,4 @@ class CardMake extends Component {
   }
 };
 
-export default CardMake;
+export default SoloCardInfo;
