@@ -1,22 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import axios from "axios";
 import Container from "../Container";
 import Row from "../Row";
 import Col from "../Col";
 import "./DeckMake.css";
 import CardMake from "../CardMake";
-
-// var cardArr = [];
-
-// function makeCardArr(number){
-
-//     for (var i=0; i<number; i++) {
-//       console.log(`card to be entered` + [i]);
-//       cardArr.push(i);
-//     }
-//     console.log(cardArr);
-// }
 
 //Create a Deck of cards with card specs
 
@@ -48,8 +37,6 @@ class DeckMake extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
-    // alert(`You entered a Deck called: ${this.state.deckName} with ${this.state.numCards} cards in it. Each card has ${this.state.numFields} pieces of information on it.`);
-
     // API call to database to set info
     var objectToPassToAPI = {
       deckName: this.state.deckName,
@@ -64,17 +51,8 @@ class DeckMake extends Component {
 
     this.props.addNewDeck(objectToPassToAPI);  
 
+    console.log("if the data is coming in from the objecttopasstoAPI, it should show below this line:");
     console.log(objectToPassToAPI);
-
-    // axios.post('/api', objectToPassToAPI)
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-
-    //   makeCardArr(this.state.numCards)
 
     this.setState({
       deckName: "",
@@ -86,17 +64,14 @@ class DeckMake extends Component {
       fieldArr: []
     });
 
-    //ROUTE TO CARDS
-    return (
-      <Route exact path="/cardmake" render={()=><CardMake passDeckInfo={this.passDeckInfo}/>} />
-      
-    )
+    <Switch>
+      <Redirect from='/deskmake' to='/cardmake'/>
+      <Route path='/cardmake' render={()=><CardMake passDeckInfo={this.passDeckInfo}/>} />
+    </Switch>
 
   };
 
   render() {
-
-    // const arrayOfStuff = [["A", "spades"], ["K", "hearts"], ["3", "diamonds"], ["10", "clubs"]];
 
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
@@ -166,25 +141,6 @@ class DeckMake extends Component {
               />
             </Col>
           </Row>
-          
-          {/* Works, removing   */}
-          {/* <div>
-          {arrayOfStuff}
-          </div> */}
-          {/* Works   */}
-          {/* <div>
-            {(()=>{
-              let container =[];
-              let arr = arrayOfStuff //can be anything array, object 
-              arr.forEach((val,index)=>{
-                container.push(<div key={index}>
-                              <h2>'this is a {val[0]} {val[1]} card'</h2>
-                              </div>)
-                            });
-                        return container;     
-            })()}
-          </div> */}
-          
           <button onClick={this.handleDeckSubmit}>on to Step Two</button>
           </Container>
         </form>

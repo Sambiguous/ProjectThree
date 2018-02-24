@@ -8,6 +8,7 @@ import Col from "../Col";
 
 
 var cardArr = [];
+var fieldArr = [];
 
 function makeCardArr(number){
 
@@ -16,6 +17,15 @@ function makeCardArr(number){
       cardArr.push(i);
     }
     console.log(cardArr);
+}
+
+function makeFieldArr(number){
+
+  for (var i=0; i<number; i++) {
+    console.log(`card to be entered` + [i]);
+    fieldArr.push(i);
+  }
+  console.log(fieldArr);
 }
 
 //Create a Deck of cards with card specs
@@ -48,10 +58,8 @@ class CardMake extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
-    alert(`You entered a Deck called: ${this.state.deckName} with ${this.state.numCards} cards in it. Each card has ${this.state.numFields} pieces of information on it.`);
-
     // API call to database to set info
-    var objectToPassToAPI = {
+    var objectToPassToDataBase = {
       deckName: this.state.deckName,
       numCards: this.state.numCards,
       numFields: this.state.numFields,
@@ -61,7 +69,7 @@ class CardMake extends Component {
 
     //axios.post("url", objectToPassToAPI);
 
-    axios.post('/api', objectToPassToAPI)
+    axios.post('/api', objectToPassToDataBase)
     .then(function (response) {
       console.log(response.data);
     })
@@ -69,7 +77,9 @@ class CardMake extends Component {
       console.log(error);
     });
 
+    //THIS needs to go into the data call from the app.js
     makeCardArr(this.state.numCards)
+    makeFieldArr(this.state.numFields)
 
     this.setState({
       deckName: "",
@@ -84,7 +94,8 @@ class CardMake extends Component {
 
   render() {
 
-    const arrayOfStuff = ["1", "2", "3", "4"]
+    const arrayOfCards = ["1", "2", "3", "4"]
+    const arrayOfFields = ["1", "2"]
 
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
@@ -95,79 +106,26 @@ class CardMake extends Component {
 
         <form className="deck-form"> 
         <Container style={{ marginTop: 30 }}>
-          <Row>
-            <Col size="sm-12">
-              <input
-                value={this.state.firstName}
-                name="deckName"
-                onChange={this.handleInputChange}
-                type="text"
-                className="deck"
-                placeholder="DECK NAME"
-              /> 
-            </Col>
-          </Row>
-          <Row>
-            <Col size="sm-12">
-              <input
-                value={this.state.createdBy}
-                name="createdBy"
-                onChange={this.handleInputChange}
-                type="text"
-                className="deck"
-                placeholder="CREATOR"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col size="sm-12">
-              <input
-                value={this.state.numCards}
-                name="numCards"
-                onChange={this.handleInputChange}
-                type="number"
-                className="deck"
-                placeholder="# OF CARDS"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col size="sm-12">
-              <input
-                value={this.state.numFields}
-                name="numFields"
-                onChange={this.handleInputChange}
-                type="number"
-                className="deck"
-                placeholder="# OF FIELDS"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col size="sm-12">
-              <input
-                value={this.state.handSize}
-                name="handSize"
-                onChange={this.handleInputChange}
-                type="number"
-                className="deck"
-                placeholder="CARDS IN HAND"
-              />
-            </Col>
-          </Row>
-          
-          {/* Works, removing   */}
-          {/* <div>
-          {arrayOfStuff}
-          </div> */}
-          {/* Works   */}
+          {/* This currently works, trying to swap to an indep this(dot)function */}
           <div>
             {(()=>{
               let container =[];
-              let arr = arrayOfStuff //can be anything array, object 
+              let arr = arrayOfCards //can be anything array, object 
               arr.forEach((val,index)=>{
                 container.push(<div key={index}>
-                              <h2>'this is a phrase {index}'</h2>
+                              <h2>'Card {val} Information:'</h2>
+                              <Row>
+                                <Col size="sm-12">
+                                  <input
+                                    value={this.state.firstName}
+                                    name="deckName"
+                                    onChange={this.handleInputChange}
+                                    type="text"
+                                    className="deck"
+                                    placeholder="phrase"
+                                  /> 
+                                </Col>
+                              </Row>
                               </div>)
                             });
                         return container;     

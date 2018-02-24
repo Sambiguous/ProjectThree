@@ -22,17 +22,37 @@ const PrivateRoute = ({component: Component, ...rest}) => (
 
 class App extends Component {
   state = {
-    newDeck: {}
+    newDeck: {
+      deckName: "",
+      numCards: "",
+      numFields: "",
+      createdBy: "",
+      handSize: "",
+      allCards: {},
+      cardArr: [],
+      fieldArr: []
+    }
     
   }
 
   addNewDeck = (data) => {
-    const newDeck = [] ;
+
+    console.log("if the data is coming in from the DeckMake, it should show below this line:");
+    console.log(data);
+
     this.setState({
-      newDeck: data
+      newdeck: {
+        deckName: data.deckName,
+        numCards: data.numCards,
+        numFields: data.numFields,
+        createdBy: data.createdBy,
+        handSize: data.handSize,
+      }
     });
-    console.log("add new deck working");
+
+    console.log("if the data is coming in from this(dot)state(dot)newdeck, it should show below this line:");
     console.log(this.state.newDeck);
+
   }
 
   passDeckInfo = () => {
