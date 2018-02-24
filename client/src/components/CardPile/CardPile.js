@@ -21,8 +21,9 @@ class CardPile extends Component {
 	render() {
 		return (
 			<div>
-				<div className="card-pile" onClick={this.handleClick}>
-					<h4> Card Pile </h4>
+
+				<div className="card-pile">
+					<h5> Card Pile </h5>
 				</div>
 			</div>
 		)

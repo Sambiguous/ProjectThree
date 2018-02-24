@@ -29,8 +29,7 @@ class PlayingCards extends Component {
 		}
 
 	render() {
-		const arrayOfStuff = [["A", "Spades"], ["2", "Diamonds"],["6", "Hearts"], 
-		["3", "Hearts"], ["4", "Spades"],["10", "Diamonds"]];
+		const arrayOfStuff = [["A", "Spades"], ["2", "Diamonds"],["6", "Hearts"], ["3", "Hearts"], ["4", "Spades"], ["8", "Clubs"]];
 		return (
 			<div>
 				<div className="playing-cards">
@@ -44,6 +43,7 @@ class PlayingCards extends Component {
 			                              	{/*{this.state.isToggleOn ? 'active' : 'no'}*/}
 			                              	<h2>{val[0]}</h2>
 			                              	<h3>{val[1]}</h3></div>
+
 			                              </div>)
 			                            });
 			              return container;     
