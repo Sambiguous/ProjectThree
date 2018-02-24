@@ -1,12 +1,18 @@
-// import React, {Component} from "react";
-// import "./ActiveBar.css";
+import React, {Component} from "react";
+import "./ActiveBar.css";
 
-// class ActiveBar extends Component {
+class ActiveBar extends Component {
 
+	render() {
 
-// 	render() {
+	{/* logic to make the active user green active bar*/}
 
-// }
-// }
+		return(
+			<div className="active-bar">
+			</div>
+		)
 
-// export default ActiveBar;
+	}	
+}
+
+export default ActiveBar;

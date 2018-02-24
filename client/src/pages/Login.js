@@ -20,10 +20,23 @@ class Login extends Component {
       }
 
   render() {
+      let userMessage;
+      //logic to make sure the user has a username?
+      if (this.props.loggedIn) {
+        userMessage = (
+          <span>
+            <h2>{ `Welcome Back ${ this.props.name }` }</h2>
+          </span>
+        )
+      } else {
+        userMessage = (
+        <h2> Please sign in!</h2>
+        )
+      }
     return (
       <Container style={{ minHeight: "80%" }}>
           <img className="logo-image" alt="" id="logo" src={require("../onDeckLogo.png")} />
-          <h1>{this.props.test}</h1>
+          <h1>{userMessage}</h1>
           <LoginForm {...this.props}/>
           <SignupForm {...this.props}/>
       </Container>
