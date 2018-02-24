@@ -11,7 +11,7 @@ class DiscardPile extends Component {
 		return (
 			<div>
 				<div className="discard-pile">
-					<h4> Discard Pile </h4>
+					<h4> Discard Pile</h4>
 				</div>
 			</div>
 		)

@@ -10,9 +10,9 @@ import "./Game.css";
 class Game extends Component {
 
 	constructor(props) {
-
 		super(props)
-			this.state = {
+
+		this.state = {
 			code: "12345",
 			name: "Roulette",
 			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
@@ -72,9 +72,11 @@ class Game extends Component {
 	render() {
 		return (
 			<Container className="card-container">
+			<h1 className="game-title"> {this.state.name}</h1>
+			<h4 className="game-players">{this.state.players[0]} </h4>
 				<Row>
 					<CardPile />
-					<DiscardPile />
+					<DiscardPile /> 
 					<PlayingCards />
 				</Row>
 			</Container>		
