@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import LeftPanel from "../components/LeftPanel";
-import RightPanel from "../components/RightPanel";
-import "./Game.css";
-
+import DiscardPile from "../components/DiscardPile";
+import CardPile from "../components/CardPile";
+import PlayingCards from "../components/PlayingCards";
+import "./Game.css"; 
 
 class Game extends Component {
 
-	constructor(props){
+	constructor(props) {
 		super(props)
+
 		this.state = {
 			code: "12345",
 			name: "Roulette",
@@ -68,21 +69,20 @@ class Game extends Component {
 		}
 	}
 
-
 	render() {
 		return (
 			<Container className="card-container">
+			<h1 className="game-title"> {this.state.name}</h1>
+			<h4 className="game-players">{this.state.players[0]} </h4>
 				<Row>
-					<Col size="sm-4">
-						<LeftPanel />
-					</Col>
-					<Col size="sm-8">
-						<RightPanel />
-					</Col>
+					<CardPile />
+					<DiscardPile /> 
+					<PlayingCards />
 				</Row>
 			</Container>		
 		);
 	}
+
 }
 
 export default Game;

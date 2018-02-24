@@ -6,6 +6,7 @@ button:focus {
 .roulette {
 	font-size: 50px;
 	padding: 40px;
+	margin-top: 10px;
 	margin-right: 5px !important;
 	margin-bottom: 10px;
 	font-family: 'Pathway Gothic One', sans-serif;

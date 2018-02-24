@@ -27,6 +27,7 @@ form.login {
 
 form.login button[type="submit"] {
   align-items: center;
+  width: 35%;
   background-color: #8D0000;
   color: white;
 }
@@ -34,12 +35,15 @@ form.login button[type="submit"] {
 #emailOrUsername {
 	margin-bottom: 15px;
 	outline: none;
+  color: white;
+  text-transform: none;
 	background-color: #181717;
 }
 
 #password_login{ 
 	margin-bottom: 15px;
 	background-color: #181717;
+  color: white;
 }
 
 .container {

@@ -1,21 +1,15 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import axios from "axios";
 import Container from "../Container";
 import Row from "../Row";
 import Col from "../Col";
-import "./Deck.css";
-
-//working on the cards themselves to be added to the deck
-
-const Card = props => {
-    return (
-      <h1>this is a card</h1>
-    )
-}
+import "./DeckMake.css";
+import CardMake from "../CardMake";
 
 //Create a Deck of cards with card specs
 
-class Deck extends Component {
+class DeckMake extends Component {
   // Setting the component's initial state
   state = {
     deckName: "",
@@ -23,7 +17,9 @@ class Deck extends Component {
     numFields: "",
     createdBy: "",
     handSize: "",
-    allCards: {}
+    allCards: {},
+    cardArr: [],
+    fieldArr: []
   };
 
   handleInputChange = event => {
@@ -41,44 +37,47 @@ class Deck extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
-    alert(`You entered a Deck called: ${this.state.deckName} with ${this.state.numCards} cards in it. Each card has ${this.state.numFields} pieces of information on it.`);
-
     // API call to database to set info
     var objectToPassToAPI = {
       deckName: this.state.deckName,
       numCards: this.state.numCards,
       numFields: this.state.numFields,
       createdBy: this.state.createdBy,
-      handSize: this.state.handSize
+      handSize: this.state.handSize,
+      allCards: {},
+      cardArr: [],
+      fieldArr: []
     };
 
-    //axios.post("url", objectToPassToAPI);
+    this.props.addNewDeck(objectToPassToAPI);  
 
-    axios.post('/api', objectToPassToAPI)
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    console.log("if the data is coming in from the objecttopasstoAPI, it should show below this line:");
+    console.log(objectToPassToAPI);
 
     this.setState({
       deckName: "",
       numCards: "",
       numFields: "",
       createdBy: "",
-      handSize: ""
+      handSize: "",
+      cardArr: [],
+      fieldArr: []
     });
+
+    <Switch>
+      <Redirect from='/deskmake' to='/cardmake'/>
+      <Route path='/cardmake' render={()=><CardMake passDeckInfo={this.passDeckInfo}/>} />
+    </Switch>
+
   };
 
   render() {
+
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
-        <h2>
-          Create a New Deck
-
-        </h2>
+        <h2>Step One:</h2>
+        <h2>Input New Deck Basics</h2>
         {/*the next line may not call the route correctly */}
         <form className="deck-form"> 
         <Container style={{ marginTop: 30 }}>
@@ -142,8 +141,7 @@ class Deck extends Component {
               />
             </Col>
           </Row>
-          <Card/>
-          <button onClick={this.handleDeckSubmit}>Submit</button>
+          <button onClick={this.handleDeckSubmit}>on to Step Two</button>
           </Container>
         </form>
       </div>
@@ -151,4 +149,4 @@ class Deck extends Component {
   }
 };
 
-export default Deck;
+export default DeckMake;

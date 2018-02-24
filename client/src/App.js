@@ -8,7 +8,8 @@ import Wrapper from "./components/Wrapper";
 // import ClassicDeck from "./components/ClassicDeck";
 // import Roulette from "./components/Roulette";
 import Navbar from "./components/Navbar";
-import Deck from "./components/Deck";
+import DeckMake from "./components/DeckMake";
+import CardMake from "./components/CardMake";
 import firebase from './firebase';
 
 const PrivateRoute = ({component: Component, ...rest}) => (
@@ -22,6 +23,7 @@ const PrivateRoute = ({component: Component, ...rest}) => (
 const 
 
 class App extends Component {
+<<<<<<< HEAD
   constructor(props){
     super(props);
 
@@ -49,6 +51,45 @@ class App extends Component {
       };
     });
   };
+=======
+  state = {
+    newDeck: {
+      deckName: "",
+      numCards: "",
+      numFields: "",
+      createdBy: "",
+      handSize: "",
+      allCards: {},
+      cardArr: [],
+      fieldArr: []
+    }
+    
+  }
+
+  addNewDeck = (data) => {
+
+    console.log("if the data is coming in from the DeckMake, it should show below this line:");
+    console.log(data);
+
+    this.setState({
+      newdeck: {
+        deckName: data.deckName,
+        numCards: data.numCards,
+        numFields: data.numFields,
+        createdBy: data.createdBy,
+        handSize: data.handSize,
+      }
+    });
+
+    console.log("if the data is coming in from this(dot)state(dot)newdeck, it should show below this line:");
+    console.log(this.state.newDeck);
+
+  }
+
+  passDeckInfo = () => {
+    let passDeck = this.state.newDeck;
+  }
+>>>>>>> c20200613e37d506ea30ce7010ca85904358866d
 
   render(){
     return ( 
@@ -58,9 +99,16 @@ class App extends Component {
           <Navbar />
           <Wrapper>
             <Route exact path="/" component={Login} />
+<<<<<<< HEAD
             <Route exact path="/play" render={() => <About connectToGame={this.connectToGame} />} />
             <Route exact path="/deck" component={Deck} />
             <Route exact path="/game" render={Game} />
+=======
+            <Route exact path="/play" component={About} />
+            <Route exact path="/game" component={Game} />
+            <Route exact path="/deckmake" render={()=><DeckMake addNewDeck={this.addNewDeck}/>} /> 
+            <Route exact path="/cardmake" render={()=><CardMake passDeckInfo={this.passDeckInfo}/>} />
+>>>>>>> c20200613e37d506ea30ce7010ca85904358866d
           </Wrapper>
         </div>
       </Router>

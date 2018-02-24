@@ -31,9 +31,10 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar className="navbar navbar-reverse">
-          <NavbarToggler className="navbar-toggler-right" onClick={this.toggle} />
+          <NavbarToggler className="navbar-toggler-right" src={require("./onDeckLogo.png")} onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
+      
                 <NavItem>
                   <Link id="home" to="/">Home</Link>
                 </NavItem>
@@ -41,8 +42,12 @@ export default class Example extends React.Component {
                   <Link id="play" to="/play">Play a Game</Link>
                 </NavItem>
                 <NavItem>
-                  <Link id="deck" to="/deck">Create a Deck</Link>
+                  <Link id="deck" to="/deckmake">Create a Deck</Link>
                 </NavItem>
+                <NavItem>
+                  <Link id="game" to="/game">Game</Link>
+                </NavItem>
+
               </Nav>
           </Collapse>
         </Navbar>

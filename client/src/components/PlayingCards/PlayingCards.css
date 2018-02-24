@@ -1,8 +1,27 @@
 .playing-cards {
-	margin: 5px;
-	display: block;
+	/*margin: 20px;*/
+	/*margin-left: 40px;*/
+	display: flex;
+	/*width: 175px;*/
+	/*height: 250px;*/
+	/*background-color: grey;*/
+	/*box-shadow: 5px;*/
+}
+
+.outer-div {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin: 20px;
+	background-color: grey;
+}
+
+.what {
 	width: 175px;
 	height: 250px;
-	background-color: grey;
-	box-shadow: 5px;
+	border: 1px solid black;
+	display: inline-block;
+	background-color: white;
+	margin: 5px;
+	border-radius: 10px !important;
+	color: black;
 }
