@@ -27,6 +27,15 @@ export default class Example extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
+clickHandler = event => {
+  
+  const component = event.target.name 
+
+  this.props.renderNewComponent (component, {})
+
+}
+
   render() {
     return (
       <div>
@@ -42,7 +51,7 @@ export default class Example extends React.Component {
                   {/* <Link id="play" to="/play">Play a Game</Link> */}
                 </NavItem>
                 <NavItem>
-                  {/* <Link id="deck" to="/deck">Create a Deck</Link> */}
+                  <button name="deckmake" onClick={this.clickHandler}>Create a Deck</button>
                 </NavItem>
                 <NavItem>
                   {/* <Link id="game" to="/game">Game</Link> */}

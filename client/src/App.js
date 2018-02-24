@@ -5,6 +5,7 @@ import Game from "./pages/Game";
 import Wrapper from "./components/Wrapper";
 import Navbar from "./components/Navbar";
 import DeckMake from "./components/DeckMake";
+import CardMake from "./components/CardMake";
 //import Deck from "./components/Deck";
 import firebase, {login, logout, findGame}from './firebase';
 
@@ -58,8 +59,11 @@ class App extends Component {
       case "home":
         return Home;
 
-      case "deckMake":
+      case "deckmake":
         return DeckMake;
+
+      case "cardmake":
+        return CardMake;
 
       case "game":
         return Game;
@@ -73,7 +77,7 @@ class App extends Component {
   render = () => 
     this.state.auth
     ? <Wrapper>
-        <Navbar/>
+        <Navbar {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
         <this.state.componentToRender {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
       </Wrapper>
     : <Login {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>

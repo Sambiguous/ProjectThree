@@ -1,26 +1,29 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
-import axios from "axios";
 import Container from "../Container";
 import Row from "../Row";
 import Col from "../Col";
 import "./DeckMake.css";
-import CardMake from "../CardMake";
 
 //Create a Deck of cards with card specs
 
 class DeckMake extends Component {
-  // Setting the component's initial state
-  state = {
-    deckName: "",
-    numCards: "",
-    numFields: "",
-    createdBy: "",
-    handSize: "",
-    allCards: {},
-    cardArr: [],
-    fieldArr: []
-  };
+  constructor (props) {
+
+    super (props)
+
+    // Setting the component's initial state
+    this.state = {
+      deckName: "",
+      numCards: "",
+      numFields: "",
+      createdBy: "",
+      handSize: "",
+      allCards: {},
+      cardArr: [],
+      fieldArr: []
+    };
+}
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -38,7 +41,8 @@ class DeckMake extends Component {
     event.preventDefault();
 
     // API call to database to set info
-    var objectToPassToAPI = {
+    var objectToPassToAPI = 
+    {newDeck: {
       deckName: this.state.deckName,
       numCards: this.state.numCards,
       numFields: this.state.numFields,
@@ -47,13 +51,14 @@ class DeckMake extends Component {
       allCards: {},
       cardArr: [],
       fieldArr: []
+      }
     };
-
-    this.props.addNewDeck(objectToPassToAPI);  
 
     console.log("if the data is coming in from the objecttopasstoAPI, it should show below this line:");
     console.log(objectToPassToAPI);
 
+    this.props.renderNewComponent("cardmake", objectToPassToAPI) 
+    
     this.setState({
       deckName: "",
       numCards: "",
@@ -63,11 +68,6 @@ class DeckMake extends Component {
       cardArr: [],
       fieldArr: []
     });
-
-    <Switch>
-      <Redirect from='/deskmake' to='/cardmake'/>
-      <Route path='/cardmake' render={()=><CardMake passDeckInfo={this.passDeckInfo}/>} />
-    </Switch>
 
   };
 

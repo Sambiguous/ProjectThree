@@ -21,30 +21,28 @@ function makeCardArr(number){
     console.log(cardArr);
 }
 
-function makeFieldArr(number){
+// function makeFieldArr(number){
 
-  for (var i=0; i<number; i++) {
-    console.log(`card to be entered` + [i]);
-    fieldArr.push(i);
-  }
-  console.log(fieldArr);
-}
+//   for (var i=0; i<number; i++) {
+//     console.log(`card to be entered` + [i]);
+//     fieldArr.push(i);
+//   }
+//   console.log(fieldArr);
+// }
 
 //Create a Deck of cards with card specs
 
 class CardMake extends Component {
   // Setting the component's initial state
-  state = {
-    deckName: "",
-    numCards: "",
-    numFields: "",
-    createdBy: "",
-    handSize: "",
-    allCards: {},
-    cardArr: [],
-    fieldArr: []
-  };
+  constructor (props) {
+    super (props)
+  
+    this.state = props.newdeck
+  }
 
+  componentDidMount() {
+    console.log(this.props);
+  }
 
 
   handleInputChange = event => {
@@ -87,17 +85,17 @@ class CardMake extends Component {
 
     //axios.post("url", objectToPassToAPI);
 
-    axios.post('/api', objectToPassToDataBase)
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // axios.post('/api', objectToPassToDataBase)
+    // .then(function (response) {
+    //   console.log(response.data);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
     //THIS needs to go into the data call from the app.js
     makeCardArr(this.state.numCards)
-    makeFieldArr(this.state.numFields)
+    // makeFieldArr(this.state.numFields)
 
     this.setState({
       deckName: "",
@@ -125,7 +123,7 @@ class CardMake extends Component {
           Your Deck has {arrayOfFields.length} info fields
         </h4>
         <h4>
-          Please format individual fields as such: "info", "info", "info"...
+          Please format individual cards as such: "info", "info", "info"...
         </h4>
 
         <form className="deck-form"> 
