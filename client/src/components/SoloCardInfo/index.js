@@ -1,1 +1,1 @@
-export { default } from "./CardMake";
+export { default } from "./SoloCardInfo";

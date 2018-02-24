@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
-import Container from "../Container";
-import Row from "../Row";
-import Col from "../Col";
+import Container from "../../components/Container";
+import Row from "../../components/Row";
+import Col from "../../components/Col";
 import "./DeckMake.css";
 
 //Create a Deck of cards with card specs

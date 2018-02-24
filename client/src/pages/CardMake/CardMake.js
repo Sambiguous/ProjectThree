@@ -2,24 +2,24 @@
 import "./CardMake.css";
 import React, { Component } from "react";
 import axios from "axios";
-import Container from "../Container";
+import Container from "../../components/Container";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
+import SoloCardInfo from "../../components/SoloCardInfo";
 
 
-var cardArr = [];
 var fieldArr = [];
 
 const arrOfValues = [];
 
-function makeCardArr(number){
+// function makeCardArr(number){
 
-    for (var i=0; i<number; i++) {
-      console.log(`card to be entered` + [i]);
-      cardArr.push(i);
-    }
-    console.log(cardArr);
-}
+//     for (var i=0; i<number; i++) {
+//       console.log(`card to be entered` + [i]);
+//       cardArr.push(i);
+//     }
+//     console.log(cardArr);
+// }
 
 // function makeFieldArr(number){
 
@@ -105,10 +105,13 @@ class CardMake extends Component {
 
   render() {
 
-    makeCardArr(this.state.numCards)
+    var cardArr = [];
+    for(var i=0; i < this.state.numCards; i++){
+      cardArr.push(<SoloCardInfo key={i} numFields={this.state.numFields} />)
+    }
 
-    const arrayOfCards = cardArr
-    const arrayOfFields = ["1", "2"]
+    // const arrayOfCards = cardArr
+    // const arrayOfFields = ["1", "2"]
 
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
@@ -117,37 +120,13 @@ class CardMake extends Component {
           Enter your Deck's Cards
         </h2>
         <h4>
-          Your Deck has {arrayOfFields.length} info fields
-        </h4>
-        <h4>
-          Please format individual cards as such: "info", "info", "info"...
+          Your Deck has {this.state.numFields} info fields
         </h4>
 
         <form className="deck-form"> 
         <Container style={{ marginTop: 30 }}>
           <div>
-            { //can be anything array, object 
-              arrayOfCards.map((val,index)=>
-              // WHILE KEY DOES NOT EQUAL INDEX.LENGTH???
-
-                (<div key={index}>
-                    <h4>Card Information:</h4>
-                    <Row>
-                      <Col size="sm-12">
-                        <input
-                          value={this.state.cardArr}
-                          name="cardArr"
-                          onChange={this.handleInputChange}
-                          type="text"
-                          className="deck"
-                          placeholder="info"
-                        /> 
-                      </Col>
-                    </Row>
-                    {/* NEED to pause here, and push the card to the array, before sending the information out as a final build the cards call */}
-                    <button onClick={this.handleFieldSubmit}>add info</button>
-                </div>))
-            }
+            {cardArr}
           </div>
           
           <button onClick={this.handleCardSubmit}>Submit</button>
