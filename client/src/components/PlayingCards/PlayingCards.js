@@ -3,6 +3,19 @@ import "./PlayingCards.css";
 
 class PlayingCards extends Component {
 
+	constructor(props) {
+    	super(props);
+    	this.handleClick = this.handleClick.bind(this);
+    	this.state = {isToggleOn: false};
+  	}
+
+  	handleClick() {
+    	this.setState(prevState => ({
+      		isToggleOn: !prevState.isToggleOn
+    	}));
+    	console.log("click happened");
+  	}	
+
 	state = {
 		allCards: {}
 
@@ -27,8 +40,10 @@ class PlayingCards extends Component {
 			              let arr = arrayOfStuff //can be anything array, object 
 			              arr.forEach((val,index)=>{
 			                container.push(<div key={index}>
-			                              <div className="what"><h2>{val[0]}</h2>
-			                              <h3>{val[1]}</h3></div>
+			                              	<div className="playing-card" onClick={this.handleClick}>
+			                              	{/*{this.state.isToggleOn ? 'active' : 'no'}*/}
+			                              	<h2>{val[0]}</h2>
+			                              	<h3>{val[1]}</h3></div>
 			                              </div>)
 			                            });
 			              return container;     
