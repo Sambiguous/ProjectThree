@@ -4,8 +4,8 @@ import Home from "./pages/Home";
 import Game from "./pages/Game";
 import Wrapper from "./components/Wrapper";
 import Navbar from "./components/Navbar";
-import DeckMake from "./components/DeckMake";
-import CardMake from "./components/CardMake";
+import DeckMake from "./pages/DeckMake";
+import CardMake from "./pages/CardMake";
 //import Deck from "./components/Deck";
 import firebase, {login, logout, findGame}from './firebase';
 

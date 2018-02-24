@@ -3,8 +3,8 @@ import "./CardMake.css";
 import React, { Component } from "react";
 import axios from "axios";
 import Container from "../Container";
-import Row from "../Row";
-import Col from "../Col";
+import Row from "../../components/Row";
+import Col from "../../components/Col";
 
 
 var cardArr = [];
@@ -37,13 +37,12 @@ class CardMake extends Component {
   constructor (props) {
     super (props)
   
-    this.state = props.newdeck
+    this.state = props.newDeck
   }
 
   componentDidMount() {
-    console.log(this.props);
+    console.log(this.state);
   }
-
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
