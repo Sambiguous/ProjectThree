@@ -14,13 +14,14 @@ class About extends Component {
         this.state = { collapse: false };
       }
 
-      componentDidMount(){
+      componentDidMount = () => {
         axios.get("/api/decks").then(response => {
           let newState = this.state
           newState.deckNames = response.data;
           this.setState(newState);
         });
-      };
+      }
+
 
       toggle() {
         this.setState({ collapse: !this.state.collapse });

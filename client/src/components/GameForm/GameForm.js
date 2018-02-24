@@ -1,19 +1,16 @@
 import React, { Component } from "react";
-import Wrapper from "../Wrapper";
-import { Link } from "react-router-dom";
-import Game from "../../pages/Game";
-import firebase from '../../firebase';
 import "./GameForm.css";
 
 class GameForm extends Component {
 
   constructor(props){
-    super(props);
+    super(props)
     this.state = {
       code: "",
-      foundGame: false
+      numPlayers: ""
     }
   }
+
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -33,27 +30,23 @@ class GameForm extends Component {
 
     const code = this.state.code;
 
-    if(code.length < 5){
-      console.log('game code too short');
-      return;
-    }
-
-    this.props.connectToGame(code);
+    this.props.findGame(code, response =>{
+      if(response.status === "success"){
+        this.props.renderNewComponent("game", {code: code});
+      } else {
+        console.log(response);
+      }
+    });
   };
-
-  handleCreate = event => {
-    event.preventDefault();
-  }
 
   render() {
     return (
-      
       <form className="gameform">
         <div className="form-group">
           <h3>Join a game</h3>
           <input
-            type="text"
             value={this.state.code}
+            type="text"
             className="form-control"
             onChange={this.handleInputChange}
             placeholder="GAME CODE"
@@ -67,7 +60,7 @@ class GameForm extends Component {
             id="join-btn"
             onClick={this.handlePlay}
           >
-            Play
+            Play!
           </button>
 
           <h3> Start a new game </h3>
