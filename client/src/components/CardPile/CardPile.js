@@ -73,7 +73,7 @@ class CardPile extends Component {
 		return (
 			<div>
 				<div className="card-pile" onClick={this.handleClick}>
-					<h5> no </h5>
+					<h5> Card Pile </h5>
 				</div>
 			</div>
 		)

@@ -42,7 +42,6 @@ class PlayingCards extends Component {
 			                              	{/*{this.state.isToggleOn ? 'active' : 'no'}*/}
 			                              	<h5>{val[0]}</h5>
 			                              	<h5>{val[1]}</h5></div>
-
 			                              </div>)
 			                            });
 			              return container;     
