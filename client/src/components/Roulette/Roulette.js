@@ -11,6 +11,10 @@ class Roulette extends Component {
     this.state = { collapse: false };
   }
 
+  componentDidMount = () => {
+    console.log(this.props);
+  }
+
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
@@ -20,7 +24,7 @@ class Roulette extends Component {
   		<div>
         	<Button className="roulette" onClick={this.toggle}> Roulette</Button>
         	<Collapse isOpen={this.state.collapse}>
-            	<GameForm />
+            	<GameForm connectToGame={this.props.connectToGame}/>
         	</Collapse>
       </div>
   	)
