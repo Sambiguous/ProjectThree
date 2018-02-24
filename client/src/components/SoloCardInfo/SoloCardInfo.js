@@ -1,5 +1,4 @@
-
-import "./CardMake.css";
+import "./SoloCardInfo.css";
 import React, { Component } from "react";
 import axios from "axios";
 import Container from "../Container";
@@ -21,23 +20,12 @@ function makeCardArr(number){
     console.log(cardArr);
 }
 
-// function makeFieldArr(number){
-
-//   for (var i=0; i<number; i++) {
-//     console.log(`card to be entered` + [i]);
-//     fieldArr.push(i);
-//   }
-//   console.log(fieldArr);
-// }
-
-//Create a Deck of cards with card specs
-
-class CardMake extends Component {
+class SoloCardInfo extends Component {
   // Setting the component's initial state
   constructor (props) {
     super (props)
   
-    this.state = props.newdeck
+    this.state = props.newSingleCard
   }
 
   componentDidMount() {
@@ -93,10 +81,6 @@ class CardMake extends Component {
     //   console.log(error);
     // });
 
-    //THIS needs to go into the data call from the app.js
-    makeCardArr(this.state.numCards)
-    // makeFieldArr(this.state.numFields)
-
     this.setState({
       deckName: "",
       numCards: "",
@@ -110,7 +94,9 @@ class CardMake extends Component {
 
   render() {
 
-    const arrayOfCards = ["1", "2", "3", "4"]
+    makeCardArr(this.state.numCards)
+
+    const arrayOfCards = cardArr
     const arrayOfFields = ["1", "2"]
 
     // Notice how each input has a `value`, `name`, and `onChange` prop
@@ -134,7 +120,7 @@ class CardMake extends Component {
               // WHILE KEY DOES NOT EQUAL INDEX.LENGTH???
 
                 (<div key={index}>
-                    <h4>Card {val} Information:</h4>
+                    <h4>Card Information:</h4>
                     <Row>
                       <Col size="sm-12">
                         <input
@@ -161,4 +147,4 @@ class CardMake extends Component {
   }
 };
 
-export default CardMake;
+export default SoloCardInfo;
