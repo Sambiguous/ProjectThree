@@ -23,35 +23,6 @@ const PrivateRoute = ({component: Component, ...rest}) => (
 const 
 
 class App extends Component {
-<<<<<<< HEAD
-  constructor(props){
-    super(props);
-
-    this.state = {
-      gameCode: null
-    }
-  }
-
-  connectToGame = code => {
-    firebase.database().ref().child('games').child(code).once('value', snap => {
-      const game = snap.val()
-      if(!game){
-        console.log("no game was found with that password");
-        return;
-      };
-      if(Object.keys(game.players).length < game.maxPlayers){
-        firebase.database().ref().child('games').child(code).child('players').push(firebase.auth().currentUser.displayName, e => {
-          if(e){
-            console.log("an error occured trying to join the match");
-          }else{
-            this.setState({gameCode: code});
-            
-          };
-        });
-      };
-    });
-  };
-=======
   state = {
     newDeck: {
       deckName: "",
@@ -89,7 +60,6 @@ class App extends Component {
   passDeckInfo = () => {
     let passDeck = this.state.newDeck;
   }
->>>>>>> c20200613e37d506ea30ce7010ca85904358866d
 
   render(){
     return ( 
@@ -99,16 +69,10 @@ class App extends Component {
           <Navbar />
           <Wrapper>
             <Route exact path="/" component={Login} />
-<<<<<<< HEAD
-            <Route exact path="/play" render={() => <About connectToGame={this.connectToGame} />} />
-            <Route exact path="/deck" component={Deck} />
-            <Route exact path="/game" render={Game} />
-=======
             <Route exact path="/play" component={About} />
             <Route exact path="/game" component={Game} />
             <Route exact path="/deckmake" render={()=><DeckMake addNewDeck={this.addNewDeck}/>} /> 
             <Route exact path="/cardmake" render={()=><CardMake passDeckInfo={this.passDeckInfo}/>} />
->>>>>>> c20200613e37d506ea30ce7010ca85904358866d
           </Wrapper>
         </div>
       </Router>
