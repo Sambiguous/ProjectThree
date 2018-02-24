@@ -2,26 +2,42 @@ import React, { Component } from "react";
 import "./GameForm.css";
 
 class GameForm extends Component {
-  state = {
 
-  };
+  constructor(props){
+    super(props)
+    this.state = {
+      code: "",
+      numPlayers: ""
+    }
+  }
+
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     const value = event.target.value;
     const name = event.target.name;
 
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
+    //limit the gamecode input to 5 characters
+    if(name === 'code'){
+      this.setState({[name]: value.length < 6 ? value : value.slice(0, 5)})
+      return;
+    }
+    this.setState({[name]: value});
   };
 
-  handleFormSubmit = event => {
+  handlePlay = event => {
     event.preventDefault();
-    
 
-  }
+    const code = this.state.code;
+
+    this.props.findGame(code, response =>{
+      if(response.status === "success"){
+        this.props.renderNewComponent("game", {code: code});
+      } else {
+        console.log(response);
+      }
+    });
+  };
 
   render() {
     return (
@@ -29,10 +45,12 @@ class GameForm extends Component {
         <div className="form-group">
           <h3>Join a game</h3>
           <input
+            value={this.state.code}
             type="text"
             className="form-control"
             onChange={this.handleInputChange}
             placeholder="GAME CODE"
+            name="code"
             id="joingame-input"
           />
 
@@ -40,7 +58,7 @@ class GameForm extends Component {
             type="submit"
             className="join-btn"
             id="join-btn"
-            onClick={this.handleFormSubmit}
+            onClick={this.handlePlay}
           >
             Play!
           </button>
