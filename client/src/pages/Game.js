@@ -7,8 +7,15 @@ import CardPile from "../components/CardPile";
 import ActiveBar from "../components/ActiveBar";
 import PlayingCards from "../components/PlayingCards";
 import "./Game.css"; 
+import GameButtons from "../components/GameButtons";
 
 class Game extends Component {
+
+	//on click card 
+	//if user clicks card pile, move the next card up (to be displayed) in the array
+
+	//on click discard
+	//if user clicks discard pile, cards move to that array
 
 	constructor(props) {
 		super(props)
@@ -74,11 +81,13 @@ class Game extends Component {
 		return (
 			<Container className="card-container">
 			<h1 className="game-title"> {this.state.name}</h1>
-			<h4 className="game-players">{this.state.players[0]} </h4>
+			<h4 className="game-players">{this.state.players[0]}</h4>
+
 				<Row>
 					<CardPile />
 					<DiscardPile /> 
 					<PlayingCards />
+					<GameButtons />
 				</Row>
 				<Row>
 				</Row>
