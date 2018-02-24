@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Collapse, Button} from 'reactstrap';
-import "./ClassicDeck.css";
+import "./DeckPanel.css";
 import GameForm from "../GameForm";
 
 class ClassicDeck extends Component {
