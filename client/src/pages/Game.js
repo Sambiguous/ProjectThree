@@ -4,6 +4,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import DiscardPile from "../components/DiscardPile";
 import CardPile from "../components/CardPile";
+import ActiveBar from "../components/ActiveBar";
 import PlayingCards from "../components/PlayingCards";
 import "./Game.css"; 
 import GameButtons from "../components/GameButtons";
@@ -88,7 +89,9 @@ class Game extends Component {
 					<PlayingCards />
 					<GameButtons />
 				</Row>
-			</Container>		
+				<Row>
+				</Row>
+			</Container>	
 		);
 	}
 
