@@ -3,6 +3,17 @@ import "./CardPile.css";
 
 class CardPile extends Component {
 
+
+	constructor(props){
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+
+	}
+
+  	handleClick() {
+    	console.log('Click happened');
+  	}
+
 	state = {
 
 	}
