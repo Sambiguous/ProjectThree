@@ -4,13 +4,11 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  //NavbarBrand,
+  NavbarBrand,
   Nav,
   NavItem,
-  //the navlink component causes weird behaviour and is off limits for now.
-  //NavLink,
 } from 'reactstrap';
-  //use this link instead
+
 import { Link } from "react-router-dom";
 
 export default class Example extends React.Component {
@@ -31,10 +29,9 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar className="navbar navbar-reverse">
-          <NavbarToggler className="navbar-toggler-right" src={require("./onDeckLogo.png")} onClick={this.toggle} />
+          <NavbarToggler className="navbar-toggler-right" src={require("../../spade.jpeg")} onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-      
                 <NavItem>
                   <Link id="home" to="/">Home</Link>
                 </NavItem>
