@@ -84,7 +84,7 @@ class DeckMake extends Component {
           <Row>
             <Col size="sm-12">
               <input
-                value={this.state.firstName}
+                value={this.state.deckName}
                 name="deckName"
                 onChange={this.handleInputChange}
                 type="text"

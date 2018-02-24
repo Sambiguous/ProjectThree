@@ -10,6 +10,8 @@ import Col from "../Col";
 var cardArr = [];
 var fieldArr = [];
 
+const arrOfValues = [];
+
 function makeCardArr(number){
 
     for (var i=0; i<number; i++) {
@@ -43,7 +45,9 @@ class CardMake extends Component {
     fieldArr: []
   };
 
-   handleInputChange = event => {
+
+
+  handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     const value = event.target.value;
     const name = event.target.name;
@@ -53,6 +57,18 @@ class CardMake extends Component {
       [name]: value
     });
   };
+
+  handleFieldSubmit = event => {
+    event.preventDefault();
+
+    const pushInfo = this.state.cardArr;
+    console.log(pushInfo);
+    
+    arrOfValues.push(pushInfo);
+
+    console.log(arrOfValues);
+
+  }
 
   handleCardSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
@@ -64,8 +80,10 @@ class CardMake extends Component {
       numCards: this.state.numCards,
       numFields: this.state.numFields,
       createdBy: this.state.createdBy,
-      handSize: this.state.handSize
+      handSize: this.state.handSize,
+      cardArr: arrOfValues
     };
+    console.log(objectToPassToDataBase);
 
     //axios.post("url", objectToPassToAPI);
 
@@ -103,33 +121,38 @@ class CardMake extends Component {
         <h2>
           Enter your Deck's Cards
         </h2>
+        <h4>
+          Your Deck has {arrayOfFields.length} info fields
+        </h4>
+        <h4>
+          Please format individual fields as such: "info", "info", "info"...
+        </h4>
 
         <form className="deck-form"> 
         <Container style={{ marginTop: 30 }}>
-          {/* This currently works, trying to swap to an indep this(dot)function */}
           <div>
-            {(()=>{
-              let container =[];
-              let arr = arrayOfCards //can be anything array, object 
-              arr.forEach((val,index)=>{
-                container.push(<div key={index}>
-                              <h2>'Card {val} Information:'</h2>
-                              <Row>
-                                <Col size="sm-12">
-                                  <input
-                                    value={this.state.firstName}
-                                    name="deckName"
-                                    onChange={this.handleInputChange}
-                                    type="text"
-                                    className="deck"
-                                    placeholder="phrase"
-                                  /> 
-                                </Col>
-                              </Row>
-                              </div>)
-                            });
-                        return container;     
-            })()}
+            { //can be anything array, object 
+              arrayOfCards.map((val,index)=>
+              // WHILE KEY DOES NOT EQUAL INDEX.LENGTH???
+
+                (<div key={index}>
+                    <h4>Card {val} Information:</h4>
+                    <Row>
+                      <Col size="sm-12">
+                        <input
+                          value={this.state.cardArr}
+                          name="cardArr"
+                          onChange={this.handleInputChange}
+                          type="text"
+                          className="deck"
+                          placeholder="info"
+                        /> 
+                      </Col>
+                    </Row>
+                    {/* NEED to pause here, and push the card to the array, before sending the information out as a final build the cards call */}
+                    <button onClick={this.handleFieldSubmit}>add info</button>
+                </div>))
+            }
           </div>
           
           <button onClick={this.handleCardSubmit}>Submit</button>
