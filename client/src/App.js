@@ -1,41 +1,87 @@
 import React, {Component} from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Login from "./pages/Login";
-import About from "./pages/About";
-//import Discover from "./pages/Discover";
+import Home from "./pages/Home";
 import Game from "./pages/Game";
 import Wrapper from "./components/Wrapper";
-// import ClassicDeck from "./components/ClassicDeck";
-// import Roulette from "./components/Roulette";
 import Navbar from "./components/Navbar";
-import Deck from "./components/Deck";
-import firebase from './firebase';
+import DeckMake from "./pages/DeckMake";
+import CardMake from "./pages/CardMake";
+//import Deck from "./components/Deck";
+import firebase, {login, logout, findGame}from './firebase';
 
-const PrivateRoute = ({component: Component, ...rest}) => (
-  <Route {...rest} render={(props) => (
-    firebase.auth().currentUser
-    ? <Component {...props} />
-    : <Redirect to='/'/>
-  )} />
-)
+const universalProps = {
+  test: "hello",
+  login: login,
+  logout: logout,
+  findGame: findGame
+}
 
 class App extends Component {
 
-  render(){
-    return (
-      <Router>
-        <div>
-          <Navbar />
-          <Wrapper>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/play" component={About} />
-            <Route exact path="/game" component={Game} />
-            <Route exact path="/deck" component={Deck} />
-          </Wrapper>
-        </div>
-      </Router>
-    )
+  constructor(props){
+    super(props);
+    this.state = {
+      propsToRenderedComponent: universalProps,
+      auth: props.auth,
+      componentToRender: Home,
+      newDeck: {}
+    };
+  };
+
+
+  addNewDeck = (data) => {
+
+    console.log("if the data is coming in from the DeckMake, it should show below this line:");
+    console.log(data);
+
+    this.setState({newDeck: data});
+
+    console.log("if the data is coming in from this(dot)state(dot)newdeck, it should show below this line:");
+    console.log(this.state);
+
   }
-}
+
+  renderNewComponent = (component, props) =>{
+
+    let newState = this.state;
+    newState.componentToRender = this.CompFrmStr(component);
+    newState.propsToRenderedComponent = Object.assign(props, universalProps);
+    newState.auth = firebase.auth().currentUser
+
+    this.setState(newState);
+  };
+
+  CompFrmStr = compName => {
+    switch(compName.toLowerCase()){
+      case "login":
+        return Login;
+      
+      case "home":
+        return Home;
+
+      case "deckmake":
+        return DeckMake;
+
+      case "cardmake":
+        return CardMake;
+
+      case "game":
+        return Game;
+    };
+  };
+
+  passDeckInfo = () => {
+    let passDeck = this.state.newDeck;
+  }
+
+  render = () => 
+    this.state.auth
+    ? <Wrapper>
+        <Navbar {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
+        <this.state.componentToRender {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
+      </Wrapper>
+    : <Login {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
+};
+
 
 export default App;

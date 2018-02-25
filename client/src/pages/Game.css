@@ -2,6 +2,11 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
+.game-title, .game-players {
+	color: black;
+	text-align: center;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -10,6 +15,6 @@ body {
 }
 
 .card-container {
-	background-color: white;
+	background-color: #D4D4D4;
 	padding-bottom: 500px;
 }
