@@ -73,7 +73,7 @@ class App extends Component {
   render = () => 
     this.state.auth
     ? <Wrapper>
-        <Navbar/>
+        <Navbar {...this.state.propsToRenderedComponent}/>
         <this.state.componentToRender {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
       </Wrapper>
     : <Login {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
