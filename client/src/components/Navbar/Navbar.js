@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Component } from 'react';
 import "./Navbar.css";
+import axios from "axios";
 import {
   Collapse,
   Navbar,
@@ -7,9 +8,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-} from 'reactstrap';
-
-import { Link } from "react-router-dom";
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -25,28 +28,26 @@ export default class Example extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
+  handleLogout = () => {
+        this.props.logout(response => {
+          if(response.status === "success"){
+            this.props.renderNewComponent("login", {});
+          };
+        });
+  };
+
   render() {
     return (
       <div>
-        <Navbar className="navbar navbar-reverse">
-          <NavbarToggler className="navbar-toggler-right" src={require("../../spade.jpeg")} onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <button name="home" onClick={this.clickHandler}>home</button>
-                </NavItem>
-                <NavItem>
-                  {/* <Link id="play" to="/play">Play a Game</Link> */}
-                </NavItem>
-                <NavItem>
-                  {/* <Link id="deck" to="/deck">Create a Deck</Link> */}
-                </NavItem>
-                <NavItem>
-                  {/* <Link id="game" to="/game">Game</Link> */}
-                </NavItem>
-
-              </Nav>
-          </Collapse>
+        <Navbar class="nav nav-tabs" light expand="md">
+            <Nav className="nav" navbar>
+              <ul class="nav nav-tabs">
+                <button id="create"><a href="/">Create</a></button>
+                <button id="play"><a href="/">Play</a></button>
+                <button onClick={this.handleLogout}>LOGOUT</button>
+              </ul>
+            </Nav>
         </Navbar>
       </div>
     );

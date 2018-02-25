@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./GameForm.css";
+import "./JoinForm.css";
 
-class GameForm extends Component {
+class JoinForm extends Component {
 
   constructor(props){
     super(props)
@@ -41,36 +41,32 @@ class GameForm extends Component {
 
   render() {
     return (
-      <form className="gameform">
+      <form className="joinform">
         <div className="form-group">
+          <h3>Join a game</h3>
+          <input
+            value={this.state.code}
+            type="text"
+            className="form-control"
+            onChange={this.handleInputChange}
+            placeholder="GAME CODE"
+            name="code"
+            id="joingame-input"
+          />
 
-          <h3> Start a new game </h3>
-          <input
-            type="text"
-            className="form-control"
-            onChange={this.handleInputChange}
-            placeholder="# OF PLAYERS"
-            id="startgame-input"
-          />
-          <input
-            type="text"
-            className="form-control"
-            onChange={this.handleInputChange}
-            placeholder="PASSWORD"
-            id="password-input"
-          />
           <button
             type="submit"
-            className="start-btn"
-            id="start-btn"
-            onClick={this.handleFormSubmit}
+            className="join-btn"
+            id="join-btn"
+            onClick={this.handlePlay}
           >
-            Create
+            Play!
           </button>
+
         </div>
       </form>
     )
   }
 }
 
-export default GameForm;
+export default JoinForm;
