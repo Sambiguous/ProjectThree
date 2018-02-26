@@ -46,7 +46,7 @@ class SoloCardInfo extends Component {
   handleFieldSubmit = event => {
     event.preventDefault();
 
-    const pushInfo = this.state.cardArr;
+    const pushInfo = this.state.fieldArr;
     console.log(pushInfo);
     
     arrOfValues.push(pushInfo);
@@ -59,22 +59,26 @@ class SoloCardInfo extends Component {
 
     let inputs = [];
     for (var i=0; i<this.state.numFields; i++) {
-      inputs.push(<li>thing {i}</li>);
+      inputs.push(
+        <div key={i}>
+          <input
+            value={this.state.fieldArr}
+            name={"fieldArr" + i}
+            onChange={this.handleInputChange}
+            type="text"
+            className="deck"
+            placeholder="info"
+          />
+          <button onClick={this.handleFieldSubmit}>add info</button>
+        </div> 
+      );
     }
   
     return (
       <Row>
         <Col size="sm-12">
         {inputs}
-          {/* <input
-            value={this.state.cardArr}
-            name="cardArr"
-            onChange={this.handleInputChange}
-            type="text"
-            className="deck"
-            placeholder="info"
-          />  */}
-          <button onClick={this.handleFieldSubmit}>add info</button>
+        {/* <button onClick={this.handleFieldSubmit}>add info</button> */}
         </Col>
       </Row>
 
