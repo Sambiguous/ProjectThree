@@ -28,6 +28,8 @@ form.login {
 form.login button[type="submit"] {
   align-items: center;
   width: 35%;
+  padding-bottom: 10px;
+  padding-top: 10px;
   background-color: #8D0000;
   color: white;
 }
