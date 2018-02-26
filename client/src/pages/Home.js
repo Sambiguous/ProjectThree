@@ -6,6 +6,7 @@ import DeckPanel from "../components/DeckPanel";
 import "../index.css"
 import { Button } from 'reactstrap';
 import axios from "axios";
+import JoinForm from "../components/JoinForm";
 
 class About extends Component {
       constructor(props) {
@@ -26,6 +27,7 @@ class About extends Component {
       toggle() {
         this.setState({ collapse: !this.state.collapse });
       }
+      
 
       handleLogout = () => {
         this.props.logout(response => {
@@ -43,13 +45,17 @@ class About extends Component {
     
         return (
           <div>
-            <h1>PICK A DECK</h1>
-            <button 
-            onClick={this.handleLogout}
-            >logout</button>
+            <Container style={{ marginTop: 30 }}>
+            <JoinForm {...this.props} />
+            </Container>
+
+            <h1>START A NEW GAME</h1>
             <Container style={{ marginTop: 30 }}>
               {decks}
             </Container>
+            <button 
+            onClick={this.handleLogout}
+            >LOGOUT</button>
           </div>
         )
       };
