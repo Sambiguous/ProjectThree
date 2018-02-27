@@ -43,8 +43,7 @@ class GameForm extends Component {
     return (
       <form className="gameform">
         <div className="form-group">
-
-          <h3> Start a new game </h3>
+        
           <input
             type="text"
             className="form-control"
