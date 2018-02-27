@@ -31,11 +31,34 @@ firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.passwo
             let index = activeGameCodes.indexOf(code)
 
             activeGameCodes.splice(index, 1);
-
             console.log(activeGameCodes);
         })
     }
     if(failure){
         console.log("failure:", failure)
     }
-})
+});
+
+function generateGameCode(){
+
+    let code = "";
+    let codeExists = true;
+
+    while(codeExists){
+        for(var i=0; i < 5; i++){
+            let digit = Math.floor(Math.random() * 10)
+            code += digit.toString()
+        };
+        console.log(code);
+
+        codeExists = activeGameCodes.indexOf(code) !== -1
+    }
+
+    return code;
+};
+
+
+module.exports = {
+    firebase: firebase,
+    generateGameCode: generateGameCode
+}

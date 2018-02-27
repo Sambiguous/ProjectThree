@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const db = require("../../models")
+const firebase = require("../../firebase");
 
 
 router.get("/", function(req, res){
@@ -24,5 +25,10 @@ router.get("/decks", function(req, res){
         res.json(deckNames);
     });
 });
+
+router.get("/creategame", function(req, res){
+    const code = firebase.generateGameCode()
+    res.send(code);
+})
 
 module.exports = router
