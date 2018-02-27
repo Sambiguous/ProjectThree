@@ -8,6 +8,7 @@ import ActiveBar from "../components/ActiveBar";
 import PlayingCards from "../components/PlayingCards";
 import "./Game.css"; 
 import GameButtons from "../components/GameButtons";
+import { Button} from 'reactstrap';
 
 class Game extends Component {
 
@@ -71,6 +72,10 @@ class Game extends Component {
 		}
 	}
 
+	  handlePlayClick = () => {
+    		this.props.renderNewComponent("home", {});
+  		}
+
 	render() {
 
 	if ({/* username*/}) {
@@ -78,6 +83,7 @@ class Game extends Component {
 	}
 		return (
 			<Container className="card-container">
+			<Button className="back" onClick={this.handlePlayClick}></Button>
 			<h2 className="game-title"> {this.state.name}</h2>
 			<h5 className="game-players">{this.state.players[0]}</h5>
 
