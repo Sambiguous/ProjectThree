@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Container from "../Container";
+import Row from "../Row";
+import Col from "../Col";
 import "./Navbar.css";
 import axios from "axios";
 import {
@@ -41,15 +44,23 @@ export default class Example extends React.Component {
   render() {
     return (
       <div>
+      <Container className="nav-container">
+
+      <Row>
+      <Col size="sm-12">
         <Navbar class="nav nav-tabs" light expand="md">
             <Nav className="nav" navbar>
               <ul class="nav nav-tabs">
-                <button id="create"><a href="/">Create</a></button>
-                <button id="play"><a href="/">Play</a></button>
+                <button id="deckmake" onClick={this.props.renderNewComponent("deckmake", {} )}>Create</button>
+                <button id="play" >Play</button>
                 <button onClick={this.handleLogout}>LOGOUT</button>
               </ul>
             </Nav>
         </Navbar>
+
+        </Col>
+        </Row>
+        </Container>
       </div>
     );
   }
