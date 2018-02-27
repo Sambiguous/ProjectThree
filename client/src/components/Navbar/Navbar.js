@@ -42,6 +42,7 @@ export default class Example extends React.Component {
 
   handlePlayClick = () => {
     this.props.renderNewComponent("game", {});
+    
   }
 
   render() {

@@ -32,13 +32,11 @@ class PlayingCards extends Component {
 		let container = [];
 		for (var i=0; i < cardArr; i++) {
 			container.push(
-			<div key={i} className="playing-card" onClick={this.handleClick}>
-        		<h5>{cardArr[0]}</h5>
-			    <h5>{cardArr[1]}</h5>
-        	</div> 
-
+				<div key={i}>
+	        		<h5>{cardArr[0]}</h5>
+				    <h5>{cardArr[1]}</h5>
+	        	</div>
 			)
-
 		}
 
 		return (
@@ -46,7 +44,10 @@ class PlayingCards extends Component {
 				<div className="playing-cards">
 					<div className="outer-div">
    						<div className="playing-card">
-   						{cardArr}
+   						{cardArr[0]}
+   						</div>
+   						<div className="playing-card">
+   						{cardArr[1]}
    						</div>
           			</div>
 				</div>
