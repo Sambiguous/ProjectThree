@@ -35,7 +35,7 @@ function login(user, email, pass, cb){
         firebase.auth().signInWithEmailAndPassword(email, pass)
         .catch(e => {
           if(e.code === "auth/wrong-password"){
-             cb({status: "failed", code: 'incorrect email or password'});
+            cb({status: "failed", code: 'incorrect email or password'});
           } else {
             cb({status: "failed", code: e.message});
           }
