@@ -50,11 +50,11 @@ export default class Example extends React.Component {
       <Col size="sm-12">
         <Navbar class="nav nav-tabs" light expand="md">
             <Nav className="nav" navbar>
-              <Nav class="nav nav-tabs">
-                <button id="play"><a href="/">Play</a></button>
-                <button id="create"><a href="/">Create</a></button>
-                <hr />
-              </Nav>
+              <ul class="nav nav-tabs">
+                <button id="deckmake" onClick={this.props.renderNewComponent("deckmake", {} )}>Create</button>
+                <button id="play" >Play</button>
+                <button onClick={this.handleLogout}>LOGOUT</button>
+              </ul>
             </Nav>
         </Navbar>
 

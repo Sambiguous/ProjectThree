@@ -11,18 +11,12 @@ import GameButtons from "../components/GameButtons";
 
 class Game extends Component {
 
-	//on click card 
-	//if user clicks card pile, move the next card up (to be displayed) in the array
-
-	//on click discard
-	//if user clicks discard pile, cards move to that array
-
 	constructor(props) {
 		super(props)
 
 		this.state = {
 			code: "12345",
-			name: "Roulette",
+			name: "USSR jest",
 			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
 			allCards: [  {
 				fromDeck: "USSR jest",
@@ -78,6 +72,10 @@ class Game extends Component {
 	}
 
 	render() {
+
+	if ({/* username*/}) {
+		
+	}
 		return (
 			<Container className="card-container">
 			<h2 className="game-title"> {this.state.name}</h2>
@@ -90,8 +88,9 @@ class Game extends Component {
 					<GameButtons />
 				</Row>
 				<Row>
+				<ActiveBar />
 				</Row>
-			</Container>	
+			</Container>
 		);
 	}
 
