@@ -7,19 +7,10 @@
 
 .nav {
 	width: 100%;
-	color: white;
+	border-bottom: none;
 	margin-bottom: -25px;
 	margin-top: -5px;
 }
-
-a {
-	text-decoration: none !important;
-	color: #D4D4D4 !important;
-	font-size: 30px !important;
-	text-transform: uppercase !important;
-	font-family: 'Pathway Gothic One', sans-serif !important;
-}
-
 
 #play {
 	width: 50%;
@@ -27,21 +18,25 @@ a {
 	color: #D4D4D4 !important;
 	font-size: 35px !important;
 	text-transform: uppercase;
+	font-family: 'Pathway Gothic One', sans-serif !important;
+
 }
 
-#create {
+#deckmake {
 	width: 50%;
 	background-color: #181717!important;
 	color: #D4D4D4 !important;
 	font-size: 35px !important;
 	text-transform: uppercase;
+	font-family: 'Pathway Gothic One', sans-serif !important;
+
 }
 
 #play:hover ~ hr {
   margin-left: 15%;
 }
 
-#create:hover ~ hr {
+#deckmake:hover ~ hr {
   margin-left: 65%;
 }
 
@@ -49,7 +44,7 @@ a {
   margin-left: 15%;
 }
 
-#create:active ~ hr {
+#deckmake:active ~ hr {
   margin-left: 65%;
 }
 
@@ -61,7 +56,7 @@ hr {
 	background: #81170F;
 	border: none;
 	transition: .3s ease-in-out;
-	}
+}
 
 
 #logout {
