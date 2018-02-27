@@ -59,17 +59,17 @@ class SoloCardInfo extends Component {
 
     let inputs = [];
     for (var i=0; i<this.state.numFields; i++) {
+      let currentValue = this.state.fieldArr[i];
       inputs.push(
         <div key={i}>
           <input
-            value={this.state.fieldArr}
+            value={currentValue}
             name={"fieldArr" + i}
             onChange={this.handleInputChange}
             type="text"
             className="deck"
             placeholder="info"
           />
-          <button onClick={this.handleFieldSubmit}>add info</button>
         </div> 
       );
     }
@@ -78,7 +78,7 @@ class SoloCardInfo extends Component {
       <Row>
         <Col size="sm-12">
         {inputs}
-        {/* <button onClick={this.handleFieldSubmit}>add info</button> */}
+        <button onClick={this.handleFieldSubmit}>add info</button>
         </Col>
       </Row>
 

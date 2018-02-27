@@ -30,13 +30,16 @@ export default class Example extends React.Component {
   }
 
   handleLogout = () => {
-        this.props.logout(response => {
-          if(response.status === "success"){
-            this.props.renderNewComponent("login", {});
-          };
-        });
+    this.props.logout(response => {
+      if(response.status === "success"){
+        this.props.renderNewComponent("login", {});
+      };
+    });
   };
 
+  handleCreateClick = () => {
+    this.props.renderNewComponent("deckmake", {});
+  }
 
   render() {
     return (
@@ -44,7 +47,7 @@ export default class Example extends React.Component {
         <Navbar class="nav nav-tabs" light expand="md">
             <Nav className="nav" navbar>
               <ul class="nav nav-tabs">
-                <button id="deckmake" onClick={this.props.renderNewComponent("deckmake", {} )}>Create</button>
+                <h3 onClick={this.handleCreateClick}>CREATE</h3>
                 <button id="play" >Play</button>
                 <button onClick={this.handleLogout}>LOGOUT</button>
               </ul>
