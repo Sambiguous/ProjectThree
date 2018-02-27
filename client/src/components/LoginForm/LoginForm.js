@@ -107,12 +107,12 @@ handleLogin = event => {
         className="btn" 
       >LOGIN
       </button>
-      <button
+      {/*<button
         type="submit"
         onClick={this.handleLogout}
         className="btn"
         >LOGOUT
-      </button>
+      </button>*/}
     </div>
   </form>
     )
