@@ -31,8 +31,6 @@ firebase.auth().onAuthStateChanged(user => {
 
 function login(user, email, pass, cb){
 
-    console.log("login function running");
-
     if(email){
         firebase.auth().signInWithEmailAndPassword(email, pass)
         .then(() =>{
