@@ -31,8 +31,13 @@ firebase.auth().onAuthStateChanged(user => {
 
 function login(user, email, pass, cb){
 
+    console.log("login function running");
+
     if(email){
         firebase.auth().signInWithEmailAndPassword(email, pass)
+        .then(() =>{
+            cb({status: "success", user: firebase.auth().currentUser});
+        })
         .catch(e => {
           if(e.code === "auth/wrong-password"){
             cb({status: "failed", code: 'incorrect email or password'});
@@ -40,13 +45,13 @@ function login(user, email, pass, cb){
             cb({status: "failed", code: e.message});
           }
         })
-        .then(() =>{
-            cb({status: "success", user: firebase.auth().currentUser});
-        })
     } else if(user){
         firebase.database().ref().child('users').child(user).once('value', snap => {
             if(snap.val()){
                 firebase.auth().signInWithEmailAndPassword(snap.val(), pass)
+                .then(() =>{
+                    cb({status: "success", user: firebase.auth().currentUser})
+                })
                 .catch(e => {
                     if(e.code === "auth/wrong-password"){
                         cb({status: "failed", code: 'incorrect email or password'});
@@ -54,9 +59,6 @@ function login(user, email, pass, cb){
                         cb({status: "failed", code: e.message});
                       };
                 })
-                .then(() =>{
-                    cb({status: "success", user: firebase.auth().currentUser})
-                });
             } else {
               cb({status: "failed", code: 'incorrect email or password'})
             };
