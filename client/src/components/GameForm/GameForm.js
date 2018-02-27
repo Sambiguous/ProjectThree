@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./GameForm.css";
+import axios from "axios";
 
 class GameForm extends Component {
 
@@ -39,6 +40,16 @@ class GameForm extends Component {
     });
   };
 
+  handleCreate = event => {
+    event.preventDefault();
+
+    axios.get("/api/creategame").then(response => {
+      const gameCode = respons.data;
+
+      
+    });
+  };
+
   render() {
     return (
       <form className="gameform">
@@ -55,7 +66,7 @@ class GameForm extends Component {
             type="submit"
             className="start-btn"
             id="start-btn"
-            onClick={this.handleFormSubmit}
+            onClick={this.handleCreate}
           >
             Create
           </button>
