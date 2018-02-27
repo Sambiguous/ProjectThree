@@ -37,6 +37,9 @@ export default class Example extends React.Component {
         });
   };
 
+  handlePlayClick = () => {
+    this.props.renderNewComponent("game", {});
+  }
 
   render() {
     return (
@@ -44,8 +47,8 @@ export default class Example extends React.Component {
         <Navbar class="nav nav-tabs" light expand="md">
             <Nav className="nav" navbar>
               <ul class="nav nav-tabs">
-                <button id="deckmake" onClick={this.props.renderNewComponent("deckmake", {} )}>Create</button>
-                <button id="play" >Play</button>
+                <button id="deckmake" onClick={this.handleCreateClick}>Create</button>
+                <button id="play" onClick={this.handlePlayClick}>Play</button>
                 <button onClick={this.handleLogout}>LOGOUT</button>
               </ul>
             </Nav>

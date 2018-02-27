@@ -28,24 +28,26 @@ class PlayingCards extends Component {
 	}
 
 	render() {
-		const arrayOfStuff = [["A", "Spades"], ["2", "Diamonds"],["6", "Hearts"], ["3", "Hearts"], ["4", "Spades"], ["8", "Clubs"]];
+		let cardArr = [["A", "Spades"], ["2", "Diamonds"],["6", "Hearts"], ["3", "Hearts"], ["4", "Spades"], ["8", "Clubs"]];
+		let container = [];
+		for (var i=0; i < cardArr; i++) {
+			container.push(
+			<div key={i} className="playing-card" onClick={this.handleClick}>
+        		<h5>{cardArr[0]}</h5>
+			    <h5>{cardArr[1]}</h5>
+        	</div> 
+
+			)
+
+		}
+
 		return (
 			<div>
 				<div className="playing-cards">
 					<div className="outer-div">
-			            {(()=>{
-			              let container =[];
-			              let arr = arrayOfStuff //can be anything array, object 
-			              arr.forEach((val,index)=>{
-			                container.push(<div key={index}>
-			                              	<div className="playing-card" onClick={this.handleClick}>
-			                              	{/*{this.state.isToggleOn ? 'active' : 'no'}*/}
-			                              	<h5>{val[0]}</h5>
-			                              	<h5>{val[1]}</h5></div>
-			                              </div>)
-			                            });
-			              return container;     
-			            })()}
+   						<div className="playing-card">
+   						{cardArr}
+   						</div>
           			</div>
 				</div>
 			</div>
