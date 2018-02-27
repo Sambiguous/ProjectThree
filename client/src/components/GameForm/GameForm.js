@@ -44,7 +44,7 @@ class GameForm extends Component {
     event.preventDefault();
 
     axios.get("/api/creategame").then(response => {
-      const gameCode = respons.data;
+      const gameCode = response.data;
 
       
     });

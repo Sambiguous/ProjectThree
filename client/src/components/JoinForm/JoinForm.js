@@ -53,7 +53,6 @@ class JoinForm extends Component {
             name="code"
             id="joingame-input"
           />
-
           <button
             type="submit"
             className="join-btn"
