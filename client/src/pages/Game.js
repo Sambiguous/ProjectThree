@@ -76,14 +76,10 @@ class Game extends Component {
 	if ({/* username*/}) {
 		
 	}
-
 		return (
 			<Container className="card-container">
-				<h1 className="game-title">
-					{this.state.name}</h1>
-				<h4 className="game-players">
-					{this.state.players[0]}
-				</h4>
+			<h2 className="game-title"> {this.state.name}</h2>
+			<h5 className="game-players">{this.state.players[0]}</h5>
 
 				<Row>
 					<CardPile />
@@ -94,7 +90,7 @@ class Game extends Component {
 				<Row>
 				<ActiveBar />
 				</Row>
-			</Container>	
+			</Container>
 		);
 	}
 
