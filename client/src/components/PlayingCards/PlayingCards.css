@@ -34,7 +34,7 @@
 
 .playing-card:hover {
 	width: 185px;
-	height: 260px;
+	/*height: 260px;*/
 }
 
 .playing-card:active {

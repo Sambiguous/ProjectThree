@@ -1,4 +1,23 @@
 .active-bar {
-	background-color: green;
+    height: 20px; 
+    position: fixed; 
+    bottom:0%;
+    width:110%; 
+    background-color: #762217; 
+    opacity: 1;
 	
+}
+.active-bar {
+	-webkit-animation: flash linear 2.5s infinite;
+	animation: flash linear 2.5s infinite;
+}
+@-webkit-keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .8; } 
+	100% { opacity: 1; }
+}
+@keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .8; } 
+	100% { opacity: 1; }
 }

@@ -76,8 +76,8 @@ class DeckMake extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
-        <h2>Step One:</h2>
-        <h2>Input New Deck Basics</h2>
+        <h3>Step One:</h3>
+        <h3>Input New Deck Basics</h3>
         {/*the next line may not call the route correctly */}
         <form className="deck-form"> 
         <Container style={{ marginTop: 30 }}>
@@ -141,7 +141,7 @@ class DeckMake extends Component {
               />
             </Col>
           </Row>
-          <button onClick={this.handleDeckSubmit}>on to Step Two</button>
+          <button onClick={this.handleDeckSubmit}>Step Two</button>
           </Container>
         </form>
       </div>

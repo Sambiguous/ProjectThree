@@ -86,7 +86,6 @@ class Game extends Component {
 			<Button className="back" onClick={this.handlePlayClick}></Button>
 			<h2 className="game-title"> {this.state.name}</h2>
 			<h5 className="game-players">{this.state.players[0]}</h5>
-
 				<Row>
 					<CardPile />
 					<DiscardPile /> 
