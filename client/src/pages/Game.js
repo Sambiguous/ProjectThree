@@ -72,7 +72,7 @@ class Game extends Component {
 		}
 	}
 
-	  handlePlayClick = () => {
+	  handleBackClick = () => {
     		this.props.renderNewComponent("home", {});
   		}
 
@@ -83,8 +83,10 @@ class Game extends Component {
 	}
 		return (
 			<Container className="card-container">
-			<Button className="back" onClick={this.handlePlayClick}></Button>
+			<Button className="back" onClick={this.handleBackClick}></Button>
+			{/* this will handle the current game being played */}
 			<h2 className="game-title"> {this.state.name}</h2>
+			{/* this handles the current player */}
 			<h5 className="game-players">{this.state.players[0]}</h5>
 				<Row>
 					<CardPile />

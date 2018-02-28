@@ -16,8 +16,18 @@ body {
 
 .card-container {
 	background-color: #D4D4D4;
-	padding-bottom: 100%;
+	/*do we need padding bottom 100%?*/
+	/*padding-bottom: 100%;*/
 	padding-top: 5px;
+	/* this is rich messing with stuff from here on down...*/
+	margin: 20px;
+}
+
+/* this is  also rich messing with stuff*/
+.wrapper {
+	padding: 0;
+	margin: 0;
+
 }
 
 .back {

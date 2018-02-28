@@ -13,7 +13,6 @@ class GameButtons extends Component {
 	}
 
   	handleClickShuffle() {
-
     	console.log('you just shuffled the deck');
     	// logic to shuffle deck
   	}
