@@ -14,26 +14,13 @@ class Login extends Component {
         this.toggle = this.toggle.bind(this);
         this.state = { 
           collapse: false,
-          showComponent: false,
-          showComponent: false,
+          showComponent: false
         };
-        this._onButtonClick = this._onButtonClick.bind(this);
-        };
-
-      _onButtonClick() {
-        this.setState({
-        showComponent: true,
-        });
-      }
-
-      _onButtonClick() {
-        this.setState({
-        showComponent: true,
-        });
       }
 
       toggle() {
         this.setState({ collapse: !this.state.collapse });
+
       }
 
       componentDidMount = () => {
@@ -47,19 +34,13 @@ class Login extends Component {
           {/*<h1>{this.props.test}</h1>*/}
           <Row>
             <Col size="md-12">
-                <Button className="signin" onClick={this._onButtonClick}>Sign In</Button>
-                <Button className="signup" onClick={this._onButtonClick}>Sign Up</Button>
-                  <Collapse >
-                      {this.state.showComponent ?
-                          <LoginForm /> :
-                        null
-                      }
-                  </Collapse>
-                  <Collapse >
-                      {this.state.showComponent ?
-                        <SignupForm /> :
-                      null
-                      }
+                <Button className="signin" onClick={this.toggle}>Sign In</Button>
+                <Button className="signup" onClick={this.toggle}>Sign Up</Button>
+                <Collapse isOpen={!this.state.collapse}>
+                    <LoginForm/>
+                </Collapse>
+                  <Collapse isOpen={!this.state.collapse}>
+                    <SignupForm />
                   </Collapse>
             </Col>
           </Row>
