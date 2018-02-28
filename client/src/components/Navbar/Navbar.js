@@ -55,9 +55,9 @@ export default class Example extends React.Component {
 
      <Row>
       <Col size="sm-12">
-        <Navbar class="nav nav-tabs" light expand="md">
+        <Navbar className="nav nav-tabs" light expand="md">
             <Nav className= "nav" navbar>
-              <ul class="nav nav-tabs">
+              <ul className="nav nav-tabs">
                   <button id="play" onClick={this.handlePlayClick}>Play</button>
                   <button id="deckmake" onClick={this.handleCreateClick}>Create</button>
                 <hr />
