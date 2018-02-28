@@ -120,7 +120,7 @@ class DeckMake extends Component {
               />
             </Col>
           </Row>
-          <button onClick={this.handleDeckSubmit}>on to Step Two</button>
+          <button onClick={this.handleDeckSubmit}>Step Two</button>
           </Container>
         </form>
       </div>

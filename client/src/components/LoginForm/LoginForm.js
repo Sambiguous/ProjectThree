@@ -79,6 +79,7 @@ handleLogin = event => {
         value={this.state.emailOrUsername}
         type="text"
         className="form-control"
+        Glyphicon="glyphicon glyphicon-user"
         placeholder="EMAIL OR USERNAME"
         onChange={this.handleInputChange}
         name="emailOrUsername"
