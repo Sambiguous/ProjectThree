@@ -40,29 +40,32 @@ export default class Example extends React.Component {
     });
   };
 
-  goToDeckMake = () => {
-    this.props.renderNewComponent("deckmake", {});
+  handlePlayClick = () => {
+    this.props.renderNewComponent("game", {});
   }
 
+  handleCreateClick = () => {
+    this.props.renderNewComponent('deckmake', {})
+  }
 
-  render() {
+ render() {
     return (
       <div>
       <Container className="nav-container">
 
-      <Row>
+     <Row>
       <Col size="sm-12">
-        <Navbar className="nav nav-tabs" light expand="md">
-            <Nav className="nav" navbar>
-              <ul className="nav nav-tabs">
-                <button id="deckmake" onClick={this.goToDeckMake}>Create</button>
-                <button id="play" >Play</button>
-                <button onClick={this.handleLogout}>LOGOUT</button>
+        <Navbar class="nav nav-tabs" light expand="md">
+            <Nav className= "nav" navbar>
+              <ul class="nav nav-tabs">
+                  <button id="play" onClick={this.handlePlayClick}>Play</button>
+                  <button id="deckmake" onClick={this.handleCreateClick}>Create</button>
+                <hr />
               </ul>
             </Nav>
         </Navbar>
 
-        </Col>
+       </Col>
         </Row>
         </Container>
       </div>

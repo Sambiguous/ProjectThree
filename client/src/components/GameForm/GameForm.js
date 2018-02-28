@@ -62,13 +62,6 @@ class GameForm extends Component {
             placeholder="# OF PLAYERS"
             id="startgame-input"
           />
-          <input
-            type="text"
-            className="form-control"
-            onChange={this.handleInputChange}
-            placeholder="PASSWORD"
-            id="password-input"
-          />
           <button
             type="submit"
             className="start-btn"

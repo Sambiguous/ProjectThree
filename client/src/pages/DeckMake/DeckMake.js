@@ -12,18 +12,15 @@ class DeckMake extends Component {
 
     super (props)
 
-    // Setting the component's initial state
     this.state = {
       deckName: "",
       numCards: "",
       numFields: "",
-      createdBy: "",
+      createdBy: this.props.user.displayName,
       handSize: "",
-      allCards: {},
-      cardArr: [],
-      fieldArr: []
+      allCards: [],
     };
-}
+  }
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -41,44 +38,26 @@ class DeckMake extends Component {
     event.preventDefault();
 
     // API call to database to set info
-    var objectToPassToAPI = 
+    var deckInfo = 
     {newDeck: {
       deckName: this.state.deckName,
       numCards: this.state.numCards,
       numFields: this.state.numFields,
       createdBy: this.state.createdBy,
       handSize: this.state.handSize,
-      allCards: {},
       cardArr: [],
-      fieldArr: []
       }
     };
 
-    console.log("if the data is coming in from the objecttopasstoAPI, it should show below this line:");
-    console.log(objectToPassToAPI);
-
-    this.props.renderNewComponent("cardmake", objectToPassToAPI) 
-    
-    this.setState({
-      deckName: "",
-      numCards: "",
-      numFields: "",
-      createdBy: "",
-      handSize: "",
-      cardArr: [],
-      fieldArr: []
-    });
-
+    this.props.renderNewComponent("cardmake", deckInfo) 
   };
 
   render() {
 
-    // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
         <h2>Step One:</h2>
         <h2>Input New Deck Basics</h2>
-        {/*the next line may not call the route correctly */}
         <form className="deck-form"> 
         <Container style={{ marginTop: 30 }}>
           <Row>
