@@ -9,6 +9,14 @@ import "../index.css";
 
 
 class Login extends Component {
+      constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = { 
+          collapse: false,
+          active: true
+        };
+      }
 
     constructor(props) {
       super(props);
@@ -20,8 +28,23 @@ class Login extends Component {
       this.setState({ collapse: !this.state.collapse });
     }
 
+      handleGoAway = () => {
+        if (this.state.active == true){
+          this.setState({active: false})
+        }
+        // add classname to the component you want to go away 
+      }
+
+      handleComeBack = () => {
+        // add classname to the component you want to come back
+      }
+
+      componentDidMount = () => {
+        console.log("login mounted");
+      }
 
   render() {
+
     return (
       <Container style={{ minHeight: "80%" }}>
         <img className="logo-image" alt="" id="logo" src={require("../onDeckLogo.png")} />
