@@ -14,13 +14,23 @@ class Login extends Component {
         this.toggle = this.toggle.bind(this);
         this.state = { 
           collapse: false,
-          showComponent: false
+          active: true
         };
       }
 
       toggle() {
         this.setState({ collapse: !this.state.collapse });
+      }
 
+      handleGoAway = () => {
+        if (this.state.active == true){
+          this.setState({active: false})
+        }
+        // add classname to the component you want to go away 
+      }
+
+      handleComeBack = () => {
+        // add classname to the component you want to come back
       }
 
       componentDidMount = () => {
@@ -28,6 +38,7 @@ class Login extends Component {
       }
 
   render() {
+
     return (
       <Container style={{ minHeight: "80%" }}>
         <img className="logo-image" alt="" id="logo" src={require("../onDeckLogo.png")} />
@@ -36,11 +47,11 @@ class Login extends Component {
             <Col size="md-12">
                 <Button className="signin" onClick={this.toggle}>Sign In</Button>
                 <Button className="signup" onClick={this.toggle}>Sign Up</Button>
-                <Collapse isOpen={!this.state.collapse}>
-                    <LoginForm/>
-                </Collapse>
-                  <Collapse isOpen={!this.state.collapse}>
-                    <SignupForm />
+                    <Collapse isOpen={!this.state.collapse}>
+                      <LoginForm {...this.props}/>
+                      </Collapse>
+                    <Collapse isOpen={this.state.collapse}>
+                      <SignupForm {...this.props}/>
                   </Collapse>
             </Col>
           </Row>
