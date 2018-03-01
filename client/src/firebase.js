@@ -111,7 +111,7 @@ function findGame(code, cb){
             if(e){
                 cb({status: "failed", code: e.message});
             }else{
-                cb({status: "success"})
+                cb({status: "success", name: game.name})
             };
             });
         } else{

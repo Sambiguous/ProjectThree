@@ -9,68 +9,34 @@ import PlayingCards from "../components/PlayingCards";
 import "./Game.css"; 
 import GameButtons from "../components/GameButtons";
 import { Button} from 'reactstrap';
+import firebase from '../firebase';
 
 class Game extends Component {
 
 	constructor(props) {
-		super(props)
-
-		this.state = {
-			code: "12345",
-			name: "USSR jest",
-			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
-			allCards: [  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["bullet"]
-			  },
-			],
-			discardPile: [{
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["bullet"]
-			  },],
-			hand:[]
+    super(props)
+    
+    this.state = {
+      name: "placeholder",
+      players: "friends!"
+    }
 		}
-	}
+  
+  
+  componentDidMount(){
+    const code = this.props.code
+    console.log(this.props);
+    firebase.database().ref().child('games').child(code).on('value', snap => {
+      let game = snap.val()
+      let state = {
+        code: code,
+        game: game
+      }
+
+      this.setState(state);
+
+    })
+  }
 
 	  handleBackClick = () => {
     		this.props.renderNewComponent("home", {});
@@ -90,7 +56,7 @@ class Game extends Component {
 			<h5 className="game-players">{this.state.players[0]}</h5>
 				<Row>
 					<CardPile />
-					<DiscardPile /> 
+					<DiscardPile  /> 
 					<PlayingCards />
 					<GameButtons />
 				</Row>
