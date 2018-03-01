@@ -14,11 +14,9 @@ router.post("/", function(req, res){
 });
 
 router.get("/decks", function(req, res){
-    console.log("test route hit")
     
     db.Deck.find({}).exec(function(err, docs){
         if(err) throw err
-        console.log(docs);
         
         const deckNames = docs.map(deck => deck.deckName);
 
@@ -31,4 +29,15 @@ router.get("/creategame", function(req, res){
     res.send(code);
 })
 
+router.post("/deckcreate", function(req, res) {
+    console.log(req.body);
+    //const deck = new db.Deck(req.body)
+    // db.Deck.collection.insertOne(deck, (err, docs) => {
+    //     if(err) throw err
+
+    //     console.log(docs.ops);
+    //     res.send('deck inserted');
+    // })
+    res.send('/deckcreate route hit');
+})
 module.exports = router
