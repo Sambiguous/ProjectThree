@@ -13,3 +13,15 @@
 h4 {
 	font-size: 30px;
 }
+
+/* Smartphone (landscape) ----------- */
+@media only screen and (max-width : 321px) {
+/* Styles */
+
+}
+
+/* Smartphone (portrait) ----------- */
+@media only screen and (max-width : 320px) {	
+/* Styles */
+
+}
