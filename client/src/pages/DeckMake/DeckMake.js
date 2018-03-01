@@ -45,6 +45,7 @@ class DeckMake extends Component {
 
     return (
       <div>
+        <p> </p>
         <h2>Step One:</h2>
         <h2>Input New Deck Basics</h2>
         <form className="deck-form"> 

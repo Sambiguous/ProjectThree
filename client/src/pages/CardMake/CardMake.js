@@ -27,6 +27,9 @@ class CardMake extends Component {
       deckInfo: props.newDeck,
       cards: cards
     };
+
+    console.log("this is tha blank state at the top of the CardMake component:"+this.state);
+    //this console log shows us [Object Object]
   };
 
   handleInputChange = (property, value, index) => {
@@ -35,8 +38,10 @@ class CardMake extends Component {
 
   handleCardSubmit = event => {
     event.preventDefault();
-
+    console.log("handle card submit - this.state: " + this.state)
     var objectToPassToDataBase = this.state;
+    console.log("obect we are passing in:" + objectToPassToDataBase);
+    //this console log shows us [Object Object] and there fore is not passing the state to the POST route
 
     axios.post('/api/deckcreate', objectToPassToDataBase)
     .then(function (response) {
@@ -55,8 +60,10 @@ class CardMake extends Component {
 
     return (
       <div>
+        <p> </p>
+        <h2>Step Two:</h2>
         <h2>Enter your Deck's Cards</h2>
-        <h4>Your Deck has {this.state.numFields} info fields</h4>
+        <h4>Your Cards each have {this.state.deckInfo.numFields} info fields</h4>
         <Container style={{ marginTop: 30 }}>
           {cardArr}
           <button onClick={this.handleCardSubmit}>Submit</button>
