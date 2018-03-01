@@ -7,21 +7,72 @@ class CardPile extends Component {
 	constructor(props){
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
-
+		this.state = {
+			code: "12345",
+			name: "USSR jest",
+			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
+			allCards: [  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["bullet"]
+			  },
+			],
+			discardPile: [{
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["No bullet"]
+			  },
+			  {
+				fromDeck: "USSR jest",
+				fieldInfo: ["bullet"]
+			  },],
+			hand:[]
+		}
 	}
+
 
   	handleClick() {
     	console.log('Click happened');
   	}
 
-	state = {
-
-	}
-
 	render() {
 		return (
 			<div>
-				<div className="card-pile">
+				<div className="card-pile" onClick={this.handleClick}>
 					<h5> Card Pile </h5>
 				</div>
 			</div>

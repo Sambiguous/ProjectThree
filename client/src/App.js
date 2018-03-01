@@ -28,18 +28,16 @@ class App extends Component {
     };
   };
 
-
-  addNewDeck = (data) => {
-
-    console.log("if the data is coming in from the DeckMake, it should show below this line:");
-    console.log(data);
-
-    this.setState({newDeck: data});
-
-    console.log("if the data is coming in from this(dot)state(dot)newdeck, it should show below this line:");
-    console.log(this.state);
-
-  }
+  //------pretty sure this method is unused, will delete once I'm sure.   -Sam------
+  //===========================================================================================================
+  // addNewDeck = (data) => {
+  //   console.log("if the data is coming in from the DeckMake, it should show below this line:");
+  //   console.log(data);
+  //   this.setState({newDeck: data});
+  //   console.log("if the data is coming in from this(dot)state(dot)newdeck, it should show below this line:");
+  //   console.log(this.state);
+  // }
+  //============================================================================================================
 
   renderNewComponent = (component, props) =>{
 
@@ -70,17 +68,15 @@ class App extends Component {
     };
   };
 
-  passDeckInfo = () => {
-    let passDeck = this.state.newDeck;
-  }
-
-  render = () => 
+  render(){
+    return(
     this.state.auth
     ? <Wrapper>
-        <Navbar {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
-        <this.state.componentToRender {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
+        <this.state.componentToRender {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent} user={this.state.auth}/>
       </Wrapper>
     : <Login {...this.state.propsToRenderedComponent} renderNewComponent={this.renderNewComponent}/>
+    )
+  };
 };
 
 

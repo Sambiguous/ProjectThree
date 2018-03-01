@@ -7,6 +7,7 @@ import "../index.css"
 import { Button } from 'reactstrap';
 import axios from "axios";
 import JoinForm from "../components/JoinForm";
+import Navbar from "../components/Navbar";
 
 class About extends Component {
       constructor(props) {
@@ -45,17 +46,15 @@ class About extends Component {
     
         return (
           <div>
+            <Navbar renderNewComponent={this.props.renderNewComponent}/>
             <Container style={{ marginTop: 30 }}>
             <JoinForm {...this.props} />
             </Container>
-
             <h1>START A NEW GAME</h1>
             <Container style={{ marginTop: 30 }}>
               {decks}
+            <button id="logout" onClick={this.handleLogout}>LOGOUT</button>
             </Container>
-            <button 
-            onClick={this.handleLogout}
-            >LOGOUT</button>
           </div>
         )
       };

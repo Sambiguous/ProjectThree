@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Container from "../Container";
+import Row from "../Row";
+import Col from "../Col";
 import "./Navbar.css";
 import axios from "axios";
 import {
@@ -30,26 +33,43 @@ export default class Example extends React.Component {
   }
 
   handleLogout = () => {
-        this.props.logout(response => {
-          if(response.status === "success"){
-            this.props.renderNewComponent("login", {});
-          };
-        });
+    this.props.logout(response => {
+      if(response.status === "success"){
+        this.props.renderNewComponent("login", {});
+      };
+    });
   };
 
+  handlePlayClick = () => {
+    this.props.renderNewComponent("home", {});
+  }
 
-  render() {
+  handleCreateClick = () => {
+    this.props.renderNewComponent('deckmake', {})
+  }
+
+ render() {
     return (
       <div>
-        <Navbar class="nav nav-tabs" light expand="md">
-            <Nav className="nav" navbar>
+      <Container className="nav-container">
+
+     <Row>
+      <Col size="sm-12">
+        <Navbar className="nav nav-tabs" light expand="md">
+            <Nav className= "nav" navbar>
               <ul class="nav nav-tabs">
-                <button id="create"><a href="/">Create</a></button>
-                <button id="play"><a href="/">Play</a></button>
-                <button onClick={this.handleLogout}>LOGOUT</button>
+
+                  <button id="play" onClick={this.handlePlayClick}>Play</button>
+                  <button id="deckmake" onClick={this.handleCreateClick}>Create</button>
+                <hr />
+
               </ul>
             </Nav>
         </Navbar>
+
+       </Col>
+        </Row>
+        </Container>
       </div>
     );
   }

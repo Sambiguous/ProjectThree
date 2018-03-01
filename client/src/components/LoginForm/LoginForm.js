@@ -74,10 +74,12 @@ handleLogin = event => {
   <form className="login">
     <div className="form-group">
 
+
       <input
         value={this.state.emailOrUsername}
         type="text"
         className="form-control"
+        glyphicon="glyphicon glyphicon-user"
         placeholder="EMAIL OR USERNAME"
         onChange={this.handleInputChange}
         name="emailOrUsername"
@@ -107,12 +109,12 @@ handleLogin = event => {
         className="btn" 
       >LOGIN
       </button>
-      <button
+      {/*<button
         type="submit"
         onClick={this.handleLogout}
         className="btn"
         >LOGOUT
-      </button>
+      </button>*/}
     </div>
   </form>
     )

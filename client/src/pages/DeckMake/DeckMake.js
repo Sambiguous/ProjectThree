@@ -4,6 +4,7 @@ import Container from "../../components/Container";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import "./DeckMake.css";
+import Navbar from "../../components/Navbar";
 
 //Create a Deck of cards with card specs
 
@@ -12,73 +13,42 @@ class DeckMake extends Component {
 
     super (props)
 
-    // Setting the component's initial state
     this.state = {
       deckName: "",
       numCards: "",
       numFields: "",
-      createdBy: "",
+      createdBy: props.user.displayName,
       handSize: "",
-      allCards: {},
-      cardArr: [],
-      fieldArr: []
+      allCards: [],
     };
-}
+  }
 
   handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
+
     const value = event.target.value;
     const name = event.target.name;
 
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
+    this.setState({[name]: value});
   };
 
   handleDeckSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
-    // API call to database to set info
-    var objectToPassToAPI = 
-    {newDeck: {
-      deckName: this.state.deckName,
-      numCards: this.state.numCards,
-      numFields: this.state.numFields,
-      createdBy: this.state.createdBy,
-      handSize: this.state.handSize,
-      allCards: {},
-      cardArr: [],
-      fieldArr: []
-      }
+    var deckInfo = {
+      newDeck: this.state
     };
 
-    console.log("if the data is coming in from the objecttopasstoAPI, it should show below this line:");
-    console.log(objectToPassToAPI);
-
-    this.props.renderNewComponent("cardmake", objectToPassToAPI) 
-    
-    this.setState({
-      deckName: "",
-      numCards: "",
-      numFields: "",
-      createdBy: "",
-      handSize: "",
-      cardArr: [],
-      fieldArr: []
-    });
-
+    this.props.renderNewComponent("cardmake", deckInfo) 
   };
 
   render() {
 
-    // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
+        <Navbar renderNewComponent={this.props.renderNewComponent}/>
         <h2>Step One:</h2>
         <h2>Input New Deck Basics</h2>
-        {/*the next line may not call the route correctly */}
         <form className="deck-form"> 
         <Container style={{ marginTop: 30 }}>
           <Row>
