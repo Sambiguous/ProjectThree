@@ -18,9 +18,9 @@ class Login extends Component {
         };
       }
 
-      toggle() {
-        this.setState({ collapse: !this.state.collapse });
-      }
+    toggle() {
+      this.setState({ collapse: !this.state.collapse });
+    }
 
       handleGoAway = () => {
         if (this.state.active == true){
