@@ -18,6 +18,7 @@ class Game extends Component {
 		this.state = {
 			code: "12345",
 			name: "USSR jest",
+			isActive: true,
 			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
 			allCards: [  {
 				fromDeck: "USSR jest",
@@ -78,9 +79,8 @@ class Game extends Component {
 
 	render() {
 
-	if ({/* whoever the username is?*/}) {
-		{/* display name on the game board*/}
-	}
+
+// things we need to add... 
 
 	if ({/* user not host */}){
 		{/* user will get the game code to enter.*/}
@@ -99,6 +99,7 @@ class Game extends Component {
 					<PlayingCards />
 					<GameButtons />
 				</Row>
+
 				<Row>
 				<ActiveBar />
 				</Row>

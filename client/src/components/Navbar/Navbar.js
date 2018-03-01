@@ -51,24 +51,23 @@ export default class Example extends React.Component {
  render() {
     return (
       <div>
-      <Container className="nav-container">
+        <Container className="nav-container">
+          <Row>
+            <Col size="sm-12">
+              <Navbar className="nav nav-tabs" light expand="md">
+                <Nav className= "nav" navbar>
+                  <ul className="nav nav-tabs">
 
-     <Row>
-      <Col size="sm-12">
-        <Navbar className="nav nav-tabs" light expand="md">
-            <Nav className= "nav" navbar>
-              <ul class="nav nav-tabs">
+                    <button id="play" onClick={this.handlePlayClick}>Play</button>
+                    <button id="deckmake" onClick={this.handleCreateClick}>Create</button>
+                    
+                    <hr />
 
-                  <button id="play" onClick={this.handlePlayClick}>Play</button>
-                  <button id="deckmake" onClick={this.handleCreateClick}>Create</button>
-                <hr />
-
-              </ul>
-            </Nav>
-        </Navbar>
-
-       </Col>
-        </Row>
+                  </ul>
+                </Nav>
+              </Navbar>
+             </Col>
+          </Row>
         </Container>
       </div>
     );
