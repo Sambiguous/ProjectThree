@@ -4,6 +4,7 @@ import Container from "../../components/Container";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import "./DeckMake.css";
+import Navbar from "../../components/Navbar";
 
 //Create a Deck of cards with card specs
 
@@ -45,7 +46,7 @@ class DeckMake extends Component {
 
     return (
       <div>
-        <p> </p>
+        <Navbar renderNewComponent={this.props.renderNewComponent}/>
         <h2>Step One:</h2>
         <h2>Input New Deck Basics</h2>
         <form className="deck-form"> 
