@@ -20,12 +20,11 @@ class Game extends Component {
       name: "placeholder",
       players: "friends!"
     }
-		}
+	}
   
   
   componentDidMount(){
     const code = this.props.code
-    console.log(this.props);
     firebase.database().ref().child('games').child(code).on('value', snap => {
       let game = snap.val()
       let state = {
