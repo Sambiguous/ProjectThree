@@ -1,53 +1,25 @@
-.playing-cards {
-	/*margin: 20px;*/
-	/*margin-left: 40px;*/
-	display: flex;
-	/*width: 175px;*/
-	/*height: 250px;*/
-	/*background-color: grey;*/
-	/*box-shadow: 5px;*/
-}
+
 
 .outer-div {
 	display: flex;
 	grid-template-columns: 1fr 1fr 1fr;
-	margin: 20px;
+	margin-left: 120px;
 	background-color: #D4D4D4;
 }
 
-.playing-cards {
-	margin-left: 120px;
-
-}
-
 .playing-card {
-	width: 175px;
-	height: 250px;
-	display: inline-block;
+	margin-top: -10px;
+	width: 140px;
+	height: 200px;
 	background-color: white;
-	margin-left: -80px;
-	margin-bottom: 10px;
-	border-radius: 10px !important;
+	margin-left: -100px;
+	border-radius: 6px !important;
 	color: black;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.playing-card:hover {
-	width: 185px;
-	/*height: 260px;*/
 }
 
 .playing-card:active {
      -webkit-transform: scale(1.3);
      -ms-transform: scale(1.3);
      transform: scale(1.3);
-}
-
-h5 {
-	color: black;
-	font-size: 30px;
-	margin-top: 10px;
-	margin-left: 15px;
-	text-align: left;
-	font-family: 'Pathway Gothic One', sans-serif;
 }
