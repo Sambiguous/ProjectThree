@@ -31,14 +31,31 @@ router.get("/creategame", function(req, res){
 
 router.post("/deckcreate", function(req, res) {
     console.log(req.body);
-    const deck = new db.Deck(req.body)
+    const deck = new db.Deck(req.body.deckInfo)
     db.Deck.collection.insertOne(deck, (err, docs) => {
         if(err) throw err
+        console.log(docs.ops);
 
-        console.log("this is the deck info:" + docs.ops);
-        res.send('deck inserted');
+        //building the cards out
+        let cards = req.body.cards.map(card => new db.Card(card));
+    
+        //insert all the cards into the cards collection
+        db.Card.insertMany(cards, function(err, insertedDocs){
+          if(err) throw err;
+            let name = req.body.deckInfo.deckName
+            
+            let ids = insertedDocs.map(card => card._id)
+
+            db.Deck.findOneAndUpdate({deckName: name}, {$set:{ allCards: ids}}, {new: true}, function(err, doc){
+    
+              if (err) {
+                console.log(err);    
+              } else {                
+                console.log("deck complete");
+              };
+            });
+        })
     })
-
 })
 
 router.post('/deckpull', function(req, res){
