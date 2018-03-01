@@ -74,10 +74,12 @@ handleLogin = event => {
   <form className="login">
     <div className="form-group">
 
+
       <input
         value={this.state.emailOrUsername}
         type="text"
         className="form-control"
+        glyphicon="glyphicon glyphicon-user"
         placeholder="EMAIL OR USERNAME"
         onChange={this.handleInputChange}
         name="emailOrUsername"

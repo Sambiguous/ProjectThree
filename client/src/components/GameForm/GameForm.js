@@ -44,7 +44,7 @@ class GameForm extends Component {
     event.preventDefault();
 
     axios.get("/api/creategame").then(response => {
-      const gameCode = respons.data;
+      const gameCode = response.data;
 
       
     });
@@ -61,13 +61,6 @@ class GameForm extends Component {
             onChange={this.handleInputChange}
             placeholder="# OF PLAYERS"
             id="startgame-input"
-          />
-          <input
-            type="text"
-            className="form-control"
-            onChange={this.handleInputChange}
-            placeholder="PASSWORD"
-            id="password-input"
           />
           <button
             type="submit"
