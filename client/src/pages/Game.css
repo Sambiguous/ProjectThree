@@ -42,3 +42,17 @@ body {
 .back:hover {
 	background-color: #181717;
 }
+
+/* Smartphone (landscape) ----------- */
+@media only screen and (max-width : 500px) {
+/* Styles */
+
+
+}
+
+/* Smartphone (portrait) ----------- */
+@media only screen and (max-width : 320px) {	
+/* Styles */
+
+
+}

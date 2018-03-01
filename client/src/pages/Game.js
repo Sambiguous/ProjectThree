@@ -72,15 +72,20 @@ class Game extends Component {
 		}
 	}
 
-	  handleBackClick = () => {
-    		this.props.renderNewComponent("home", {});
-  		}
+	handleBackClick = () => {
+    	this.props.renderNewComponent("home", {});
+  	}
 
 	render() {
 
-	if ({/* username*/}) {
-		
+	if ({/* whoever the username is?*/}) {
+		{/* display name on the game board*/}
 	}
+
+	if ({/* user not host */}){
+		{/* user will get the game code to enter.*/}
+	}
+
 		return (
 			<Container className="card-container">
 			<Button className="back" onClick={this.handleBackClick}></Button>
