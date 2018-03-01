@@ -30,17 +30,15 @@ router.get("/creategame", function(req, res){
 })
 
 router.post("/deckcreate", function(req, res) {
-    console.log("this is the req.body:"+req.body);
-    //the line abouve is failing
+    console.log(req.body);
     const deck = new db.Deck(req.body)
-    console.log("deck from the router post deck create" + deck);
-
     db.Deck.collection.insertOne(deck, (err, docs) => {
         if(err) throw err
 
         console.log("this is the deck info:" + docs.ops);
         res.send('deck inserted');
     })
+
 })
 
 router.post('/deckpull', function(req, res){
