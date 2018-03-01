@@ -16,10 +16,7 @@ body {
 
 .card-container {
 	background-color: #D4D4D4;
-	/*do we need padding bottom 100%?*/
-	/*padding-bottom: 100%;*/
 	padding-top: 5px;
-	/* this is rich messing with stuff from here on down...*/
 	margin: 20px;
 }
 
@@ -27,32 +24,18 @@ body {
 .wrapper {
 	padding: 0;
 	margin: 0;
-
 }
 
 .back {
-	background-color: #181717;
+	width: 80%;
+	height: 80%;
+	background-color: #D4D4D4;
 	background-image: url("../aarow.png");
-	margin-top: -120px;
-	margin-left: 20px;
+	margin-left: 10px;
 	width: 50px;
 	height: 50px;
 }
 
 .back:hover {
-	background-color: #181717;
-}
-
-/* Smartphone (landscape) ----------- */
-@media only screen and (max-width : 500px) {
-/* Styles */
-
-
-}
-
-/* Smartphone (portrait) ----------- */
-@media only screen and (max-width : 320px) {	
-/* Styles */
-
-
+	background-color: #D4D4D4;
 }

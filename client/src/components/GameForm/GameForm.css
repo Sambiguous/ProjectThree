@@ -38,16 +38,17 @@ form.gameform button[type="submit"] {
 	margin-bottom: 50px;
 }
 
-#password-input, #startgame-input, #joingame-input { 
+#startgame-input, #numcards-input { 
 	margin-bottom: 10px !important;
 	background-color: #B7B6B6;
 	text-align: center;
 	color: #181717;
+	margin-top: -20px;
 }
 
 #start-btn, #join-btn {
 	display:block;
-	margin-top: 20px;
+	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
 }

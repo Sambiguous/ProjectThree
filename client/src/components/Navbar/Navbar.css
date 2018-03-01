@@ -44,7 +44,7 @@
   margin-left: 15%;
 }
 
-#deckmake:active ~ hr {
+#deckmake:focus ~ hr {
   margin-left: 65%;
 }
 
