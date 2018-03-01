@@ -11,27 +11,21 @@ import "../index.css";
 class Login extends Component {
       constructor(props) {
         super(props);
-        this.toggle = this.toggle.bind(this);
+        this.showSignup = this.showSignup.bind(this);
+        this.showLogin = this.showLogin.bind(this);
         this.state = { 
           collapse: false,
           active: true
         };
       }
 
-    toggle() {
-      this.setState({ collapse: !this.state.collapse });
+    showSignup() {
+      this.setState({ collapse: true });
     }
 
-      handleGoAway = () => {
-        if (this.state.active == true){
-          this.setState({active: false})
-        }
-        // add classname to the component you want to go away 
-      }
-
-      handleComeBack = () => {
-        // add classname to the component you want to come back
-      }
+    showLogin() {
+      this.setState({ collapse: false });
+    }
 
       componentDidMount = () => {
         console.log("login mounted");
@@ -45,14 +39,16 @@ class Login extends Component {
           {/*<h1>{this.props.test}</h1>*/}
           <Row>
             <Col size="md-12">
-                <Button className="signin" onClick={this.toggle}>Sign In</Button>
-                <Button className="signup" onClick={this.toggle}>Sign Up</Button>
-                    <Collapse isOpen={!this.state.collapse}>
-                      <LoginForm {...this.props}/>
-                      </Collapse>
-                    <Collapse isOpen={this.state.collapse}>
-                      <SignupForm {...this.props}/>
-                  </Collapse>
+                <Button className="signin" onClick={this.showLogin}>Sign In</Button>
+                <Button className="signup" onClick={this.showSignup}>Sign Up</Button>
+
+                <Collapse isOpen={!this.state.collapse}>
+                  <LoginForm {...this.props}/>
+                </Collapse>
+
+                <Collapse isOpen={this.state.collapse}>
+                  <SignupForm {...this.props}/>
+                </Collapse>
             </Col>
           </Row>
       </Container>
@@ -61,18 +57,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-//   render() {
-//       let userMessage;
-//       //logic to make sure the user has a username?
-//       if (this.props.loggedIn) {
-//         userMessage = (
-//           <span>
-//             <h2>{ `Welcome Back ${ this.props.name }` }</h2>
-//           </span>
-//         )
-//       } else {
-//         userMessage = (
-//         <h2> Please sign in!</h2>
-//         )
-//       }
