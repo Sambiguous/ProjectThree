@@ -67,25 +67,22 @@ class Game extends Component {
 	render() {
 		return (
 			<Container className="card-container">
-			<Button className="back" onClick={this.handleBackClick}></Button>
-			{/* this will handle the current game being played */}
-			<h2 className="game-title"> {this.state.name}</h2>
-			{/* this handles the current player */}
-			<h5 className="game-players">{this.props.user.displayName}</h5>
-				
-          {this.state.game.hands 
-          ?
-            <Row>
-              <CardPile cards={this.state.game.cardPile}/>
-              <DiscardPile  /> 
-              <PlayingCards hand={this.state.game.hands[this.props.user.displayName]}/>
-              <GameButtons draw={this.drawCard}/>
-            </Row>
-          :
-            null
-          }
+			  <Button className="back" onClick={this.handleBackClick}/>
+        <h2 className="game-title">{this.state.name}</h2>
+        <h5 className="game-players">{this.props.user.displayName}</h5>
+        {this.state.game.hands 
+        ?
+          <Row>
+            <CardPile cards={this.state.game.cardPile}/>
+            <DiscardPile  /> 
+            <PlayingCards hand={this.state.game.hands[this.props.user.displayName]}/>
+            <GameButtons draw={this.drawCard}/>
+          </Row>
+        :
+          null
+        }
 				<Row>
-				<ActiveBar />
+				  <ActiveBar />
 				</Row>
 			</Container>
 		);

@@ -40,27 +40,12 @@ class PlayingCards extends Component {
 			<div>
 				<div className="playing-cards">
 					<div className="outer-div">
-          {cardsInHand}
-   						{/* <div className="playing-card">
-   							<h5>{this.state.cardArr[0]}</h5>
-   						</div>
-
-   						<div className="playing-card">
-   							<h5>{this.state.cardArr[1]}</h5>
-   						</div>
-
-   						<div className="playing-card">
-   						 	<h5>{this.state.cardArr[2]}</h5>
-   						</div>
-
-   						<div className="playing-card">
-   						 	<h5>{this.state.cardArr[3]}</h5>
-   						</div> */}
-          	</div>
+            {cardsInHand}
+          </div>
 				</div>
 			</div>
-		)
-	}
-}
+		);
+	};
+};
 
 export default PlayingCards;
