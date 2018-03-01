@@ -16,37 +16,26 @@ class DeckMake extends Component {
       deckName: "",
       numCards: "",
       numFields: "",
-      createdBy: this.props.user.displayName,
+      createdBy: props.user.displayName,
       handSize: "",
       allCards: [],
     };
   }
 
   handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
+
     const value = event.target.value;
     const name = event.target.name;
 
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
+    this.setState({[name]: value});
   };
 
   handleDeckSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
-    // API call to database to set info
-    var deckInfo = 
-    {newDeck: {
-      deckName: this.state.deckName,
-      numCards: this.state.numCards,
-      numFields: this.state.numFields,
-      createdBy: this.state.createdBy,
-      handSize: this.state.handSize,
-      cardArr: [],
-      }
+    var deckInfo = {
+      newDeck: this.state
     };
 
     this.props.renderNewComponent("cardmake", deckInfo) 
@@ -120,7 +109,7 @@ class DeckMake extends Component {
               />
             </Col>
           </Row>
-          <button onClick={this.handleDeckSubmit}>Step Two</button>
+          <button onClick={this.handleDeckSubmit}>on to Step Two</button>
           </Container>
         </form>
       </div>
