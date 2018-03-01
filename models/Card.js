@@ -9,8 +9,30 @@ var CardSchema = new Schema({
     type: String,
     required: true,
   },
-  fieldInfo: [""
-  ]
+  fieldInfo0: {
+    type: String,
+    default: null
+  },
+  fieldInfo1: {
+    type: String,
+    default: null
+  },
+  fieldInfo2: {
+    type: String,
+    default: null
+  },
+  fieldInfo3: {
+    type: String,
+    default: null
+  },
+  fieldInfo4: {
+    type: String,
+    default: null
+  },
+  fieldInfo5: {
+    type: String,
+    default: null
+  }
 });
 
 // Create the Article model with the ArticleSchema

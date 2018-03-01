@@ -60,9 +60,9 @@ class Game extends Component {
     }
   }
 
-	  handleBackClick = () => {
-    		this.props.renderNewComponent("home", {});
-  		}
+	handleBackClick = () => {
+    	this.props.renderNewComponent("home", {});
+  	}
 
 	render() {
 		return (

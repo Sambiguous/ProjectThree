@@ -1,17 +1,29 @@
 .card-pile {
-	margin: 20px;
-	padding: 5px;
-	margin-left: 70px;
-	width: 175px;
-	height: 250px;
+	margin-top: -10px;
+	display: flex;
+	width: 140px;
+	height: 200px;
+	margin-left: 60px;
 	background-color: white;
 	box-shadow: 5px;
-	border-radius: 10px !important;
-	color: black;
+	border-radius: 6px !important;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 h4 {
 	font-size: 30px;
+}
+
+/* Smartphone (landscape) ----------- */
+@media only screen and (max-width : 500px) {
+/* Styles */
+
+
+}
+
+/* Smartphone (portrait) ----------- */
+@media only screen and (max-width : 320px) {	
+/* Styles */
+
+
 }

@@ -58,8 +58,9 @@ class CardMake extends Component {
     return (
       <div>
         <Navbar renderNewComponent={this.props.renderNewComponent} />
+        <h2>Step Two:</h2>
         <h2>Enter your Deck's Cards</h2>
-        <h4>Your Deck has {this.state.numFields} info fields</h4>
+        <h4>Your Cards each have {this.state.deckInfo.numFields} info fields</h4>
         <Container style={{ marginTop: 30 }}>
           {cardArr}
           <button onClick={this.handleCardSubmit}>Submit</button>

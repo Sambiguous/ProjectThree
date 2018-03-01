@@ -31,13 +31,44 @@ router.get("/creategame", function(req, res){
 
 router.post("/deckcreate", function(req, res) {
     console.log(req.body);
-    //const deck = new db.Deck(req.body)
-    // db.Deck.collection.insertOne(deck, (err, docs) => {
-    //     if(err) throw err
+    const deck = new db.Deck(req.body.deckInfo)
+    db.Deck.collection.insertOne(deck, (err, docs) => {
+        if(err) throw err
+        console.log(docs.ops);
 
-    //     console.log(docs.ops);
-    //     res.send('deck inserted');
-    // })
-    res.send('/deckcreate route hit');
+        //building the cards out
+        let cards = req.body.cards.map(card => new db.Card(card));
+    
+        //insert all the cards into the cards collection
+        db.Card.insertMany(cards, function(err, insertedDocs){
+          if(err) throw err;
+          let name = req.body.deckInfo.deckName
+          
+          let ids = insertedDocs.map(card => card._id)
+
+          db.Deck.findOneAndUpdate({deckName: name}, {$set:{ allCards: ids}}, {new: true}, function(err, doc){
+            if (err) {
+              console.log(err);    
+            } else {                
+              console.log("deck complete");
+              res.send("deck entered")
+            };
+          });
+        });
+    });
+});
+
+router.post('/deckpull', function(req, res){
+
+    // db.Deck.collection.findOne({link: req.body.link}).populate('').exec(function(error, doc) {
+    //   if (error) {
+    //     res.send(error);
+    //   }
+    //   else {
+    //     res.send(doc);
+    //     console.log(doc);
+    //   }
+    // });
 })
+
 module.exports = router
