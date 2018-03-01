@@ -1,6 +1,7 @@
 import "./CardMake.css";
 import React, { Component } from "react";
 import axios from "axios";
+import Navbar from "../../components/Navbar";
 import Container from "../../components/Container";
 import SoloCardInfo from "../../components/SoloCardInfo";
 
@@ -55,6 +56,7 @@ class CardMake extends Component {
 
     return (
       <div>
+        <Navbar renderNewComponent={this.props.renderNewComponent} />
         <h2>Enter your Deck's Cards</h2>
         <h4>Your Deck has {this.state.numFields} info fields</h4>
         <Container style={{ marginTop: 30 }}>
