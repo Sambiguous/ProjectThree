@@ -18,6 +18,24 @@ h1 {
 	font-family: 'Pathway Gothic One', sans-serif;
 }
 
+h2 {
+	font-size: 60px;
+	font-family: 'Pathway Gothic One', sans-serif;
+	color: white;
+	margin-top: 20px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+h5 {
+	color: black;
+	font-size: 18px;
+	margin-top: 10px;
+	margin-left: 15px;
+	text-align: left;
+	font-family: 'Pathway Gothic One', sans-serif;
+}
+
 #logo {
 	width: 95% !important;
 	margin-top: 25%;
