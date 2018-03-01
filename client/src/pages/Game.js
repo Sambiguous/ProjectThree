@@ -78,8 +78,8 @@ class Game extends Component {
 
 	render() {
 
-	if ({/* username*/}) {
-		
+	if ({/* whoever the username is?*/}) {
+		{/* display name on the game board*/}
 	}
 		return (
 			<Container className="card-container">

@@ -51,3 +51,17 @@ h5 {
 	text-align: left;
 	font-family: 'Pathway Gothic One', sans-serif;
 }
+
+/* Smartphone (landscape) ----------- */
+@media only screen and (max-width : 321px) {
+/* Styles */
+
+
+}
+
+/* Smartphone (portrait) ----------- */
+@media only screen and (max-width : 320px) {	
+/* Styles */
+
+
+}

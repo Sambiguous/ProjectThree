@@ -15,3 +15,22 @@
 h4 {
 	font-size: 30px;
 }
+
+/* Smartphone (landscape) ----------- */
+@media only screen and (max-width : 500px) {
+/* Styles */
+
+
+	.card-pile {
+		width: 100px;
+		height: 200px;
+	}
+
+}
+
+/* Smartphone (portrait) ----------- */
+@media only screen and (max-width : 320px) {	
+/* Styles */
+
+
+}
