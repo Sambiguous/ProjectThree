@@ -12,10 +12,10 @@ class ActiveBar extends Component {
 
 	render() {
 
-	if (this.state.isActive == true) {
-	{/* change the classname to green css */}
-		
-	}
+		if (this.state.isActive == true) {
+		{/* change the classname to green css */}
+			
+		}
 
 		return(
 			<div className="active-bar">
