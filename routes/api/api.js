@@ -60,15 +60,15 @@ router.post("/deckcreate", function(req, res) {
 
 router.post('/deckpull', function(req, res){
 
-    // db.Deck.collection.findOne({link: req.body.link}).populate('').exec(function(error, doc) {
-    //   if (error) {
-    //     res.send(error);
-    //   }
-    //   else {
-    //     res.send(doc);
-    //     console.log(doc);
-    //   }
-    // });
+    db.Deck.collection.findOne({deckName: req.body.id}).populate('').exec(function(error, doc) {
+      if (error) {
+        res.send(error);
+      }
+      else {
+        res.send(doc);
+        console.log(doc);
+      }
+    });
 })
 
 module.exports = router

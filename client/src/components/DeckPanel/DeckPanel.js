@@ -21,12 +21,12 @@ class ClassicDeck extends Component {
 			<Row>
 				<Col size="md-12">
 					<div>
-						<Button className="classicdeck" onClick={this.toggle}>{this.props.deckName}
+						<Button className="classicdeck" id={this.props.deckName} onClick={this.toggle}>{this.props.deckName}
 					{/* <br/> <img className="classic-image" alt="" src={require("./classic.png")} /> */}
-					</Button>
-						<Collapse isOpen={this.state.collapse}>
-							<GameForm {...this.props}/>
-					</Collapse>
+						</Button>
+							<Collapse isOpen={this.state.collapse}>
+								<GameForm {...this.props}/>
+						</Collapse>
 					</div>
 				</Col>
 			</Row>
