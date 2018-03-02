@@ -52,20 +52,20 @@ class PlayingCards extends Component {
 		return (
 			<div>
 				<div className="playing-cards">
-					<div className="outer-div">
-   						<div className="playing-card">
+					<div className="outer-div spread">
+   						<div className="playing-card one">
    							<h5>{this.state.cardArr[0]}</h5>
    						</div>
 
-   						<div className="playing-card">
+   						<div className="playing-card two">
    							<h5>{this.state.cardArr[1]}</h5>
    						</div>
 
-   						<div className="playing-card">
+   						<div className="playing-card three">
    						 	<h5>{this.state.cardArr[2]}</h5>
    						</div>
 
-   						<div className="playing-card">
+   						<div className="playing-card four">
    						 	<h5>{this.state.cardArr[3]}</h5>
    						</div>
    						
