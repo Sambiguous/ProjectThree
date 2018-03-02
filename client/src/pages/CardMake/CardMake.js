@@ -34,6 +34,10 @@ class CardMake extends Component {
     this.state.cards[index][property] = value;
   };
 
+  handleBackClick = () => {
+    this.props.renderNewComponent("home", {});
+  }
+
   handleCardSubmit = event => {
     event.preventDefault();
 
@@ -46,6 +50,9 @@ class CardMake extends Component {
     .catch(function (error) {
       console.log(error);
     });
+
+    this.handleBackClick()
+
   };
 
   render() {
