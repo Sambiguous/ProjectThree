@@ -68,6 +68,7 @@ class PlayingCards extends Component {
    						<div className="playing-card">
    						 	<h5>{this.state.cardArr[3]}</h5>
    						</div>
+   						
           			</div>
 				</div>
 			</div>
