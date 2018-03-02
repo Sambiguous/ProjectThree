@@ -31,6 +31,9 @@ class Game extends Component {
     firebase.database().ref().child('games').child(code).on('value', snap => {
       let game = snap.val()
 
+      console.log("This is a printout of the game snapshot from firebase");
+      console.log(game);
+
       let newGameState = Object.assign(this.state.game, game)
 
       let state = {
