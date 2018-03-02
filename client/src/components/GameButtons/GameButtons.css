@@ -1,5 +1,4 @@
 .btn-div {
-	display: inline !important;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
@@ -19,25 +18,4 @@
 
 .shuffle-btn {
 	margin-left: 20px;
-}
-
-/* Smartphone (landscape) ----------- */
-@media only screen and (max-width : 900px) {
-/* Styles */
-
-	.shuffle-btn {
-		margin: 50px;
-		margin-right: 300px;
-	}
-
-}
-
-/* Smartphone (portrait) ----------- */
-@media only screen and (max-width : 320px) {	
-/* Styles */
-
-	.shuffle-btn {
-		margin: 50px;
-		margin-right: 100px;
-	}
 }

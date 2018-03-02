@@ -36,9 +36,9 @@ class GameButtons extends Component {
 		return (
 			<div className="btn-div">
 				<button className="shuffle-btn" onClick={this.handleClickShuffle}> SHUFFLE </button>
-				<button className="draw-btn" onClick={this.handleClickDone}> DONE </button>
+				<button className="done-btn" onClick={this.handleClickDone}> DONE </button>
 				<button className="discard-btn" onClick={this.handleClickDiscard}> DISCARD </button>
-				<button className="done-btn" onClick={this.handleClickDraw}> DRAW </button>
+				<button className="draw-btn" onClick={this.handleClickDraw}> DRAW </button>
 			</div>
 		)
 	}
