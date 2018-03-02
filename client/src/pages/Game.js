@@ -9,102 +9,87 @@ import PlayingCards from "../components/PlayingCards";
 import "./Game.css"; 
 import GameButtons from "../components/GameButtons";
 import { Button} from 'reactstrap';
+import firebase from '../firebase';
 
 class Game extends Component {
 
 	constructor(props) {
-		super(props)
-
-		this.state = {
-			code: "12345",
-			name: "USSR jest",
-			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
-			allCards: [  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["bullet"]
-			  },
-			],
-			discardPile: [{
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["bullet"]
-			  },],
-			hand:[]
-		}
+    super(props)
+    
+    this.state = {
+      game: {
+        name: "placeholder",
+        players: "friends!",
+        cardPile: [],
+      }
+    }
 	}
+  
+  
+  componentDidMount(){
+    const code = this.props.code
+    firebase.database().ref().child('games').child(code).on('value', snap => {
+      let game = snap.val()
+
+      console.log("This is a printout of the game snapshot from firebase");
+      console.log(game);
+
+      let newGameState = Object.assign(this.state.game, game)
+
+      let state = {
+        code: code,
+        game: newGameState
+      }
+
+      this.setState(state);
+
+    })
+  }
+
+  drawCard = pile => {
+    if(pile === "cardPile"){
+      let newState = this.state
+      let yourNewCard = newState.game.cardPile.splice(-1,1)
+
+      console.log(yourNewCard)
+      console.log(newState.game.cardPile)
+
+      for(var i=0; i < yourNewCard.length; i++){
+        newState.game.hands[this.props.user.displayName].push(yourNewCard[i]);
+      }
+      firebase.database().ref().child('games').child(this.props.code).set(newState.game)
+
+      this.setState(newState);
+    }
+  }
 
 	handleBackClick = () => {
     	this.props.renderNewComponent("home", {});
   	}
 
 	render() {
-
-	if ({/* whoever the username is?*/}) {
-		{/* display name on the game board*/}
-	}
-
-	if ({/* user not host */}){
-		{/* user will get the game code to enter.*/}
-	}
-
 		return (
 			<Container className="card-container">
-			<Button className="back" onClick={this.handleBackClick}></Button>
-			{/* this will handle the current game being played*/}
-			{/*<h1 className="game-title"> {this.state.name}</h1>*/}
-			{/*<h5 className="game-players">{this.state.players[0]}</h5>*/}
+			  <Button className="back" onClick={this.handleBackClick}/>
+        <h2 className="game-title">{this.state.name}</h2>
+        <h5 className="game-players">{this.props.user.displayName}</h5>
+        {this.state.game.hands 
+        ?
+          <Row>
+            <CardPile cards={this.state.game.cardPile}/>
+            <DiscardPile  /> 
+            <PlayingCards hand={this.state.game.hands[this.props.user.displayName]}/>
+            <GameButtons draw={this.drawCard}/>
+          </Row>
+        :
+          null
+        }
 				<Row>
-					<CardPile />
-					<DiscardPile /> 
-					<PlayingCards />
-					<GameButtons />
-				</Row>
-				<Row>
-				<ActiveBar />
+				  <ActiveBar />
 				</Row>
 			</Container>
 		);
-	}
-
-}
+	};
+};
 
 export default Game;
