@@ -27,22 +27,6 @@ input[type="text"], [type="number"], textarea {
 	text-transform: none;
 }
 
-h2 {
-	font-size: 60px;
-	font-family: 'Pathway Gothic One', sans-serif;
-	color: white;
-	text-transform: uppercase;
-	text-align: center;
-}
-
-h4 {
-	font-size: 20px;
-	font-family: 'Pathway Gothic One', sans-serif;
-	color: white;
-	text-transform: uppercase;
-	text-align: center;
-}
-
 form.deck-form {
 	overflow: auto;
 	text-transform: none;

@@ -27,9 +27,26 @@ h2 {
 	text-align: center;
 }
 
+h3 {
+	font-size: 38px;
+	font-family: 'Pathway Gothic One', sans-serif;
+	color: #181717;
+	margin-top: 12px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+h4 {
+	font-size: 20px;
+	font-family: 'Pathway Gothic One', sans-serif;
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+}
+
 h5 {
 	color: black;
-	font-size: 18px;
+	font-size: 20px !important;
 	margin-top: 10px;
 	margin-left: 15px;
 	text-align: left;
