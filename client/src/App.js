@@ -3,7 +3,6 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Game from "./pages/Game";
 import Wrapper from "./components/Wrapper";
-import Navbar from "./components/Navbar";
 import DeckMake from "./pages/DeckMake";
 import CardMake from "./pages/CardMake";
 //import Deck from "./components/Deck";

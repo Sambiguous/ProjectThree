@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import Container from "../components/Container";
-import Row from "../components/Row";
-import Col from "../components/Col";
 import DeckPanel from "../components/DeckPanel";
 import "../index.css"
-import { Button } from 'reactstrap';
 import axios from "axios";
 import JoinForm from "../components/JoinForm";
 import Navbar from "../components/Navbar";
@@ -50,6 +47,7 @@ class About extends Component {
             <Container style={{ marginTop: 30 }}>
             <JoinForm {...this.props} />
             </Container>
+            <br /><br />
             <h1>START A NEW GAME</h1>
             <Container style={{ marginTop: 30 }}>
               {decks}

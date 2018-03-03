@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Container from "../components/Container";
 import Row from "../components/Row";
-import Col from "../components/Col";
 import DiscardPile from "../components/DiscardPile";
 import CardPile from "../components/CardPile";
 import ActiveBar from "../components/ActiveBar";
@@ -126,7 +125,7 @@ class Game extends Component {
 			<Container className="card-container">
 			  <Button className="back" onClick={this.handleBackClick}/>
         <h2 className="game-title">{this.state.name}</h2>
-        <h5 className="game-players">{this.props.user.displayName}</h5>
+        <h6 className="game-players">{this.props.user.displayName}</h6>
         {this.state.game 
         ?
           <Row>
