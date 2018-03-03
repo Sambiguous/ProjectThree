@@ -19,10 +19,9 @@ h1 {
 }
 
 h2 {
-	font-size: 60px;
+	font-size: 40px !important;
 	font-family: 'Pathway Gothic One', sans-serif;
 	color: white;
-	margin-top: 20px;
 	text-transform: uppercase;
 	text-align: center;
 }
