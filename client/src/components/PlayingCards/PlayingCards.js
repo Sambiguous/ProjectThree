@@ -7,7 +7,6 @@ class PlayingCards extends Component {
     	super(props);
     	this.state = {
     		isToggleOn: false,
-
     	};
   	}
 
@@ -30,10 +29,10 @@ class PlayingCards extends Component {
 
       for(var k=0; k < numFields; k++){
         let field = "fieldInfo" + k.toString();
-        fieldsOnCard.push(<h5>{this.props.hand[i][field]}</h5>);
+        fieldsOnCard.push(<h5 key={k}>{this.props.hand[i][field]}</h5>);
       };
 
-      cardsInHand.push(<div className="playing-card">{fieldsOnCard}</div>);
+      cardsInHand.push(<div key={i} className="playing-card">{fieldsOnCard}</div>);
     };
 
 		return (
