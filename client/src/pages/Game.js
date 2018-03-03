@@ -32,16 +32,28 @@ class Game extends Component {
 
 	constructor(props) {
     super(props)
-    
     this.state = {
+      gamePath: `games/${props.code}`,
       code: props.code,
       activeCardIndexes: [],
       message: ""
     };
-	};
-  
-  
+  };
+
   componentDidMount(){
+    let handRef = firebase.database().ref().child(`games/${this.state.code}/hands/${this.props.user.displayName}`)
+    handRef.once('value', snap => {
+      if(!snap.val()){
+        handRef.set(["cards"])
+        this.initiateMatchListener();
+      }
+      else{
+        this.initiateMatchListener();
+      }
+    });
+  };
+
+  initiateMatchListener = () => {
     firebase.database().ref().child('games').child(this.state.code).on('value', snap => {
       let gameState = snap.val()
       let newState = this.state
@@ -53,7 +65,7 @@ class Game extends Component {
 
       this.setState(newState);
     });
-  };
+  }
 
   drawCard = pile => {
     if(this.state.game[pile].length < 2){return};
@@ -119,8 +131,8 @@ class Game extends Component {
   }
 
 	handleBackClick = () => {
-    	this.props.renderNewComponent("home", {});
-  	}
+    this.props.renderNewComponent("home", {});
+  }
 
 	render() {
 		return (
