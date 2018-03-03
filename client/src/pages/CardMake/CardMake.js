@@ -53,14 +53,24 @@ class CardMake extends Component {
     });
 
     // this.handleBackClick()
-    axios.get('/api/deckpull', objectToPassToDataBase)
+
+  };
+
+  handleDeckPull = event => {
+    event.preventDefault();
+
+    var objectToPassToDataBase = this.state;
+    console.log(this.state.deckInfo);
+
+    axios.post('/api/deckpull', {name: this.state.deckInfo.deckName})
       .then(function (response) {
         console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });   
-  };
+
+  }
 
   render() {
     var cardArr = [];
@@ -77,6 +87,7 @@ class CardMake extends Component {
         <Container style={{ marginTop: 30 }}>
           {cardArr}
           <button onClick={this.handleCardSubmit}>Submit</button>
+          <button onClick={this.handleDeckPull}>Pull Deck</button>
         </Container>
       </div>
     );

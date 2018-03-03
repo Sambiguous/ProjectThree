@@ -59,15 +59,9 @@ router.post("/deckcreate", function(req, res) {
 });
 
 router.post('/deckpull', function(req, res){
-
-    db.Deck.collection.findOne({deckName: req.body.id}).populate('decks').exec(function(error, doc) {
-      if (error) {
-        res.send(error);
-      }
-      else {
+    db.Deck.findOne({deckName: req.body.name}).populate('allCards').exec(function(err, doc) {
+        if (err) throw err
         res.send(doc);
-        console.log(doc);
-      }
     });
 })
 
