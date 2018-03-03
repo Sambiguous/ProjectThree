@@ -16,20 +16,12 @@ input[type="text"], [type="number"], textarea {
 	text-transform: none;
 }
 
-h2 {
-	font-size: 60px;
-	font-family: 'Pathway Gothic One', sans-serif;
-	color: white;
-	text-transform: uppercase;
-	text-align: center;
-}
-
 form.deck-form {
 	overflow: auto;
 	text-transform: none;
 	margin-left: 55px;
 	margin-right: 55px;
-	margin-top: 30px;
+	margin-top: 20px !important;
 	text-transform: uppercase;
 
 }
@@ -45,6 +37,18 @@ button {
 	margin-top: 15px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.deckmake-button {
+	background-color: #8D0000;
+	color: white;
+	padding: 10px;
+	width: 45%;
+	display:block;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+
 }
 
 

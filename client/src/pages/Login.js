@@ -40,7 +40,8 @@ class Login extends Component {
             <Col size="md-12">
                 <Button className="signin" onClick={this.showLogin}>Sign In</Button>
                 <Button className="signup" onClick={this.showSignup}>Sign Up</Button>
-
+            </Col>
+            <Col size="md-12">
                 <Collapse isOpen={!this.state.collapse}>
                   <LoginForm {...this.props}/>
                 </Collapse>

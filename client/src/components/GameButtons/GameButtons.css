@@ -16,6 +16,10 @@
 	font-size: 11px;
 }
 
+.shuffle-btn:hover, .draw-btn:hover, .discard-btn:hover, .done-btn:hover {
+	background-color: #6D281D;
+}
+
 .shuffle-btn {
 	margin-left: 20px;
 }
