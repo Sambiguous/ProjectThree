@@ -7,7 +7,6 @@ import Col from "../components/Col";
 import { Collapse, Button} from 'reactstrap';
 import "../index.css";
 
-
 class Login extends Component {
       constructor(props) {
         super(props);

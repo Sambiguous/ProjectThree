@@ -27,7 +27,7 @@ class GameButtons extends Component {
     	this.props.discard('discardPile'); 
   	}
 
-  	handleDraw = () => {
+  	handleDraw = (props) => {
       this.props.draw("cardPile");
   	};
 

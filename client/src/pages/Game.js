@@ -10,6 +10,8 @@ import GameButtons from "../components/GameButtons";
 import { Button} from 'reactstrap';
 import firebase from '../firebase';
 
+let click = 0;
+
 function shuffleArray(arr) {
   let shuffledArray = [].concat(arr);
   let currentIndex = shuffledArray.length, temporaryValue, randomIndex;
@@ -35,6 +37,7 @@ class Game extends Component {
       gamePath: `games/${props.code}`,
       code: props.code,
       activeCardIndexes: [],
+      message: ''
     };
   };
 
@@ -67,7 +70,9 @@ class Game extends Component {
 
   drawCard = pile => {
     if(this.state.game[pile].length < 2){return};
+    click++
     let newState = this.state;
+    let message = this.state;
     let name = this.props.user.displayName;
 
     let yourNewCard = newState.game[pile].splice(-1,1);
@@ -78,10 +83,11 @@ class Game extends Component {
       
     firebase.database().ref().child('games').child(this.props.code).set(newState.game);
     this.setState(newState);
+    this.state.message = name + " " + "drew a card (" + click + ")."
   };
 
-
   discard = pile => {
+    let message = this.state.message
     let newState = this.state
     let name = this.props.user.displayName;
     let indexes = newState.activeCardIndexes;
@@ -96,12 +102,13 @@ class Game extends Component {
     
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
     this.setState(newState);
+    this.state.message = name + " " + "discarded.";
   };
 
   //parameters do nothing yet hopefully they can be used later for adding options to what gets shuffled
   shuffle = (pile, cards) => {
     let newState = this.state;
-
+    let name = this.props.user.displayName;
     //empty discard pile
     newState.game.DiscardPile = ["cards"];
 
@@ -116,6 +123,7 @@ class Game extends Component {
     //update firebase and set state
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
     this.setState(newState);
+    this.state.message = name + " " + "shuffled the deck.";
   }
 
   activateCard = (index, action) => {
@@ -129,29 +137,33 @@ class Game extends Component {
   }
 
 	handleBackClick = () => {
+    let name = this.props.user.displayName;
     this.props.renderNewComponent("home", {});
+    this.state.message = name + " " + " left the game.";
   }
 
 	render() {
 		return (
 			<Container className="card-container">
 			  <Button className="back" onClick={this.handleBackClick}/>
+            <div className="message-div">
+                 {this.state.message}
+            </div>
         <h2 className="game-title">{this.state.name}</h2>
         <h6 className="game-players">{this.props.user.displayName}</h6>
         {this.state.game 
         ?
           <Row>
+
             <CardPile cards={this.state.game.cardPile}/>
             <DiscardPile cards={this.state.game.discardPile}/> 
             <PlayingCards hand={this.state.game.hands[this.props.user.displayName]} activate={this.activateCard}/>
+
             <GameButtons draw={this.drawCard} discard={this.discard} shuffle={this.shuffle}/>
           </Row>
         :
           null
         }
-				<Row>
-				  <ActiveBar />
-				</Row>
 			</Container>
 		);
 	};
