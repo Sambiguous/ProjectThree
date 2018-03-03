@@ -60,7 +60,6 @@ class CardMake extends Component {
     event.preventDefault();
 
     var objectToPassToDataBase = this.state;
-    console.log(this.state.deckInfo);
 
     axios.post('/api/deckpull', {name: this.state.deckInfo.deckName})
       .then(function (response) {

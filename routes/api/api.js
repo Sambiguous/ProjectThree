@@ -90,10 +90,10 @@ router.post('/deckpullnewgame', function(req, res){
     db.Deck.findOne({deckName: req.body.gameName}).populate('allCards').exec(function(err, doc) {
         if (err) throw err
         // res.send(doc);
-        console.log("pull new game deck information:", doc);
+        console.log("pull new game deck information:", typeof doc.allCards);
 
         //Check each card to see if null
-        checkNull(doc); 
+        console.log(checkNull(doc.allCards));
 
         // //build object that will be the base state of the game
         // const newGame = {
@@ -113,12 +113,33 @@ router.post('/deckpullnewgame', function(req, res){
 })
 
 function checkNull (data) {
-    // // console.log("Check Null Data: " + data);
-    // console.log("data dot allcards: " + data.allCards);
-
-    for (i in data.allCards) {
-        console.log("check null: card#"+i);
+console.log("Check Null Data: " + data);
+    var objToArr = [];
+    
+    for (i in data) {
+        if (data[i] === "card#"+[i]) {
+            console.log("card info: " + data[i]);
+            objToArr[i] = data[i]
+        } else {
+            console.log("not a card");
+        }
     }
+
+    console.log("objToArr: " + objToArr);
+
+    // objToArr.map(card => {
+    //     let trimmedCard = [];
+    //     for (i in card) {
+    //         if (card[i] !== null) {
+    //             trimmedCard[i] = card[i]
+    //         };
+    //     };
+    //     return trimmedCard
+    // });
+
+    // for (i in data.allCards) {
+    //     console.log("check null: card#"+i);
+    // }
 }
 
 module.exports = router

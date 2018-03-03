@@ -10,7 +10,7 @@ if (!firebase.auth().currentUser) {
     for (let key in localStorage) {
         if (key.startsWith("firebase:authUser:")) {
             //console.log(localStorage[key])
-            ReactDOM.render(<App auth={localStorage[key]} />, document.getElementById('root'));
+            ReactDOM.render(<App auth={JSON.parse(localStorage[key])} />, document.getElementById('root'));
         }
     }
     if (!hasLocalStorageUser) {
