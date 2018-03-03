@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import Container from "../../components/Container";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
