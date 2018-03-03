@@ -10,11 +10,11 @@ class ClassicDeck extends Component {
     	super(props);
     	this.toggle = this.toggle.bind(this);
     	this.state = { collapse: false };
-  	}
+    }
 
-  	toggle() {
-    	this.setState({ collapse: !this.state.collapse });
-  	}
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
+  }
 
 	render(){
 		return(

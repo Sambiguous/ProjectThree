@@ -107,13 +107,7 @@ function findGame(code, cb){
         if(!game){
             cb({status: "failed", code: "No game found with that password"})
         } else if(Object.keys(game.players).length < game.maxPlayers){
-            firebase.database().ref().child('games').child(code).child('players').push(firebase.auth().currentUser.displayName, e => {
-            if(e){
-                cb({status: "failed", code: e.message});
-            }else{
-                cb({status: "success", name: game.name})
-            };
-            });
+          cb({status: "success", name: game.name})
         } else{
             cb({status: "failed", code: "game is full"});
         }

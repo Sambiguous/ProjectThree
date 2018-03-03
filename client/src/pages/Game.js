@@ -40,7 +40,11 @@ class Game extends Component {
   };
 
   componentDidMount(){
-    let handRef = firebase.database().ref().child(`games/${this.state.code}/hands/${this.props.user.displayName}`)
+    let playersRef = firebase.database().ref().child(`${this.state.gamePath}/players`);
+    playersRef.once('value', snap => {
+      console.log(typeof snap.val());
+    })
+    let handRef = firebase.database().ref().child(`games/${this.state.code}/hands/${this.props.user.displayName}`);
     handRef.once('value', snap => {
       if(!snap.val()){
         handRef.set(["cards"])
