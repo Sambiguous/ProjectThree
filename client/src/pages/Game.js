@@ -57,7 +57,7 @@ class Game extends Component {
       let newState = this.state
 
       console.log("This is a printout of the game snapshot from firebase");
-      console.log(gameState);
+      console.log(this.state);
 
       newState.game = gameState
 
