@@ -60,7 +60,7 @@ router.post("/deckcreate", function(req, res) {
 
 router.post('/deckpull', function(req, res){
 
-    db.Deck.collection.findOne({deckName: req.body.id}).populate('').exec(function(error, doc) {
+    db.Deck.collection.findOne({deckName: req.body.id}).populate('decks').exec(function(error, doc) {
       if (error) {
         res.send(error);
       }

@@ -51,8 +51,14 @@ class CardMake extends Component {
       console.log(error);
     });
 
-    this.handleBackClick()
-
+    // this.handleBackClick()
+    axios.get('/api/deckpull', objectToPassToDataBase)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });   
   };
 
   render() {
