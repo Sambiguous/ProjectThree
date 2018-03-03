@@ -12,9 +12,9 @@ class GameButtons extends Component {
 
 	}
 
-  	handleShuffle() {
+  	handleShuffle = () => {
     	console.log('you just shuffled the deck');
-    	// logic to shuffle deck
+    	this.props.shuffle("lol", "test");
   	}
 
   	handleDone() {
@@ -22,22 +22,21 @@ class GameButtons extends Component {
     	//your turn is done - go to the next player
   	}
 
-  	handleDiscard() {
+  	handleDiscard = () => {
     	console.log('you just discarded');
-    	// logic to get rid of your card 
+    	this.props.discard('discardPile'); 
   	}
 
   	handleDraw = () => {
-      console.log('you just drew a card');
-      this.props.draw("cardPile")
-  	}
+      this.props.draw("cardPile");
+  	};
 
 	render() {
 		return (
 			<div className="btn-div">
-				<button className="shuffle-btn" onClick={this.handleClickShuffle}> SHUFFLE </button>
+				<button className="shuffle-btn" onClick={this.handleShuffle}> SHUFFLE </button>
 				<button className="done-btn" onClick={this.handleClickDone}> DONE </button>
-				<button className="discard-btn" onClick={this.handleClickDiscard}> DISCARD </button>
+				<button className="discard-btn" onClick={this.handleDiscard}> DISCARD </button>
 				<button className="draw-btn" onClick={this.handleDraw}> DRAW </button>
 			</div>
 		);

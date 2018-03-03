@@ -1,7 +1,6 @@
 const firebase = require('../firebase');
 const gameCode = require('../credentials.json').gameCode;
 
-console.log(gameCode);
 
 function shuffle(originalArray) {
   var array = [].concat(originalArray);
@@ -55,7 +54,8 @@ const newGame = {
   maxPlayers: 1000,
   players: ["SamBiguous", "FloridaMan", "NutBar", "Normie"],
   allCards: allCards,
-  cardPile: shuffle(allCards),
+  discardPile: ["cards"],
+  cardPile: ["cards"].concat(shuffle(allCards)),
   hands: {
     SamBiguous: ["cards"],
     FloridaMan: ["cards"],
@@ -66,5 +66,6 @@ const newGame = {
 
 //send object to firebase
 firebase.firebase.database().ref().child('games').child(gameCode).set(newGame).then(() => {
+  console.log("Deck has been reset");
   process.exit(0);
 })
