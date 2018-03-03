@@ -11,6 +11,8 @@ import GameButtons from "../components/GameButtons";
 import { Button} from 'reactstrap';
 import firebase from '../firebase';
 
+let click = 0;
+
 function shuffleArray(arr) {
   let shuffledArray = [].concat(arr);
   let currentIndex = shuffledArray.length, temporaryValue, randomIndex;
@@ -69,6 +71,7 @@ class Game extends Component {
 
   drawCard = pile => {
     if(this.state.game[pile].length < 2){return};
+    click++
     let newState = this.state;
     let message = this.state;
     let name = this.props.user.displayName;
@@ -81,9 +84,9 @@ class Game extends Component {
       
     firebase.database().ref().child('games').child(this.props.code).set(newState.game);
     this.setState(newState);
-    this.state.message = name + " " + "drawded a card."
+    this.state.message = name + " " + "drew a card (" + click + ")."
   };
-  
+
   discard = pile => {
     let message = this.state.message
     let newState = this.state
