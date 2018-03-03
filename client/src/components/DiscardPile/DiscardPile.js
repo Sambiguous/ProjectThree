@@ -3,10 +3,6 @@ import "./DiscardPile.css"
 
 class DiscardPile extends Component {
 
-	state = {
-
-	}
-
 	render() {
 		return (
 			<div>
