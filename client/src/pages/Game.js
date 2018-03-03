@@ -36,6 +36,7 @@ class Game extends Component {
     this.state = {
       code: props.code,
       activeCardIndexes: [],
+      message: ""
     };
 	};
   
@@ -130,10 +131,12 @@ class Game extends Component {
         {this.state.game 
         ?
           <Row>
+
             <CardPile cards={this.state.game.cardPile}/>
             <DiscardPile cards={this.state.game.discardPile}/> 
             <PlayingCards hand={this.state.game.hands[this.props.user.displayName]} activate={this.activateCard}/>
             <GameButtons draw={this.drawCard} discard={this.discard} shuffle={this.shuffle}/>
+            
           </Row>
         :
           null

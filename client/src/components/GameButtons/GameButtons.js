@@ -27,7 +27,10 @@ class GameButtons extends Component {
     	this.props.discard('discardPile'); 
   	}
 
-  	handleDraw = () => {
+  	handleDraw = (props) => {
+  		let message = "yoooo";
+  		console.log("yoooo");
+
       this.props.draw("cardPile");
   	};
 
@@ -38,6 +41,9 @@ class GameButtons extends Component {
 				<button className="done-btn" onClick={this.handleClickDone}> DONE </button>
 				<button className="discard-btn" onClick={this.handleDiscard}> DISCARD </button>
 				<button className="draw-btn" onClick={this.handleDraw}> DRAW </button>
+	            <div className="message-div">
+	              <p> hey {this.props.message}</p>
+	            </div>
 			</div>
 		);
 	};

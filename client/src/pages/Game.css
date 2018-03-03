@@ -38,3 +38,9 @@ body {
 .back:hover {
 	background-color: #D4D4D4;
 }
+
+/* for the progress messages in the game page*/
+.message-div {
+	margin-left: 20px;
+	display: block;
+}
