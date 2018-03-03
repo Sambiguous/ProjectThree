@@ -43,12 +43,27 @@ class GameForm extends Component {
   handleCreate = event => {
     event.preventDefault();
 
-    axios.get("/api/creategame").then(response => {
-      const gameCode = response.data;
+    var thisNewGame = {
+      gameName: this.props.deckName,
+      gameNumPlayers: this.state.numPlayers,
+      gameAdmin: this.props.user.displayName
+    }
 
-      
-    });
+    console.log("this new game information ", thisNewGame);
+
+    axios.post('/api/deckpullnewgame', thisNewGame)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });  
+
   };
+
+  componentDidMount() {
+    console.log(typeof this.props.user);
+  }
 
   render() {
     return (
@@ -56,18 +71,13 @@ class GameForm extends Component {
         <div className="form-group">
         
           <input
+            value={this.state.deckName}
+            name="numPlayers"
             type="text"
             className="form-control"
             onChange={this.handleInputChange}
             placeholder="NUMBER OF PLAYERS"
             id="startgame-input"
-          />
-          <input
-            type="text"
-            className="form-control"
-            onChange={this.handleInputChange}
-            placeholder="NUMBER OF CARDS"
-            id="numcards-input"
           />
           <button
             type="submit"
