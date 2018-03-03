@@ -42,5 +42,6 @@ body {
 /* for the progress messages in the game page*/
 .message-div {
 	margin-left: 20px;
-	display: block;
+	display: inline;
+	color: red;
 }
