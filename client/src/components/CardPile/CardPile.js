@@ -8,60 +8,9 @@ class CardPile extends Component {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
 		this.state = {
-			code: "12345",
-			name: "USSR jest",
-			players: ["FloridaMan", "Normie", "NutBar", "SamBiguous"],
-			allCards: [  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["bullet"]
-			  },
-			],
-			discardPile: [{
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["No bullet"]
-			  },
-			  {
-				fromDeck: "USSR jest",
-				fieldInfo: ["bullet"]
-			  },],
-			hand:[]
-		}
+      cards: props.cardPile
+    }
+
 	}
 
 

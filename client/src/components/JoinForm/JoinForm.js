@@ -32,7 +32,7 @@ class JoinForm extends Component {
 
     this.props.findGame(code, response =>{
       if(response.status === "success"){
-        this.props.renderNewComponent("game", {code: code});
+        this.props.renderNewComponent("game", {code: code, name: response.name});
       } else {
         console.log(response);
       }
