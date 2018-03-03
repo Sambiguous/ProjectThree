@@ -42,21 +42,21 @@ router.post("/deckcreate", function(req, res) {
         //insert all the cards into the cards collection
         db.Card.insertMany(cards, function(err, insertedDocs){
           if(err) throw err;
-            let name = req.body.deckInfo.deckName
-            
-            let ids = insertedDocs.map(card => card._id)
+          let name = req.body.deckInfo.deckName
+          
+          let ids = insertedDocs.map(card => card._id)
 
-            db.Deck.findOneAndUpdate({deckName: name}, {$set:{ allCards: ids}}, {new: true}, function(err, doc){
-    
-              if (err) {
-                console.log(err);    
-              } else {                
-                console.log("deck complete");
-              };
-            });
-        })
-    })
-})
+          db.Deck.findOneAndUpdate({deckName: name}, {$set:{ allCards: ids}}, {new: true}, function(err, doc){
+            if (err) {
+              console.log(err);    
+            } else {                
+              console.log("deck complete");
+              res.send("deck entered")
+            };
+          });
+        });
+    });
+});
 
 router.post('/deckpull', function(req, res){
 
