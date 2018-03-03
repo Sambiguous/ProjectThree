@@ -43,7 +43,7 @@ class JoinForm extends Component {
     return (
       <form className="joinform">
         <div className="form-group">
-          <h3>Join a game</h3>
+          <h1>JOIN A GAME</h1>
           <input
             value={this.state.code}
             type="text"

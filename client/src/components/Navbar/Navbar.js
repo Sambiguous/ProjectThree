@@ -1,21 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Container from "../Container";
 import Row from "../Row";
 import Col from "../Col";
 import "./Navbar.css";
-import axios from "axios";
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  Nav } from 'reactstrap';
 
 export default class Example extends React.Component {
   constructor(props) {

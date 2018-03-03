@@ -1,11 +1,12 @@
 .card-pile {
 	margin-top: -10px;
+	background-image: url("./card-pile.png");
 	display: flex;
-	width: 140px;
-	height: 200px;
+	width: 120px;
+	height: 185px;
 	margin-left: 60px;
-	background-color: white;
-	box-shadow: 5px;
-	border-radius: 6px !important;
+/*	background-color: white;
+*/	box-shadow: 5px;
+	border-radius: 8px !important;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
