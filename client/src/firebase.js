@@ -139,16 +139,16 @@ function connectToGame(code, player, cb){
   })
   .then(() => {
     gameRef.on('value', snap => {
+      gameRef.onDisconnect().cancel();
+
       const game = snap.val()
+
       playersOnDisconnect = game.players.filter(playerName => playerName !== player)
-      if(playersOnDisconnect.length < 1){
-        gameRef.onDisconnect().cancel();
-        gameRef.onDisconnect().set(null)
-      } else {
-        game.players = playersOnDisconnect
-        gameRef.onDisconnect().cancel();
-        gameRef.onDisconnect().set(game)
-      }
+
+      game.players = playersOnDisconnect
+
+      gameRef.onDisconnect().set(playersOnDisconnect.length < 1 ? null : game)
+
       cb(snap.val())
     });
   });
