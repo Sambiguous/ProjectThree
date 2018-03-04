@@ -47,17 +47,23 @@ router.post("/creategame", function(req, res){
   const code = firebase.generateGameCode();
   const {deckName, numPlayers, maker} = req.body;
   
-  db.Deck.findOne({deckName: deckName}).populate("allCards").exec((err, docs) => {
-
-    //convert the allCards array to json from whatever the hell it was before
-    let cards = docs.allCards.map(card => card.toJSON())
-
-    //remove all properties whos values are null
-    for(var i=0; i < cards.length; i++){
-      for(key in cards[i]){
-        if(cards[i][key] === null) delete cards[i][key]
+  db.Deck.findOne({deckName: deckName}).lean().populate({path: "allCards", options: {lean: true}}).exec((err, docs) => {
+    
+    const cards = docs.allCards.map(card => {
+      let trimmedCard = {}
+      for(i in card){
+        if(card[i] !== null){
+          trimmedCard[i] = card[i];
+        };
       };
-    };
+      return trimmedCard
+    });
+
+    let keys = [];
+    for(i in docs){
+      keys.push(i);
+    }
+    res.send(keys);
 
     let newGame = {
       message: `You have joined ${maker}'s game!`,
