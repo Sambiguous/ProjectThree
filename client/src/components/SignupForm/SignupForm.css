@@ -27,6 +27,7 @@ form.signup button[type="submit"] {
 	margin-bottom: 15px;
 	outline: none;
   color: white;
+  font-size: 14px;
   text-transform: none;
 	background-color: #181717;
 }
@@ -34,6 +35,7 @@ form.signup button[type="submit"] {
 #password_input{ 
 	margin-bottom: 15px;
   color: white;
+  font-size: 14px;
   text-transform: none;
 	background-color: #181717;
 }
@@ -41,6 +43,7 @@ form.signup button[type="submit"] {
 #email_input{ 
   margin-bottom: 15px;
   color: white;
+  font-size: 14px;
   text-transform: none;
   background-color: #181717;
 }

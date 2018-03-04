@@ -1,21 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Container from "../Container";
 import Row from "../Row";
 import Col from "../Col";
 import "./Navbar.css";
-import axios from "axios";
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  Nav } from 'reactstrap';
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -51,24 +41,23 @@ export default class Example extends React.Component {
  render() {
     return (
       <div>
-      <Container className="nav-container">
+        <Container className="nav-container">
+          <Row>
+            <Col size="sm-12">
+              <Navbar className="nav nav-tabs" light expand="md">
+                <Nav className= "nav" navbar>
+                  <ul className="nav nav-tabs">
 
-     <Row>
-      <Col size="sm-12">
-        <Navbar className="nav nav-tabs" light expand="md">
-            <Nav className= "nav" navbar>
-              <ul className="nav nav-tabs">
+                    <button id="play" onClick={this.handlePlayClick}>Play</button>
+                    <button id="deckmake" onClick={this.handleCreateClick}>Create</button>
+                    
+                    <hr />
 
-                  <button id="play" onClick={this.handlePlayClick}>Play</button>
-                  <button id="deckmake" onClick={this.handleCreateClick}>Create</button>
-                <hr />
-
-              </ul>
-            </Nav>
-        </Navbar>
-
-       </Col>
-        </Row>
+                  </ul>
+                </Nav>
+              </Navbar>
+             </Col>
+          </Row>
         </Container>
       </div>
     );

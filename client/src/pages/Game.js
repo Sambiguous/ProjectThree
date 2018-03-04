@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Container from "../components/Container";
 import Row from "../components/Row";
-import Col from "../components/Col";
 import DiscardPile from "../components/DiscardPile";
 import CardPile from "../components/CardPile";
 import ActiveBar from "../components/ActiveBar";
@@ -33,9 +32,9 @@ class Game extends Component {
 	constructor(props) {
     super(props)
     this.state = {
-      gamePath: `games/${props.code}`,
       code: props.code,
       activeCardIndexes: [],
+      message: ''
     };
   };
 
@@ -57,11 +56,10 @@ class Game extends Component {
     for(var i=0; i < yourNewCard.length; i++){
       newState.game.hands[name].push(yourNewCard[i]);
     };
-      
+    newState.game.message = name + " " + "drew a card."
     firebase.database().ref().child('games').child(this.props.code).set(newState.game);
     this.setState(newState);
   };
-
 
   discard = pile => {
     let newState = this.state
@@ -75,7 +73,8 @@ class Game extends Component {
     // };
 
     newState.game[pile].push(newState.game.hands[name].splice(-1, 1)[0]);
-    
+    newState.game.message = name + " " + "discarded."
+    console.log(newState);
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
     this.setState(newState);
   };
@@ -83,7 +82,7 @@ class Game extends Component {
   //parameters do nothing yet hopefully they can be used later for adding options to what gets shuffled
   shuffle = (pile, cards) => {
     let newState = this.state;
-
+    let name = this.props.user.displayName;
     //empty discard pile
     newState.game.DiscardPile = ["cards"];
 
@@ -94,7 +93,7 @@ class Game extends Component {
 
     //generate a new cardPile by copying and shuffling allCards 
     newState.game.cardPile = ["cards"].concat(shuffleArray(newState.game.allCards));
-
+    newState.game.message = name + " " + "shuffled the deck"
     //update firebase and set state
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
     this.setState(newState);
@@ -110,17 +109,24 @@ class Game extends Component {
     }
   }
 
-	handleBack = () => {
-    leaveGame(this.props.code, this.props.user.displayName);
+
+	handleBackClick = () => {
+    let newState = this.state;
+    const name = this.props.user.displayName;
+    leaveGame(this.props.code, name);
+    newState.game.message = name + " " + "left the game."
     this.props.renderNewComponent("home", {});
   }
 
 	render() {
 		return (
 			<Container className="card-container">
-			  <Button className="back" onClick={this.handleBack}/>
+			  <Button className="back" onClick={this.handleBackClick}/>
+          <div className="message-div">
+               {this.state.game.message}
+          </div>
         <h2 className="game-title">{this.state.name}</h2>
-        <h5 className="game-players">{this.props.user.displayName}</h5>
+        <h6 className="game-players">{this.props.user.displayName}</h6>
         {this.state.game 
         ?
           <Row>
@@ -132,9 +138,6 @@ class Game extends Component {
         :
           null
         }
-				<Row>
-				  <ActiveBar />
-				</Row>
 			</Container>
 		);
 	};

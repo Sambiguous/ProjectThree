@@ -48,13 +48,6 @@ class GameForm extends Component {
             name="numPlayers"
             id="startgame-input"
           />
-          <input
-            type="text"
-            className="form-control"
-            onChange={this.handleInputChange}
-            placeholder="NUMBER OF CARDS"
-            id="numcards-input"
-          />
           <button
             type="submit"
             className="start-btn"
