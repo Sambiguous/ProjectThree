@@ -46,6 +46,21 @@ class Game extends Component {
     });
   };
 
+  done = () => {
+    let newState = this.state;
+    let newActiveIndex;
+    const currentActiveIndex = newState.game.players.indexOf(newState.game.active);
+
+    if(this.state.game.direction === "forward"){
+      newActiveIndex = (currentActiveIndex + 1) % newState.game.players.length;
+    } else {
+      newActiveIndex = currentActiveIndex === 0 ? newState.game.players.length - 1 : currentActiveIndex - 1;
+    }
+    newState.game.active = newState.game.players[newActiveIndex];
+    firebase.database().ref().child('games').child(this.props.code).set(newState.game);
+    this.setState(newState);
+  }
+
   drawCard = pile => {
     if(this.state.game[pile].length < 2){return};
     let newState = this.state;
@@ -64,7 +79,7 @@ class Game extends Component {
   discard = pile => {
     let newState = this.state
     let name = this.props.user.displayName;
-    let indexes = newState.activeCardIndexes;
+    //let indexes = newState.activeCardIndexes;
     if(this.state.game.hands[name].length < 2){return};
 
     //uncomment this for loop when activating cards is working correctly
@@ -119,8 +134,14 @@ class Game extends Component {
   }
 
 	render() {
+    let isActive;
+    if(this.state.game && this.state.game.hands[this.props.user.displayName]){
+      isActive = this.state.game.active === this.props.user.displayName;
+    };
+    console.log(isActive);
+
 		return (
-      this.state.game 
+      isActive !== undefined
       ?
         <Container className="card-container">
           <Button className="back" onClick={this.handleBackClick}/>
@@ -133,7 +154,8 @@ class Game extends Component {
             <CardPile cards={this.state.game.cardPile}/>
             <DiscardPile cards={this.state.game.discardPile}/> 
             <PlayingCards hand={this.state.game.hands[this.props.user.displayName]} activate={this.activateCard}/>
-            <GameButtons draw={this.drawCard} discard={this.discard} shuffle={this.shuffle}/>
+            <GameButtons isActive={isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
+            <ActiveBar isActive={isActive} />
           </Row>
         </Container>
       :

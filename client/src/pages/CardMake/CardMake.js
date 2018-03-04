@@ -31,7 +31,9 @@ class CardMake extends Component {
   };
 
   handleInputChange = (property, value, index) => {
-    this.state.cards[index][property] = value;
+    let newState = this.state
+    newState.cards[index][property] = value;
+    this.setState(newState);
   };
 
   handleBackClick = () => {
@@ -41,10 +43,7 @@ class CardMake extends Component {
   handleCardSubmit = event => {
     event.preventDefault();
 
-    var objectToPassToDataBase = this.state;
-    console.log(this.state)
-
-    axios.post('/api/deckcreate', objectToPassToDataBase)
+    axios.post('/api/deckcreate', this.state)
     .then(function (response) {
       console.log(response.data);
     })
@@ -58,8 +57,6 @@ class CardMake extends Component {
 
   handleDeckPull = event => {
     event.preventDefault();
-
-    var objectToPassToDataBase = this.state;
 
     axios.post('/api/deckpull', {name: this.state.deckInfo.deckName})
       .then(function (response) {

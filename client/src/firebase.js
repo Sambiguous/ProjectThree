@@ -124,10 +124,12 @@ function connectToGame(code, player, cb){
   handRef = firebase.database().ref().child(`games/${code}/hands/${player}`);
   gameRef = firebase.database().ref().child(`games/${code}`)
   gameRef.onDisconnect().set(null)
+
   playersRef.once('value', snap => {
-    let playersInGame = snap.val()
+    const playersInGame = snap.val()
     if(playersInGame.indexOf(player) === -1){
       playersInGame.push(player);
+      playersRef.set(playersInGame);
     }
   })
   .then(() => {
@@ -164,9 +166,10 @@ function leaveGame(code, player){
     }else{
      gameRef.off()
      const delIndex = players.indexOf(player)
-     players.splice(delIndex, 1)
-     playersRef.set(players)
-     
+      if(delIndex !== -1){
+        players.splice(delIndex, 1)
+        playersRef.set(players)
+      }
     }
   });
 }

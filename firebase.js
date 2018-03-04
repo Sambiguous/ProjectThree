@@ -47,7 +47,6 @@ function generateGameCode(){
             let digit = Math.floor(Math.random() * 10)
             code += digit.toString()
         };
-        console.log(code);
 
         codeExists = activeGameCodes.indexOf(code) !== -1
     }

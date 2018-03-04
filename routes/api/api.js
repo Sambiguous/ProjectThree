@@ -61,6 +61,8 @@ router.post("/creategame", function(req, res){
 
     let newGame = {
       message: `You have joined ${maker}'s game!`,
+      active: maker,
+      direction: "forward", 
       maxPlayers: numPlayers,
       players: [maker],
       allCards: cards,
