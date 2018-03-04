@@ -59,11 +59,6 @@ router.post("/creategame", function(req, res){
       return trimmedCard
     });
 
-    let keys = [];
-    for(i in docs){
-      keys.push(i);
-    }
-
     let newGame = {
       message: `You have joined ${maker}'s game!`,
       active: maker,
@@ -78,15 +73,13 @@ router.post("/creategame", function(req, res){
 
     newGame.hands[maker] = ["cards"];
 
-    res.send(newGame);
-
-    // firebase.firebase.database().ref().child(`games/${code}`).set(newGame, err => {
-    //   if(err){
-    //     res.send({status: "failure", code: "firebase error"})
-    //   } else{
-    //     res.send({status: "success", gameCode: code})
-    //   };
-    // });
+    firebase.firebase.database().ref().child(`games/${code}`).set(newGame, err => {
+      if(err){
+        res.send({status: "failure", code: "firebase error"})
+      } else{
+        res.send({status: "success", gameCode: code})
+      };
+    });
   });
 });
 
