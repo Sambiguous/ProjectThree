@@ -9,6 +9,10 @@ var config = {
 
 firebase.initializeApp(config);
 
+var playersRef;
+var handRef;
+var gameRef;
+
 firebase.auth().onAuthStateChanged(user => {
     if(user){
         
@@ -98,26 +102,58 @@ function createUser(username, email, pass, cb){
 };
 
 function findGame(code, cb){
-    if(code.length < 5){
-        cb({status: "failed", code: "game code too short"});
-        return;
+  if(code.length < 5){
+    cb({status: "failed", code: "game code too short"});
+    return;
+  }
+  firebase.database().ref().child('games').child(code).once('value', snap => {
+    const game = snap.val()
+    if(!game){
+      cb({status: "failed", code: "No game found with that password"})
+    } else if(Object.keys(game.players).length < game.maxPlayers){
+      cb({status: "success", name: game.name})
+    } else{
+      cb({status: "failed", code: "game is full"});
     }
-    firebase.database().ref().child('games').child(code).once('value', snap => {
-        const game = snap.val()
-        if(!game){
-            cb({status: "failed", code: "No game found with that password"})
-        } else if(Object.keys(game.players).length < game.maxPlayers){
-          cb({status: "success", name: game.name})
-        } else{
-            cb({status: "failed", code: "game is full"});
-        }
-    });
+  });
 };
 
-function connectToGame(code, cb){
-    firebase.database().ref().child('games').on('value', snap => {
-        cb(snap.val())
+function connectToGame(code, player, cb){
+  playersRef = firebase.database().ref().child(`games/${code}/players`);
+  handRef = firebase.database().ref().child(`games/${code}/hands/${player}`);
+  gameRef = firebase.database().ref().child(`games/${code}`)
+
+  playersRef.once('value', snap => {
+
+    let players = snap.val();
+    players.push(player);
+    playersRef.set(players);
+    
+    handRef.once('value', snap => {
+      if(!snap.val()){
+        handRef.set(["cards"])
+      }
+    }).then(() => {
+      gameRef.on('value', snap => {cb(snap.val())})
     })
+  })
+};
+
+function leaveGame(code, player){
+  console.log("player:", player);
+  console.log("code:", code);
+  playersRef.once('value', snap => {
+    let players = snap.val();
+    if(players.length < 2 ){
+      firebase.database().ref().child(`games/${code}`).remove()
+      gameRef.off()
+    }else{
+     const delIndex = players.indexOf(player)
+     players.splice(delIndex, 1)
+     playersRef.set(players)
+     gameRef.off()
+    }
+  });
 }
 
 export default firebase;
@@ -127,3 +163,4 @@ export {logout}
 export {createUser}
 export {findGame}
 export {connectToGame}
+export {leaveGame}

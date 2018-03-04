@@ -9,7 +9,7 @@ import PlayingCards from "../components/PlayingCards";
 import "./Game.css"; 
 import GameButtons from "../components/GameButtons";
 import { Button} from 'reactstrap';
-import firebase from '../firebase';
+import firebase, { leaveGame, connectToGame } from '../firebase';
 
 function shuffleArray(arr) {
   let shuffledArray = [].concat(arr);
@@ -40,35 +40,12 @@ class Game extends Component {
   };
 
   componentDidMount(){
-    let playersRef = firebase.database().ref().child(`${this.state.gamePath}/players`);
-    playersRef.once('value', snap => {
-      console.log(typeof snap.val());
-    })
-    let handRef = firebase.database().ref().child(`games/${this.state.code}/hands/${this.props.user.displayName}`);
-    handRef.once('value', snap => {
-      if(!snap.val()){
-        handRef.set(["cards"])
-        this.initiateMatchListener();
-      }
-      else{
-        this.initiateMatchListener();
-      }
-    });
-  };
-
-  initiateMatchListener = () => {
-    firebase.database().ref().child('games').child(this.state.code).on('value', snap => {
-      let gameState = snap.val()
-      let newState = this.state
-
-      console.log("This is a printout of the game snapshot from firebase");
-      console.log(gameState);
-
-      newState.game = gameState
-
+    connectToGame(this.props.code, this.props.user.displayName, gameResponse => {
+      let newState = this.state;
+      newState.game = gameResponse
       this.setState(newState);
     });
-  }
+  };
 
   drawCard = pile => {
     if(this.state.game[pile].length < 2){return};
@@ -110,7 +87,7 @@ class Game extends Component {
     //empty discard pile
     newState.game.DiscardPile = ["cards"];
 
-    //empty all players hands
+    //empty all players' hands
     for(var player in newState.game.hands){
       newState.game.hands[player] = ["cards"];
     }
@@ -133,14 +110,15 @@ class Game extends Component {
     }
   }
 
-	handleBackClick = () => {
+	handleBack = () => {
+    leaveGame(this.props.code, this.props.user.displayName);
     this.props.renderNewComponent("home", {});
   }
 
 	render() {
 		return (
 			<Container className="card-container">
-			  <Button className="back" onClick={this.handleBackClick}/>
+			  <Button className="back" onClick={this.handleBack}/>
         <h2 className="game-title">{this.state.name}</h2>
         <h5 className="game-players">{this.props.user.displayName}</h5>
         {this.state.game 

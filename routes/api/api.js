@@ -3,6 +3,26 @@ const db = require("../../models")
 const firebase = require("../../firebase");
 
 
+function shuffle(originalArray) {
+  var array = [].concat(originalArray);
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 router.get("/", function(req, res){
     console.log(req.body);
     res.send("test route worked")
@@ -24,51 +44,65 @@ router.get("/decks", function(req, res){
     });
 });
 
-router.get("/creategame", function(req, res){
-    const code = firebase.generateGameCode()
-    res.send(code);
-})
+router.post("/creategame", function(req, res){
+  const code = firebase.generateGameCode();
+  const {deckName, numPlayers, maker} = req.body;
+  
+  db.Deck.findOne({deckName: deckName}).populate("allCards").exec((err, docs) => {
 
-router.post("/deckcreate", function(req, res) {
-    console.log(req.body);
-    const deck = new db.Deck(req.body.deckInfo)
-    db.Deck.collection.insertOne(deck, (err, docs) => {
-        if(err) throw err
-        console.log(docs.ops);
+    //convert the allCards array to json from whatever the hell it was before
+    let cards = docs.allCards.map(card => card.toJSON())
 
-        //building the cards out
-        let cards = req.body.cards.map(card => new db.Card(card));
-    
-        //insert all the cards into the cards collection
-        db.Card.insertMany(cards, function(err, insertedDocs){
-          if(err) throw err;
-          let name = req.body.deckInfo.deckName
-          
-          let ids = insertedDocs.map(card => card._id)
+    //remove all properties whos values are null
+    for(var i=0; i < cards.length; i++){
+      for(key in cards[i]){
+        if(cards[i][key] === null) delete cards[i][key]
+      };
+    };
 
-          db.Deck.findOneAndUpdate({deckName: name}, {$set:{ allCards: ids}}, {new: true}, function(err, doc){
-            if (err) {
-              console.log(err);    
-            } else {                
-              console.log("deck complete");
-              res.send("deck entered")
-            };
-          });
-        });
+    let newGame = {
+      maxPlayers: numPlayers,
+      players: [maker],
+      allCards: cards,
+      discardPile: ["cards"],
+      cardPile: ["cards"].concat(shuffle(cards)),
+      hands: {}
+    };
+
+    newGame.hands[maker] = ["cards"];
+
+    firebase.firebase.database().ref().child(`games/${code}`).set(newGame, err => {
+      if(err){
+        res.send({status: "failure", code: "firebase error"})
+      } else{
+        res.send({status: "success", gameCode: code})
+      };
     });
+  });
 });
 
-router.post('/deckpull', function(req, res){
+router.post("/deckcreate", function(req, res) {
+  const deck = new db.Deck(req.body.deckInfo)
+  db.Deck.collection.insertOne(deck, (err, docs) => {
+    if(err) throw err
 
-    // db.Deck.collection.findOne({link: req.body.link}).populate('').exec(function(error, doc) {
-    //   if (error) {
-    //     res.send(error);
-    //   }
-    //   else {
-    //     res.send(doc);
-    //     console.log(doc);
-    //   }
-    // });
-})
+    //building the cards out
+    let cards = req.body.cards.map(card => new db.Card(card));
+    
+    //insert all the cards into the cards collection
+    db.Card.insertMany(cards, function(err, insertedDocs){
+      if(err) throw err;
+      let name = req.body.deckInfo.deckName
+          
+      let ids = insertedDocs.map(card => card._id)
+
+      db.Deck.findOneAndUpdate({deckName: name}, {$set:{ allCards: ids}}, {new: true}, function(err, doc){
+        if (err) throw err
+
+        res.send("deck entered")
+      });
+    });
+  });
+});
 
 module.exports = router
