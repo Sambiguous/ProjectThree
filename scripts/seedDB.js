@@ -22,225 +22,485 @@ const deckSeed = [
     handSize: 1,
     allCards: []
   },
-//   {
-//     deckName: "Classic Deck",
-//     numCards: 52,
-//     numFields: 2,
-//     createdBy: "onDeck",
-//     handSize: 5,
-//     allCards: []
-//   }
+  {
+    deckName: "Classic Deck",
+    numCards: 52,
+    numFields: 2,
+    createdBy: "onDeck",
+    handSize: 5,
+    allCards: []
+  }
  ];
 
 const cardSeed = [
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["A", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["2", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["3", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["4", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["5", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["6", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["7", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["8", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["9", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["10", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["J", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["Q", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["K", "Spades"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["A", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["2", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["3", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["4", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["5", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["6", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["7", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["8", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["9", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["10", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["J", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["Q", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["K", "Hearts"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["A", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["2", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["3", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["4", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["5", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["6", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["7", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["8", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["9", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["10", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["J", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["Q", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["K", "Clubs"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["A", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["2", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["3", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["4", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["5", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["6", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["7", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["8", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["9", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["10", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["J", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["Q", "Diamonds"]
-//   },
-//   {
-//     fromDeck: "Classic Deck",
-//     fieldInfo: ["K", "Diamonds"]
-//   },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "A",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "2",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "3",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "4",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "5",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "6",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "7",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "8",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "9",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "10",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "J",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "Q",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "K",
+    "fieldInfo1": "Spades",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "A",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "2",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "3",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "4",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "5",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "6",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "7",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "8",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "9",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "10",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "J",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "Q",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "K",
+    "fieldInfo1": "Hearts",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "A",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "2",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "3",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "4",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "5",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "6",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "7",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "8",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "9",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "10",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "J",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "Q",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "K",
+    "fieldInfo1": "Clubs",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "A",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "2",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "3",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "4",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "5",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "6",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "7",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "8",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "9",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "10",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "J",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "Q",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
+  {
+    fromDeck: "Classic Deck",
+    "fieldInfo0": "K",
+    "fieldInfo1": "Diamonds",
+    "fieldInfo2": null,
+    "fieldInfo3": null,
+    "fieldInfo4": null,
+    "fieldInfo5": null
+  },
   {
     fromDeck: "USSR jest",
     "fieldInfo0": "Loaded barrel",
