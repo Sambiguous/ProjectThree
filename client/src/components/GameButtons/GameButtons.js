@@ -3,15 +3,6 @@ import "./GameButtons.css"
 
 class GameButtons extends Component {
 
-	constructor(props){
-		super(props);
-		// this.handleClickShuffle = this.handleClickShuffle.bind(this);
-		// this.handleClickDone = this.handleClickDone.bind(this);
-		// this.handleClickDiscard = this.handleClickDiscard.bind(this);
-		// this.handleClickDraw = this.handleClickDraw.bind(this);
-
-	}
-
   	handleShuffle = () => {
     	console.log('you just shuffled the deck');
     	this.props.shuffle("lol", "test");

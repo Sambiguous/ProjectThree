@@ -56,7 +56,7 @@ class Game extends Component {
     for(var i=0; i < yourNewCard.length; i++){
       newState.game.hands[name].push(yourNewCard[i]);
     };
-    newState.game.message = name + " " + "drew a card."
+    newState.game.message = name + " drew a card."
     firebase.database().ref().child('games').child(this.props.code).set(newState.game);
     this.setState(newState);
   };
@@ -73,7 +73,7 @@ class Game extends Component {
     // };
 
     newState.game[pile].push(newState.game.hands[name].splice(-1, 1)[0]);
-    newState.game.message = name + " " + "discarded."
+    newState.game.message = name + " discarded."
     console.log(newState);
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
     this.setState(newState);
@@ -93,7 +93,7 @@ class Game extends Component {
 
     //generate a new cardPile by copying and shuffling allCards 
     newState.game.cardPile = ["cards"].concat(shuffleArray(newState.game.allCards));
-    newState.game.message = name + " " + "shuffled the deck"
+    newState.game.message = name + " shuffled the deck"
     //update firebase and set state
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
     this.setState(newState);
@@ -114,31 +114,30 @@ class Game extends Component {
     let newState = this.state;
     const name = this.props.user.displayName;
     leaveGame(this.props.code, name);
-    newState.game.message = name + " " + "left the game."
+    newState.game.message = name + " left the game."
     this.props.renderNewComponent("home", {});
   }
 
 	render() {
 		return (
-			<Container className="card-container">
-			  <Button className="back" onClick={this.handleBackClick}/>
-          <div className="message-div">
-               {this.state.game.message}
-          </div>
-        <h2 className="game-title">{this.state.name}</h2>
-        <h6 className="game-players">{this.props.user.displayName}</h6>
-        {this.state.game 
-        ?
+      this.state.game 
+      ?
+        <Container className="card-container">
+          <Button className="back" onClick={this.handleBackClick}/>
+            <div className="message-div">
+              {this.state.game.message}
+            </div>
+          <h2 className="game-title">{this.state.name}</h2>
+          <h6 className="game-players">{this.props.user.displayName}</h6>
           <Row>
             <CardPile cards={this.state.game.cardPile}/>
             <DiscardPile cards={this.state.game.discardPile}/> 
             <PlayingCards hand={this.state.game.hands[this.props.user.displayName]} activate={this.activateCard}/>
             <GameButtons draw={this.drawCard} discard={this.discard} shuffle={this.shuffle}/>
           </Row>
-        :
-          null
-        }
-			</Container>
+        </Container>
+      :
+        null
 		);
 	};
 };
