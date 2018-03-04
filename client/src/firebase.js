@@ -12,6 +12,7 @@ firebase.initializeApp(config);
 var playersRef;
 var handRef;
 var gameRef;
+var playersOnDisconnect = [];
 
 firebase.auth().onAuthStateChanged(user => {
     if(user){
@@ -122,39 +123,55 @@ function connectToGame(code, player, cb){
   playersRef = firebase.database().ref().child(`games/${code}/players`);
   handRef = firebase.database().ref().child(`games/${code}/hands/${player}`);
   gameRef = firebase.database().ref().child(`games/${code}`)
-
+  gameRef.onDisconnect().set(null)
   playersRef.once('value', snap => {
-
-    let players = snap.val();
-    players.push(player);
-    playersRef.set(players);
-    
+    let playersInGame = snap.val()
+    if(playersInGame.indexOf(player) === -1){
+      playersInGame.push(player);
+    }
+  })
+  .then(() => {
     handRef.once('value', snap => {
       if(!snap.val()){
         handRef.set(["cards"])
       }
-    }).then(() => {
-      gameRef.on('value', snap => {cb(snap.val())})
     })
   })
+  .then(() => {
+    gameRef.on('value', snap => {
+      const game = snap.val()
+      playersOnDisconnect = game.players.filter(playerName => playerName !== player)
+      if(playersOnDisconnect.length < 1){
+        gameRef.onDisconnect().cancel();
+        gameRef.onDisconnect().set(null)
+      } else {
+        game.players = playersOnDisconnect
+        gameRef.onDisconnect().cancel();
+        gameRef.onDisconnect().set(game)
+      }
+      cb(snap.val())
+    });
+  });
 };
 
 function leaveGame(code, player){
-  console.log("player:", player);
-  console.log("code:", code);
   playersRef.once('value', snap => {
     let players = snap.val();
     if(players.length < 2 ){
-      firebase.database().ref().child(`games/${code}`).remove()
       gameRef.off()
+      firebase.database().ref().child(`games/${code}`).remove()
+      
     }else{
+     gameRef.off()
      const delIndex = players.indexOf(player)
      players.splice(delIndex, 1)
      playersRef.set(players)
-     gameRef.off()
+     
     }
   });
 }
+
+
 
 export default firebase;
 
