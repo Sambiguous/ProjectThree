@@ -49,22 +49,32 @@ class App extends Component {
   };
 
   CompFrmStr = compName => {
+    let component;
     switch(compName.toLowerCase()){
       case "login":
-        return Login;
-      
+        component = Login;
+        break
+
       case "home":
-        return Home;
+        component = Home;
+        break
 
       case "deckmake":
-        return DeckMake;
+        component = DeckMake;
+        break
 
       case "cardmake":
-        return CardMake;
+        component = CardMake;
+        break
 
       case "game":
-        return Game;
+        component = Game;
+        break
+
+      default:
+        component = Home;
     };
+    return component
   };
 
   render(){

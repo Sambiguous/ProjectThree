@@ -23,7 +23,6 @@ firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.passwo
     if(user){
         firebase.database().ref().child('games').on('child_added', snap => {
             activeGameCodes.push(snap.key);
-            console.log(activeGameCodes);
         })
 
         firebase.database().ref().child('games').on('child_removed', snap => {
@@ -31,7 +30,6 @@ firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.passwo
             let index = activeGameCodes.indexOf(code)
 
             activeGameCodes.splice(index, 1);
-            console.log(activeGameCodes);
         })
     }
     if(failure){
@@ -49,7 +47,6 @@ function generateGameCode(){
             let digit = Math.floor(Math.random() * 10)
             code += digit.toString()
         };
-        console.log(code);
 
         codeExists = activeGameCodes.indexOf(code) !== -1
     }

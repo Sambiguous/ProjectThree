@@ -2,27 +2,9 @@ import React, {Component} from "react";
 import "./ActiveBar.css";
 
 class ActiveBar extends Component {
-	
-	constructor(props){
-		super(props);
-		this.state = {
-			isActive: false
-		}
-	}
 
 	render() {
-
-		if (this.state.isActive === true) {
-		{/* return(
-			<div className="green-bar">
-			</div>s */}
-			
-		}
-
-		return(
-			<div className="active-bar">
-			</div>
-		)
+    const barClass = this.props.isActive ? 'green-bar' : 'active-bar';
 
 	}	
 }
