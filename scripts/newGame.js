@@ -53,6 +53,8 @@ const allCards = [
 const newGame = {
   maxPlayers: 1000,
   players: ["SamBiguous", "FloridaMan", "NutBar", "Normie"],
+  active: "SamBiguous",
+  direction: "forward",
   allCards: allCards,
   discardPile: ["cards"],
   cardPile: ["cards"].concat(shuffle(allCards)),

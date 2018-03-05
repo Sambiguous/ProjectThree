@@ -27,9 +27,9 @@ making a class to change it to green.*/
 
 .green-bar {
 	height: 20px; 
-    position: fixed; 
-    bottom:0%;
-    width:110%; 
-    background-color: green; 
-    opacity: 1;
+  position: fixed; 
+  bottom:0%;
+  width:110%; 
+  background-color: green; 
+  opacity: 1;
 }

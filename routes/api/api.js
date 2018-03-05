@@ -43,103 +43,68 @@ router.get("/decks", function(req, res){
     });
 });
 
-router.get("/creategame", function(req, res){
-    const code = firebase.generateGameCode()
-    res.send(code);
-})
-
-router.post("/deckcreate", function(req, res) {
-    console.log(req.body);
-    const deck = new db.Deck(req.body.deckInfo)
-    db.Deck.collection.insertOne(deck, (err, docs) => {
-        if(err) throw err
-        console.log(docs.ops);
-
-        //building the cards out
-        let cards = req.body.cards.map(card => new db.Card(card));
+router.post("/creategame", function(req, res){
+  const code = firebase.generateGameCode();
+  const {deckName, numPlayers, maker} = req.body;
+  
+  db.Deck.findOne({deckName: deckName}).lean().populate({path: "allCards", options: {lean: true}}).exec((err, docs) => {
     
-        //insert all the cards into the cards collection
-        db.Card.insertMany(cards, function(err, insertedDocs){
-          if(err) throw err;
-          let name = req.body.deckInfo.deckName
-          
-          let ids = insertedDocs.map(card => card._id)
-
-          db.Deck.findOneAndUpdate({deckName: name}, {$set:{ allCards: ids}}, {new: true}, function(err, doc){
-            if (err) {
-              console.log(err);    
-            } else {                
-              console.log("deck complete");
-              res.send("deck entered")
-            };
-          });
-        });
+    const cards = docs.allCards.map(card => {
+      let trimmedCard = {}
+      for(i in card){
+        if(card[i] !== null){
+          trimmedCard[i] = card[i];
+        };
+      };
+      return trimmedCard
     });
+
+    let newGame = {
+      message: `You have joined ${maker}'s game!`,
+      active: maker,
+      direction: "forward", 
+      maxPlayers: numPlayers,
+      players: [maker],
+      allCards: cards,
+      discardPile: ["cards"],
+      cardPile: ["cards"].concat(shuffle(cards)),
+      hands: {}
+    };
+
+    newGame.hands[maker] = ["cards"];
+
+    firebase.firebase.database().ref().child(`games/${code}`).set(newGame, err => {
+      if(err){
+        res.send({status: "failure", code: "firebase error"})
+      } else{
+        res.send({status: "success", gameCode: code})
+      };
+    });
+  });
 });
 
-router.post('/deckpull', function(req, res){
-    db.Deck.findOne({deckName: req.body.name}).populate('allCards').exec(function(err, doc) {
-        if (err) throw err
-        res.send(doc);
+router.post("/deckcreate", function(req, res) {
+  const deck = new db.Deck(req.body.deckInfo)
+  db.Deck.collection.insertOne(deck, (err, docs) => {
+    if(err) throw err
 
-    });
-})
-
-router.post('/deckpullnewgame', function(req, res){
-    // console.log("req.body"+req.body.gameName);
-    db.Deck.findOne({deckName: req.body.gameName}).populate('allCards').exec(function(err, doc) {
-        if (err) throw err
-        // res.send(doc);
-        console.log("pull new game deck information:", typeof doc.allCards);
-
-        //Check each card to see if null
-        console.log(checkNull(doc.allCards));
-
-        // //build object that will be the base state of the game
-        // const newGame = {
-        //     maxPlayers: rec.body.gameNumPlayers,
-        //     GM: rec.body.gameAdmin,
-        //     players: [rec.body.gameAdmin],
-        //     //allCards: allCards, //need to build this with no null fields
-        //     discardPile: ["cards"],
-        //     //cardPile: ["cards"].concat(shuffle(allCards)),
-        //     hands: {}
-        // }
-
-        // newGame.hands[rec.body.gameAdmin] = ['cards']
-        
-        // console.log("new game: "+newGame);
-    });
-})
-
-function checkNull (data) {
-console.log("Check Null Data: " + data);
-    var objToArr = [];
+    //building the cards out
+    let cards = req.body.cards.map(card => new db.Card(card));
     
-    for (i in data) {
-        if (data[i] === "card#"+[i]) {
-            console.log("card info: " + data[i]);
-            objToArr[i] = data[i]
-        } else {
-            console.log("not a card");
-        }
-    }
+    //insert all the cards into the cards collection
+    db.Card.insertMany(cards, function(err, insertedDocs){
+      if(err) throw err;
+      let name = req.body.deckInfo.deckName
+          
+      let ids = insertedDocs.map(card => card._id)
 
-    console.log("objToArr: " + objToArr);
+      db.Deck.findOneAndUpdate({deckName: name}, {$set:{ allCards: ids}}, {new: true}, function(err, doc){
+        if (err) throw err
 
-    // objToArr.map(card => {
-    //     let trimmedCard = [];
-    //     for (i in card) {
-    //         if (card[i] !== null) {
-    //             trimmedCard[i] = card[i]
-    //         };
-    //     };
-    //     return trimmedCard
-    // });
-
-    // for (i in data.allCards) {
-    //     console.log("check null: card#"+i);
-    // }
-}
+        res.send("deck entered")
+      });
+    });
+  });
+});
 
 module.exports = router
