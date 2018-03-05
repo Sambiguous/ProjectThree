@@ -76,7 +76,7 @@ class Game extends Component {
     for(var i=0; i < yourNewCard.length; i++){
       newState.game.hands[name].push(yourNewCard[i]);
     };
-    newState.message = name + " " + "drew a card."
+    newState.message = name + " " + "drew a card.";
     firebase.database().ref().child('games').child(this.props.code).set(newState.game);
     this.setState(newState);
   };
@@ -93,7 +93,7 @@ class Game extends Component {
     // };
 
     newState.game[pile].push(newState.game.hands[name].splice(-1, 1)[0]);
-    newState.message = name + " " + "discarded."
+    newState.message = name + " " + "discarded.";
     console.log(newState);
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
     this.setState(newState);
@@ -133,7 +133,7 @@ class Game extends Component {
     let name = this.props.user.displayName;
     let newState = this.state;
     this.props.renderNewComponent("home", {});
-    newState.message = name + " " + "left the game."
+    newState.message = name + " " + "left the game.";
     this.setState(newState);
   }
 
