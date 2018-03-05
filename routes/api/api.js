@@ -2,6 +2,25 @@ const router = require("express").Router();
 const db = require("../../models")
 const firebase = require("../../firebase");
 
+function shuffle(originalArray) {
+    var array = [].concat(originalArray);
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
 
 router.get("/", function(req, res){
     console.log(req.body);
@@ -59,16 +78,68 @@ router.post("/deckcreate", function(req, res) {
 });
 
 router.post('/deckpull', function(req, res){
+    db.Deck.findOne({deckName: req.body.name}).populate('allCards').exec(function(err, doc) {
+        if (err) throw err
+        res.send(doc);
 
-    // db.Deck.collection.findOne({link: req.body.link}).populate('').exec(function(error, doc) {
-    //   if (error) {
-    //     res.send(error);
-    //   }
-    //   else {
-    //     res.send(doc);
-    //     console.log(doc);
-    //   }
-    // });
+    });
 })
+
+router.post('/deckpullnewgame', function(req, res){
+    // console.log("req.body"+req.body.gameName);
+    db.Deck.findOne({deckName: req.body.gameName}).populate('allCards').exec(function(err, doc) {
+        if (err) throw err
+        // res.send(doc);
+        console.log("pull new game deck information:", typeof doc.allCards);
+
+        //Check each card to see if null
+        console.log(checkNull(doc.allCards));
+
+        // //build object that will be the base state of the game
+        // const newGame = {
+        //     maxPlayers: rec.body.gameNumPlayers,
+        //     GM: rec.body.gameAdmin,
+        //     players: [rec.body.gameAdmin],
+        //     //allCards: allCards, //need to build this with no null fields
+        //     discardPile: ["cards"],
+        //     //cardPile: ["cards"].concat(shuffle(allCards)),
+        //     hands: {}
+        // }
+
+        // newGame.hands[rec.body.gameAdmin] = ['cards']
+        
+        // console.log("new game: "+newGame);
+    });
+})
+
+function checkNull (data) {
+console.log("Check Null Data: " + data);
+    var objToArr = [];
+    
+    for (i in data) {
+        if (data[i] === "card#"+[i]) {
+            console.log("card info: " + data[i]);
+            objToArr[i] = data[i]
+        } else {
+            console.log("not a card");
+        }
+    }
+
+    console.log("objToArr: " + objToArr);
+
+    // objToArr.map(card => {
+    //     let trimmedCard = [];
+    //     for (i in card) {
+    //         if (card[i] !== null) {
+    //             trimmedCard[i] = card[i]
+    //         };
+    //     };
+    //     return trimmedCard
+    // });
+
+    // for (i in data.allCards) {
+    //     console.log("check null: card#"+i);
+    // }
+}
 
 module.exports = router
