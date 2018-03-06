@@ -29,7 +29,7 @@ function shuffleArray(arr) {
 
 class Game extends Component {
 
-	constructor(props) {
+  constructor(props) {
     super(props)
     this.state = {
       code: props.code,
@@ -96,6 +96,7 @@ class Game extends Component {
     for(var i=0; i < yourNewCard.length; i++){
       newState.game.hands[name].push(yourNewCard[i]);
     };
+
     newState.game.message = name + " drew a card."
     firebase.database().ref().child('games').child(this.props.code).set(newState.game);
   };
@@ -112,6 +113,7 @@ class Game extends Component {
     // };
 
     newState.game[pile].push(newState.game.hands[name].splice(-1, 1)[0]);
+
     newState.game.message = name + " discarded."
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
   };
@@ -130,7 +132,7 @@ class Game extends Component {
 
     //generate a new cardPile by copying and shuffling allCards 
     newState.game.cardPile = ["cards"].concat(shuffleArray(newState.game.allCards));
-    newState.game.message = name + " shuffled the deck"
+    newState.game.message = name + " shuffled"
     //update firebase and set state
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
   }
@@ -146,7 +148,7 @@ class Game extends Component {
   }
 
 
-	handleBackClick = () => {
+  handleBackClick = () => {
     let newState = this.state;
     const name = this.props.user.displayName;
     if(this.state.isActive){
@@ -155,6 +157,7 @@ class Game extends Component {
     leaveGame(this.props.code, name);
     newState.game.message = name + " left the game."
     this.props.renderNewComponent("home", {});
+    this.setState(newState);
   }
 
 	render() {
@@ -180,8 +183,8 @@ class Game extends Component {
         </Container>
       :
         null
-		);
-	};
+    );
+  };
 };
 
 export default Game;

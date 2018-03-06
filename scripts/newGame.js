@@ -1,3 +1,7 @@
+
+// THIS PAGE NO LONGER IN USE - MADE FOR TESTING PURPOSES
+
+
 const firebase = require('../firebase');
 const gameCode = require('../credentials.json').gameCode;
 
@@ -15,6 +19,7 @@ function shuffle(originalArray) {
 
     // And swap it with the current element.
     temporaryValue = array[currentIndex];
+
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
