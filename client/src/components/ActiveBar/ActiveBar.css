@@ -27,6 +27,7 @@
 
 .green-bar {
 	height: 20px; 
+  margin-left: -20px;
   position: fixed; 
   bottom:0%;
   width:110%; 

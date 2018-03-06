@@ -32,30 +32,14 @@
 
 }
 
-#play:hover ~ hr {
-  margin-left: 15%;
+#play:hover {
+	background-color: #232323 !important;
+	color: white !important;
 }
 
-#deckmake:hover ~ hr {
-  margin-left: 65%;
-}
-
-#play:active ~ hr {
-  margin-left: 15%;
-}
-
-#deckmake:focus ~ hr {
-  margin-left: 65%;
-}
-
-hr {
-	margin-left: 15%;
-	height: .25rem;
-	width: 20%;
-	margin-top: -60px;
-	background: #81170F;
-	border: none;
-	transition: .3s ease-in-out;
+#deckmake:active {
+	background-color: #232323 !important;
+	color: white !important;
 }
 
 

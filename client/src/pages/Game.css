@@ -4,7 +4,9 @@
 
 .game-title, .game-players {
 	color: black;
-	text-align: center;
+	text-align: right;
+	margin-right: 20px;
+	margin-top: -55px !important;
 }
 
 body {
@@ -53,7 +55,7 @@ body {
 .message-div {
 	color: #a0a0a0;
 	font-size: 12px;
-	margin-left: 62%;
+	text-align: left;
 	margin-top: -5px;
 	display: inline;
 }
