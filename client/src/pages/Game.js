@@ -110,7 +110,7 @@ class Game extends Component {
 
     //generate a new cardPile by copying and shuffling allCards 
     newState.game.cardPile = ["cards"].concat(shuffleArray(newState.game.allCards));
-    newState.game.message = name + " shuffled the deck"
+    newState.game.message = name + " shuffled"
     //update firebase and set state
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
     this.setState(newState);

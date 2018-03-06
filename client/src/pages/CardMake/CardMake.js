@@ -81,7 +81,7 @@ class CardMake extends Component {
 
     return (
       <div>
-        <Button className="back" onClick={this.handleBackClick}/>
+        <Button className="back2" onClick={this.handleBackClick}/>
         <Navbar renderNewComponent={this.props.renderNewComponent} />
         <h2>Step Two:</h2>
         <h2>Enter your Deck's Cards</h2>
