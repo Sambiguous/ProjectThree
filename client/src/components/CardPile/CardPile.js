@@ -6,17 +6,15 @@ class CardPile extends Component {
 
 	constructor(props){
 		super(props);
-		this.handleClick = this.handleClick.bind(this);
 		this.state = {
       cards: props.cardPile
     }
-
-	}
-
-
-  	handleClick() {
-    	console.log('Click happened');
-  	}
+  }
+  
+  handleClick = () => {
+    if(!this.props.canDeal){return};
+    this.props.deal(5);
+  }
 
 	render() {
 		return (
