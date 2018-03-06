@@ -149,6 +149,9 @@ class Game extends Component {
 	handleBackClick = () => {
     let newState = this.state;
     const name = this.props.user.displayName;
+    if(this.state.isActive){
+      this.done(this.state.game.direction);
+    }
     leaveGame(this.props.code, name);
     newState.game.message = name + " left the game."
     this.props.renderNewComponent("home", {});
