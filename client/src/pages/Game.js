@@ -133,7 +133,7 @@ class Game extends Component {
 
     //generate a new cardPile by copying and shuffling allCards 
     newState.game.cardPile = ["cards"].concat(shuffleArray(newState.game.allCards));
-    newState.game.message = name + " shuffled"
+    newState.game.message = name + " shuffled."
     //update firebase and set state
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
   }
@@ -173,13 +173,15 @@ class Game extends Component {
               {this.state.game.message}
             </div>
           <h2 className="game-title">{this.state.name}</h2>
-          <h6 className="game-players">{username}</h6>
+          <h6 className="game-code">Game Code: {this.state.code}</h6>
+
+          {/*<h6 className="game-players">{username}</h6>*/}
           <Row>
             <CardPile cards={this.state.game.cardPile} deal={this.deal} canDeal={this.state.game.GM === username}/>
-            <DiscardPile cards={this.state.game.discardPile}/> 
+            {/*<DiscardPile cards={this.state.game.discardPile}/> */}
             <PlayingCards hand={this.state.game.hands[username]} activate={this.activateCard}/>
             <GameButtons isActive={this.state.isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
-            {/*<PlayerList players={this.state.game.players} active={this.state.game.active} />*/}
+            <PlayerList username={this.props.user.displayName} players={this.state.game.players} active={this.state.game.active} />
             <ActiveBar isActive={this.state.isActive} />
 
           </Row>

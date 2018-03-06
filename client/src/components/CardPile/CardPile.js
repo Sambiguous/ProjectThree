@@ -3,7 +3,6 @@ import "./CardPile.css";
 
 class CardPile extends Component {
 
-
 	constructor(props){
 		super(props);
 		this.state = {
@@ -13,7 +12,13 @@ class CardPile extends Component {
   
   handleClick = () => {
     if(!this.props.canDeal){return};
-    this.props.deal(5);
+    let deal = prompt("how many?")
+  	if (deal == null || deal == "") {
+        let num = 0;
+    } else {
+        let num = deal;
+    }
+    this.props.deal(deal);
   }
 
 	render() {
