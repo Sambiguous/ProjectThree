@@ -8,7 +8,11 @@ class PlayingCards extends Component {
     	this.state = {
     		isToggleOn: false,
     	};
-  	}
+    }
+    
+    componentDidMount(){
+      console.log("playing cards props:", this.props);
+    }
 
   handleClick = () => {
     this.setState(prevState => ({

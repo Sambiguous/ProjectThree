@@ -44,6 +44,7 @@ class Game extends Component {
       newState.isActive = this.props.user.displayName === gameResponse.active;
 
       newState.game = gameResponse
+      console.log(newState);
       this.setState(newState);
     });
   };
@@ -51,12 +52,20 @@ class Game extends Component {
   deal = numCards => {
     let newState = this.state
     const players = newState.game.players
-    let hands = newState.game.hands
 
+    //for every card we want to deal
     for(var i=0; i < numCards; i++){
+
+      //for each player in the game
       for(var k=0; k < players.length; k++){
-        let newCard = newState.game.cardPile.splice(-1,1);
-        hands[players[k]].push(newCard[0]);
+
+        //if there are cards still in the cardPile from which we are dealing
+        if(newState.game.cardPile.length > 1){
+
+          //take a card off the top of the card pile and append it to that players hane
+          let newCard = newState.game.cardPile.splice(-1,1);
+          newState.game.hands[players[k]].push(newCard[0]);
+        };
       };
     };
 
@@ -104,7 +113,6 @@ class Game extends Component {
 
     newState.game[pile].push(newState.game.hands[name].splice(-1, 1)[0]);
     newState.game.message = name + " discarded."
-    console.log(newState);
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
   };
 
@@ -147,9 +155,10 @@ class Game extends Component {
   }
 
 	render() {
+    const username = this.props.user.displayName
 
 		return (
-      this.state.isActive !== null
+      this.state.isActive !== null && this.state.game.hands[this.props.user.displayName] && (this.state.game.players.indexOf(username) !== -1)
       ?
         <Container className="card-container">
           <Button className="back" onClick={this.handleBackClick}/>
@@ -157,11 +166,11 @@ class Game extends Component {
               {this.state.game.message}
             </div>
           <h2 className="game-title">{this.state.name}</h2>
-          <h6 className="game-players">{this.props.user.displayName}</h6>
+          <h6 className="game-players">{username}</h6>
           <Row>
-            <CardPile cards={this.state.game.cardPile} deal={this.deal} canDeal={this.state.game.GM === this.props.user.displayName}/>
+            <CardPile cards={this.state.game.cardPile} deal={this.deal} canDeal={this.state.game.GM === username}/>
             <DiscardPile cards={this.state.game.discardPile}/> 
-            <PlayingCards hand={this.state.game.hands[this.props.user.displayName]} activate={this.activateCard}/>
+            <PlayingCards hand={this.state.game.hands[username]} activate={this.activateCard}/>
             <GameButtons isActive={this.state.isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
             <ActiveBar isActive={this.state.isActive} />
           </Row>
