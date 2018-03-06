@@ -29,7 +29,7 @@ function shuffleArray(arr) {
 
 class Game extends Component {
 
-	constructor(props) {
+  constructor(props) {
     super(props)
     this.state = {
       code: props.code,
@@ -125,7 +125,7 @@ class Game extends Component {
   }
 
 
-	handleBackClick = () => {
+  handleBackClick = () => {
     let newState = this.state;
     const name = this.props.user.displayName;
     leaveGame(this.props.code, name);
@@ -133,14 +133,14 @@ class Game extends Component {
     this.props.renderNewComponent("home", {});
   }
 
-	render() {
+  render() {
     let isActive;
     if(this.state.game && this.state.game.hands[this.props.user.displayName]){
       isActive = this.state.game.active === this.props.user.displayName;
     };
     console.log(isActive);
 
-		return (
+    return (
       isActive !== undefined
       ?
         <Container className="card-container">
@@ -160,8 +160,8 @@ class Game extends Component {
         </Container>
       :
         null
-		);
-	};
+    );
+  };
 };
 
 export default Game;
