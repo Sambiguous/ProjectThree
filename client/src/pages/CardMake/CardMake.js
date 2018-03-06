@@ -4,6 +4,7 @@ import axios from "axios";
 import Navbar from "../../components/Navbar";
 import Container from "../../components/Container";
 import SoloCardInfo from "../../components/SoloCardInfo";
+import { Button} from 'reactstrap';
 
 class CardMake extends Component {
 
@@ -54,6 +55,10 @@ class CardMake extends Component {
 
 
 
+  handleBackClick = () => {
+      this.props.renderNewComponent("deckmake", {});
+  }
+
   render() {
     var cardArr = [];
     for(var i=0; i < this.state.deckInfo.numCards; i++){
@@ -62,6 +67,7 @@ class CardMake extends Component {
 
     return (
       <div>
+        <Button className="back2" onClick={this.handleBackClick}/>
         <Navbar renderNewComponent={this.props.renderNewComponent} />
         <h2>Step Two:</h2>
         <h2>Enter your Deck's Cards</h2>

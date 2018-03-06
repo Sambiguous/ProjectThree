@@ -11,12 +11,12 @@
 	height: 185px;
 	background-color: white;
 	margin-left: -80px;
-	border-radius: 6px !important;
+	border-radius: 8px !important;
 	color: black;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.playing-card:active {
+.expand-card {
      -webkit-transform: scale(1.3);
      -ms-transform: scale(1.3);
      transform: scale(1.3);
@@ -31,7 +31,7 @@ h5 {
 	font-family: 'Pathway Gothic One', sans-serif;
 }
 
-.spread {
+/*.spread {
   width: 350px;
   height: 250px;
   position: relative;
@@ -61,7 +61,7 @@ h5 {
   margin-left: 60px;
   margin-top: -13px;
   /*top: 0px;*/
-  -webkit-transform: rotate(5deg);
+ /* -webkit-transform: rotate(5deg);
   -moz-transform: rotate(5deg);
   -o-transform: rotate(5deg);
   -ms-transform: rotate(5deg);
@@ -71,20 +71,21 @@ h5 {
 .three {
   margin-left: 120px;
   /*top: 5px;*/
-  -webkit-transform: rotate(10deg);
+/*  -webkit-transform: rotate(10deg);
   -moz-transform: rotate(10deg);
   -o-transform: rotate(10deg);
   -ms-transform: rotate(10deg);
   transform: rotate(10deg);
 }
-
-.four {
+*/
+/*.four {
 	margin-left: 180px;
 	margin-top: 5px;
   /*top: 5px;*/
-  -webkit-transform: rotate(20deg);
+/*  -webkit-transform: rotate(20deg);
   -moz-transform: rotate(20deg);
   -o-transform: rotate(20deg);
   -ms-transform: rotate(20deg);
   transform: rotate(20deg);
 }
+*/

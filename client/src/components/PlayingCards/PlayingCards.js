@@ -34,7 +34,7 @@ class PlayingCards extends Component {
         fieldsOnCard.push(<h5 key={k}>{this.props.hand[i][field]}</h5>);
       };
 
-      cardsInHand.push(<div key={i} className="playing-card">{fieldsOnCard}</div>);
+      cardsInHand.push(<div key={i} onClick={this.handleClick} className="playing-card">{fieldsOnCard}</div>);
     };
 
 		return (

@@ -19,6 +19,16 @@ body {
 	margin: 20px;
 }
 
+.btn-secondary{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn-secondary:hover{
+	background-color: #D4D4D4;
+	color: #181717;
+}
+
 /* this is  also rich messing with stuff*/
 .wrapper {
 	padding: 0;
@@ -41,6 +51,9 @@ body {
 
 /* for the progress messages in the game page*/
 .message-div {
-	margin-left: 20px;
+	color: #a0a0a0;
+	font-size: 12px;
+	margin-left: 62%;
+	margin-top: -5px;
 	display: inline;
 }
