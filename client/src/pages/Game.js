@@ -34,16 +34,33 @@ class Game extends Component {
     this.state = {
       code: props.code,
       activeCardIndexes: [],
-      message: ''
+      isActive: null
     };
   };
 
   componentDidMount(){
     connectToGame(this.props.code, this.props.user.displayName, gameResponse => {
       let newState = this.state;
+      newState.isActive = this.props.user.displayName === gameResponse.active;
+
       newState.game = gameResponse
       this.setState(newState);
     });
+  };
+
+  deal = numCards => {
+    let newState = this.state
+    const players = newState.game.players
+    let hands = newState.game.hands
+
+    for(var i=0; i < numCards; i++){
+      for(var k=0; k < players.length; k++){
+        let newCard = newState.game.cardPile.splice(-1,1);
+        hands[players[k]].push(newCard[0]);
+      };
+    };
+
+    firebase.database().ref().child('games').child(this.props.code).set(newState.game);
   };
 
   done = () => {
@@ -58,7 +75,6 @@ class Game extends Component {
     }
     newState.game.active = newState.game.players[newActiveIndex];
     firebase.database().ref().child('games').child(this.props.code).set(newState.game);
-    this.setState(newState);
   }
 
   drawCard = pile => {
@@ -73,7 +89,6 @@ class Game extends Component {
     };
     newState.game.message = name + " drew a card."
     firebase.database().ref().child('games').child(this.props.code).set(newState.game);
-    this.setState(newState);
   };
 
   discard = pile => {
@@ -91,7 +106,6 @@ class Game extends Component {
     newState.game.message = name + " discarded."
     console.log(newState);
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
-    this.setState(newState);
   };
 
   //parameters do nothing yet hopefully they can be used later for adding options to what gets shuffled
@@ -111,7 +125,6 @@ class Game extends Component {
     newState.game.message = name + " shuffled the deck"
     //update firebase and set state
     firebase.database().ref().child('games').child(this.props.code).set(newState.game)
-    this.setState(newState);
   }
 
   activateCard = (index, action) => {
@@ -134,14 +147,9 @@ class Game extends Component {
   }
 
 	render() {
-    let isActive;
-    if(this.state.game && this.state.game.hands[this.props.user.displayName]){
-      isActive = this.state.game.active === this.props.user.displayName;
-    };
-    console.log(isActive);
 
 		return (
-      isActive !== undefined
+      this.state.isActive !== null
       ?
         <Container className="card-container">
           <Button className="back" onClick={this.handleBackClick}/>
@@ -151,11 +159,11 @@ class Game extends Component {
           <h2 className="game-title">{this.state.name}</h2>
           <h6 className="game-players">{this.props.user.displayName}</h6>
           <Row>
-            <CardPile cards={this.state.game.cardPile}/>
+            <CardPile cards={this.state.game.cardPile} deal={this.deal} canDeal={this.state.game.GM === this.props.user.displayName}/>
             <DiscardPile cards={this.state.game.discardPile}/> 
             <PlayingCards hand={this.state.game.hands[this.props.user.displayName]} activate={this.activateCard}/>
-            <GameButtons isActive={isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
-            <ActiveBar isActive={isActive} />
+            <GameButtons isActive={this.state.isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
+            <ActiveBar isActive={this.state.isActive} />
           </Row>
         </Container>
       :
