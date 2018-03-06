@@ -1,20 +1,19 @@
-
 input[type="text"], textarea {
-outline: none;
-box-shadow:none !important;
-text-align: center;
-font-size: 14px;
-border:0px !important;
-border-bottom:1px solid #ccc !important;
+  outline: none;
+  box-shadow:none !important;
+  text-align: center;
+  font-size: 14px;
+  border:0px !important;
+  border-bottom:1px solid #ccc !important;
 }
 
 input[type="password"], textarea {
-outline: none;
-text-align: center;
-font-size: 14px;
-box-shadow:none !important;
-border:0px !important;
-border-bottom:1px solid #ccc !important;
+  outline: none;
+  text-align: center;
+  font-size: 14px;
+  box-shadow:none !important;
+  border:0px !important;
+  border-bottom:1px solid #ccc !important;
 }
 
 .what {
@@ -31,7 +30,6 @@ form.login {
   margin-right: 55px;
   margin-top: 10px;
 }
-
 
 form.login button[type="submit"] {
   display: block;
@@ -58,7 +56,4 @@ form.login button[type="submit"] {
 	margin-bottom: 15px;
 	background-color: #181717;
   color: white;
-}
-
-.container {
 }
