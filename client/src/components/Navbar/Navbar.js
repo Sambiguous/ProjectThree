@@ -49,7 +49,7 @@ export default class Example extends React.Component {
                   <ul className="nav nav-tabs">
 
                     <button id="play" onClick={this.handlePlayClick}>Play</button>
-                    <button id="deckmake" onClick={this.handleCreateClick}>Create</button>
+                    <button id="deckmake" onClick={this.handleCreateClick}>Prototype</button>
                     
                     <hr />
 
