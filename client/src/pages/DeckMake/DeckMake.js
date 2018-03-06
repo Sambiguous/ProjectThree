@@ -68,18 +68,6 @@ class DeckMake extends Component {
           <Row>
             <Col size="sm-12">
               <input
-                value={this.state.createdBy}
-                name="createdBy"
-                onChange={this.handleInputChange}
-                type="text"
-                className="deck"
-                placeholder="creator"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col size="sm-12">
-              <input
                 value={this.state.numCards}
                 name="numCards"
                 onChange={this.handleInputChange}

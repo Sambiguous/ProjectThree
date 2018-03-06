@@ -1,7 +1,7 @@
 /* Emily - this is all you! :) */
 
 .card {
-    margin: 20px;
+	margin: 20px;
 }
 
 .card input {
@@ -13,8 +13,8 @@
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+	-webkit-appearance: none; 
+	margin: 0; 
 }
 
 input[type="text"], [type="number"], textarea {
@@ -32,10 +32,9 @@ form.deck-form {
 	text-transform: none;
 	margin-left: 55px;
 	margin-right: 55px;
-  margin-top: 30px;
-  overflow: hidden;
-  text-align: center;
-
+	margin-top: 30px;
+	overflow: hidden;
+	text-align: center;
 }
 
 button {

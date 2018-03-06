@@ -61,7 +61,8 @@ class CardMake extends Component {
   render() {
     var cardArr = [];
     for(var i=0; i < this.state.deckInfo.numCards; i++){
-      cardArr.push(<h4>Card {i+1}</h4>)
+      cardArr.push(<br key={i}/>)
+      cardArr.push(<h4 key={i}>Card {i+1}</h4>)
       cardArr.push(<SoloCardInfo key={i} index={i} input={this.handleInputChange} updateFieldInfo={this.updateFieldInfo} numFields={this.state.deckInfo.numFields} />)
     };
 
