@@ -5,7 +5,7 @@ import Game from "./pages/Game";
 import Wrapper from "./components/Wrapper";
 import DeckMake from "./pages/DeckMake";
 import CardMake from "./pages/CardMake";
-//import Deck from "./components/Deck";
+import BackOrGo from "./pages/BackOrGo";
 import firebase, {login, logout, findGame}from './firebase';
 
 const universalProps = {
@@ -69,6 +69,10 @@ class App extends Component {
 
       case "game":
         component = Game;
+        break
+
+      case "backorgo":
+        component = BackOrGo;
         break
 
       default:
