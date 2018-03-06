@@ -13,6 +13,7 @@ node_modules
 credentials.json
 
 # misc
+.vscode
 .DS_Store
 .env.local
 .env.development.local
