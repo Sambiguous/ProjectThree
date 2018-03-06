@@ -5,7 +5,6 @@ import Navbar from "../../components/Navbar";
 import Container from "../../components/Container";
 import SoloCardInfo from "../../components/SoloCardInfo";
 
-
 class CardMake extends Component {
 
   constructor (props) {
@@ -36,37 +35,24 @@ class CardMake extends Component {
     this.setState(newState);
   };
 
-  handleBackClick = () => {
-    this.props.renderNewComponent("home", {});
-  }
-
   handleCardSubmit = event => {
     event.preventDefault();
+
+    var deckName = this.state.deckInfo.deckName
+    var dataPass = {deckName:deckName}
+    var self = this
 
     axios.post('/api/deckcreate', this.state)
     .then(function (response) {
       console.log(response.data);
+      self.props.renderNewComponent(`backorgo`, dataPass)
     })
     .catch(function (error) {
       console.log(error);
     });
-
-    // this.handleBackClick()
-
   };
 
-  handleDeckPull = event => {
-    event.preventDefault();
 
-    axios.post('/api/deckpull', {name: this.state.deckInfo.deckName})
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });   
-
-  }
 
   render() {
     var cardArr = [];
@@ -83,7 +69,6 @@ class CardMake extends Component {
         <Container style={{ marginTop: 30 }}>
           {cardArr}
           <button onClick={this.handleCardSubmit}>Submit</button>
-          <button onClick={this.handleDeckPull}>Pull Deck</button>
         </Container>
       </div>
     );
