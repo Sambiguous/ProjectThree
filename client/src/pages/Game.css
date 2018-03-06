@@ -35,6 +35,20 @@ body {
 	margin: 0;
 }
 
+.user-list {
+	margin-left: 20px;
+	margin-top: -40px;
+
+}
+
+.active-user {
+
+}
+
+.inactive-user {
+
+}
+
 .back {
 	width: 80%;
 	height: 80%;

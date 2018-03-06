@@ -157,7 +157,11 @@ class Game extends Component {
             <CardPile cards={this.state.game.cardPile}/>
             <DiscardPile cards={this.state.game.discardPile}/> 
             <PlayingCards hand={this.state.game.hands[this.props.user.displayName]} activate={this.activateCard}/>
+
             <GameButtons isActive={isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
+            <div className="user-list">
+              PLAYERS: {this.props.user.displayName} 
+            </div>
             <ActiveBar isActive={isActive} />
           </Row>
         </Container>
