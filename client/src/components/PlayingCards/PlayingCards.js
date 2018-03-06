@@ -10,10 +10,12 @@ class PlayingCards extends Component {
     	};
   	}
 
+  //Not currently called
   handleClick = () => {
-    this.setState(prevState => ({
-        isToggleOn: !prevState.isToggleOn
-    }));
+    // this.setState(prevState => ({
+    //     isToggleOn: !prevState.isToggleOn
+    // }));
+    
     console.log("click happened");
   }	
 

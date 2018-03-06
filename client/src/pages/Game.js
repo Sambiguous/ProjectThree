@@ -30,7 +30,7 @@ function shuffleArray(arr) {
 
 class Game extends Component {
 
-	constructor(props) {
+  constructor(props) {
     super(props)
     this.state = {
       code: props.code,
@@ -141,7 +141,7 @@ class Game extends Component {
   }
 
 
-	handleBackClick = () => {
+  handleBackClick = () => {
     let newState = this.state;
     const name = this.props.user.displayName;
     leaveGame(this.props.code, name);
@@ -150,9 +150,9 @@ class Game extends Component {
     this.setState(newState);
   }
 
-	render() {
+  render() {
 
-		return (
+    return (
       this.state.isActive !== null
       ?
         <Container className="card-container">
@@ -174,8 +174,8 @@ class Game extends Component {
         </Container>
       :
         null
-		);
-	};
+    );
+  };
 };
 
 export default Game;
