@@ -178,6 +178,7 @@ class Game extends Component {
             <DiscardPile cards={this.state.game.discardPile}/> 
             <PlayingCards hand={this.state.game.hands[username]} activate={this.activateCard}/>
             <GameButtons isActive={this.state.isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
+            <h6 className="game-players">Game Code: {this.state.code}</h6>
             <ActiveBar isActive={this.state.isActive} />
           </Row>
         </Container>
