@@ -9,23 +9,37 @@ class PlayerList extends Component {
 	    	code: props.code,
 	      	isActive: null
 	    };
-	};
+  };
+  
+  yourNameFirst = listOfPlayers => {
+    let index = listOfPlayers.indexOf(this.props.username)
+
+    let leftOfYou = listOfPlayers.slice(0, index)
+    let rightOfYou = listOfPlayers.slice(index)
+
+    return rightOfYou.concat(leftOfYou);
+    
+  }
 
 	render() {
 
-    	for (let i = 0; i < this.props.players.length; i++){
-    		if (this.props.username == this.props.isActive) {
-    			return <div className="inactive-user"> {this.props.username}</div> 
-    		} else {
-    			return <div className="active-user"> {this.props.username}</div>
-    		}
-    	}
+    let playersInGame = this.yourNameFirst(this.props.players);
+    console.log(playersInGame)
+    let playerList = [];
 
-    	return(
-    		<div className="user-list">
-              {this.props.players}
-            </div>
-    	)
+    for (let i = 0; i < playersInGame.length; i++){
+      if (playersInGame[i] === this.props.active) {
+        playerList.push(<span key={i} className="active-user">{playersInGame[i]}</span>)
+      } else {
+        playerList.push(<span key={i} className="inactive-user">{playersInGame[i]}</span>);
+      };
+    };
+      
+    return(
+      <div className="user-list">
+        {playerList}
+      </div>
+    )
 	}	
 }
 
