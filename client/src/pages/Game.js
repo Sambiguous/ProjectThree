@@ -165,7 +165,7 @@ class Game extends Component {
     const username = this.props.user.displayName
 
 		return (
-      this.state.isActive !== null && this.state.game.hands[this.props.user.displayName] && (this.state.game.players.indexOf(username) !== -1)
+      this.state.isActive !== null && this.state.game.hands[username] && (this.state.game.players.indexOf(username) !== -1)
       ?
         <Container className="card-container">
           <Button className="back" onClick={this.handleBackClick}/>
@@ -181,7 +181,7 @@ class Game extends Component {
             {/*<DiscardPile cards={this.state.game.discardPile}/> */}
             <PlayingCards hand={this.state.game.hands[username]} activate={this.activateCard}/>
             <GameButtons isActive={this.state.isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
-            <PlayerList username={this.props.user.displayName} players={this.state.game.players} active={this.state.game.active} />
+            <PlayerList username={username} players={this.state.game.players} active={this.state.game.active} />
             <ActiveBar isActive={this.state.isActive} />
 
           </Row>
