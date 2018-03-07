@@ -17,17 +17,19 @@
   right: 30%;
   top: 10%;
   bottom: 30%;
-  background: white;
+  background: grey;
   text-align: center;
-  color: red;
+  color: black;
 }
 
-input.dealy {
+input.deal-input {
   margin-left: 55px;
   color: red;
+  background-color: grey;
+
 }
 
-.dealy {
+.deal-input {
   padding: 0;
   text-align: center;
   color: black;

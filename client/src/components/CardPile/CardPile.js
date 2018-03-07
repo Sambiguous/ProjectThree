@@ -25,11 +25,17 @@ class CardPile extends Component {
   }
 
   togglePopup() {
-    this.props.deal(this.props.value);
-    console.log(this.props.value);
     this.setState({
       showPopup: !this.state.showPopup
     });
+    console.log(this.props);
+  }
+
+  closePopup() {
+    let toDeal = this.props.dealvalue;
+    this.props.deal(this.props.value);
+    console.log(toDeal);
+
   }
 
 	render() {
