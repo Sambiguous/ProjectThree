@@ -44,6 +44,7 @@ class CardMake extends Component {
     var self = this
 
     axios.post('/api/deckcreate', this.state)
+    //Should have used "Response =>""
     .then(function (response) {
       console.log(response.data);
       self.props.renderNewComponent(`backorgo`, dataPass)
@@ -53,8 +54,6 @@ class CardMake extends Component {
     });
   };
 
-
-
   handleBackClick = () => {
       this.props.renderNewComponent("deckmake", {});
   }
@@ -62,6 +61,8 @@ class CardMake extends Component {
   render() {
     var cardArr = [];
     for(var i=0; i < this.state.deckInfo.numCards; i++){
+      cardArr.push(<br key={i}/>)
+      cardArr.push(<h4 key={i}>Card {i+1}</h4>)
       cardArr.push(<SoloCardInfo key={i} index={i} input={this.handleInputChange} updateFieldInfo={this.updateFieldInfo} numFields={this.state.deckInfo.numFields} />)
     };
 

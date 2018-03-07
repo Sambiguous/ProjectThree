@@ -25,11 +25,7 @@ class SoloCardInfo extends Component {
   
     return (
       <form className="deck-form" name={formName}>
-        <Row>
-          <Col size="sm-12">
           {inputs}
-          </Col>
-        </Row>
       </form>
     )
   }

@@ -40,7 +40,8 @@ class BackOrGo extends Component {
           <div>
             <button onClick={this.handleBackClick}>Go Home</button>
             <h4>OR</h4>
-            <h4>Test your deck in a one-player game</h4>            
+            <h4>Test your deck in a one-player game</h4>   
+            <br/>         
             <button onClick={this.handlePlayClick}>Test</button>
           </div>
         </Container>
