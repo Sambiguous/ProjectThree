@@ -7,9 +7,14 @@ This repository contains the mobile application
 ## Objectives
 
 * onDeck performs the following:
-    * 
-    * 
-    * 
+    * replaces a physical deck of cards
+    * allows multiple players to interact with a single deck of cards with the following rules:
+        1.  Draw
+        2.  Discard
+        3.  Shuffle
+        4.  Deal
+        5.  Pass your turn
+    * and finally, this engine allows users to input custom decks of cards for card & board game development
 
 ## Built With
 
@@ -30,7 +35,11 @@ This repository contains the mobile application
 
 ## License
 
-* None
+* Although this work is not (yet) copyrighted, we would ask that anyone using our prototyper to please operate as if this were a Creative Commons Attribution License. this would normally read something like: 
+
+"Licensees may copy, distribute, display and perform the work and make derivative works and remixes based on it only if they give the author or licensor the credits (attribution) in the manner specified by these." 
+
+**TL:DR version -** just give us a shout-out if you make the world's next great card or board game, and you used your engine to get there - cheers!
 
 ## Acknowledgments
 
