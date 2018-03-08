@@ -14,7 +14,7 @@ export default class Example extends React.Component {
     this.toggle = this.toggle.bind(this);
 
     const playClass = props.active === "play" ? "active" : "";
-    const protoClass = props.active === "Proto" ? "active" : "";
+    const protoClass = props.active === "proto" ? "active" : "";
 
     this.state = {
       isOpen: false,
@@ -22,6 +22,7 @@ export default class Example extends React.Component {
       ProtoClass: protoClass
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
