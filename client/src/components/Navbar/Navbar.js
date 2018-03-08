@@ -22,9 +22,7 @@ export default class Example extends React.Component {
       protoClass: protoClass
     };
   }
-  componentDidMount() {
-    console.log(this.state);
-  }
+  
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
