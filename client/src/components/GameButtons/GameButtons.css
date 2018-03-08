@@ -1,14 +1,15 @@
 .btn-div {
 	margin-left: auto;
 	margin-right: auto;
-	width: 100%;
+	width: 99%;
 	margin-top: 10px;
+	margin-right: 5px;
 }
 
 .shuffle-btn, .draw-btn, .discard-btn, .done-btn {
 	display: inline !important;
 	margin-left: 5px;
-	margin-top: 20px;
+	margin-top: 10px;
 	background-color: black;
 	color: white;
 	width: 23%;

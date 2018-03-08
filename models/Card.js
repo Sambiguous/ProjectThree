@@ -32,6 +32,10 @@ var CardSchema = new Schema({
   fieldInfo5: {
     type: String,
     default: null
+  },
+  bgColor: {
+    type: String,
+    default: "white"
   }
 });
 
