@@ -12,8 +12,14 @@ export default class Example extends React.Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+
+    const playClass = props.active === "play" ? "active" : "";
+    const protoClass = props.active === "Proto" ? "active" : "";
+
     this.state = {
-      isOpen: false
+      isOpen: false,
+      playClass: playClass,
+      ProtoClass: protoClass
     };
   }
   toggle() {
@@ -31,14 +37,15 @@ export default class Example extends React.Component {
   };
 
   handlePlayClick = () => {
-    this.props.renderNewComponent("home", {});
+    this.props.renderNewComponent("home", {activeNav: 'play'});
   }
 
   handleCreateClick = () => {
-    this.props.renderNewComponent('deckmake', {})
+    this.props.renderNewComponent('deckmake', {activeNav: 'proto'})
   }
 
  render() {
+
     return (
       <div>
         <Container className="nav-container">

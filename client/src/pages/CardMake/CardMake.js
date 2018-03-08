@@ -4,6 +4,7 @@ import axios from "axios";
 import Navbar from "../../components/Navbar";
 import Container from "../../components/Container";
 import SoloCardInfo from "../../components/SoloCardInfo";
+import BgColor from "../../components/BgColor";
 import { Button} from 'reactstrap';
 
 class CardMake extends Component {
@@ -20,7 +21,8 @@ class CardMake extends Component {
         "fieldInfo2": null,
         "fieldInfo3": null,
         "fieldInfo4": null,
-        "fieldInfo5": null
+        "fieldInfo5": null,
+        bgColor: "white"
       });
     };
   
@@ -39,6 +41,8 @@ class CardMake extends Component {
   handleCardSubmit = event => {
     event.preventDefault();
 
+    console.log(this.state);
+    
     var deckName = this.state.deckInfo.deckName
     var dataPass = {deckName:deckName}
     var self = this
@@ -64,6 +68,7 @@ class CardMake extends Component {
       cardArr.push(<br key={"br" + i.toString()}/>)
       cardArr.push(<h4 key={"h4" + i.toString()}>Card {i+1}</h4>)
       cardArr.push(<SoloCardInfo key={i} index={i} input={this.handleInputChange} updateFieldInfo={this.updateFieldInfo} numFields={this.state.deckInfo.numFields} />)
+      cardArr.push(<BgColor key={"bgColor" + i.toString()} index={i} input={this.handleInputChange}/>)
     };
 
     return (
