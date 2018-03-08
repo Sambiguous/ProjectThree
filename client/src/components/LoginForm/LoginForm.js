@@ -107,7 +107,7 @@ handleLogin = event => {
         type="submit"
         onClick={this.handleLogin}
         className="btn" 
-      >LOGIN
+      >SIGN IN
       </button>
       {/*<button
         type="submit"

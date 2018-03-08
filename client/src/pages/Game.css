@@ -2,6 +2,10 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
+.container {
+	
+}
+
 .game-title, .game-players {
 	color: black;
 	text-align: right;

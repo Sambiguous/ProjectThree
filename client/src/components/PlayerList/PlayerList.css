@@ -1,8 +1,16 @@
 .active-user {
 	color: green;
+	font-size: 14px;
 
 }
 
 .inactive-user {
 	color: black;
+	font-size: 14px;
 }
+
+/*.user-list {
+	background-color: #181717;
+	width: 94%;
+	height: 30px;
+}*/
