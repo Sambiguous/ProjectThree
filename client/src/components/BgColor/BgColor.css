@@ -1,25 +1,5 @@
-/* Emily - this is all you! :) */
-
-h2 {
-	margin-top: 20px;
-}
-
-.back2 {
-	float: left;
-	display: inline;
-	width: 80%;
-	height: 80%;
-	background-color: #181717;
-	background-image: url("../../white-aarow.png");
-	margin-left: 10px;
-	margin-top: 20px;
-	width: 50px;
-	height: 50px;
-}
-
 .card {
-	margin-top: 20px;
-    margin: 20px;
+	margin: 20px;
 }
 
 .card input {
@@ -50,7 +30,9 @@ form.deck-form {
 	text-transform: none;
 	margin-left: 55px;
 	margin-right: 55px;
-
+	margin-top: 30px;
+	overflow: hidden;
+	text-align: center;
 }
 
 button {
@@ -68,7 +50,7 @@ button {
 
 
 .deck { 
-	margin-bottom: 12px;
+	margin-bottom: 15px;
 	background-color: #181717;
 	text-align: center;
 	width: 100%;
@@ -79,3 +61,10 @@ button:hover {
 	background-color: #BC1515;
 }
 
+.radio {
+	display: inline;
+	color: white;
+	margin-left: 3%;
+	margin-right: 3%;
+	
+}
