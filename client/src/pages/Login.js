@@ -14,16 +14,26 @@ class Login extends Component {
         this.showLogin = this.showLogin.bind(this);
         this.state = { 
           collapse: false,
-          active: true
+          active: true,
+          signinClass: "signin selected",
+          signupClass: "signup" 
         };
       }
 
     showSignup() {
-      this.setState({ collapse: true });
+      let newstate = this.state
+      newstate.signupClass = "signup selected"
+      newstate.signinClass = "signin"
+      newstate.collapse = true
+      this.setState(newstate);
     }
 
     showLogin() {
-      this.setState({ collapse: false });
+      let newstate = this.state
+      newstate.signinClass = "signin selected"
+      newstate.signupClass = "signup"
+      newstate.collapse = false
+      this.setState(newstate);
     }
 
       componentDidMount = () => {
@@ -38,8 +48,8 @@ class Login extends Component {
           {/*<h1>{this.props.test}</h1>*/}
           <Row>
             <Col size="md-12">
-                <Button className="signin" onClick={this.showLogin}>Sign In</Button>
-                <Button className="signup" onClick={this.showSignup}>Sign Up</Button>
+                <Button className={this.state.signinClass} onClick={this.showLogin}>Sign In</Button>
+                <Button className={this.state.signupClass} onClick={this.showSignup}>Sign Up</Button>
             </Col>
             <Col size="md-12">
                 <Collapse isOpen={!this.state.collapse}>

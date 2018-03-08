@@ -55,8 +55,8 @@ export default class Example extends React.Component {
                 <Nav className= "nav" navbar>
                   <ul className="nav nav-tabs">
 
-                    <button id="play" className={this.setState.playClass} onClick={this.handlePlayClick}>Play</button>
-                    <button id="deckmake" className={this.state.ProtoClass} onClick={this.handleCreateClick}>Prototype</button>
+                    <button id="play" onClick={this.handlePlayClick}>Play</button>
+                    <button id="prototype" onClick={this.handleCreateClick}>Prototype</button>
                     
                     <hr />
 
