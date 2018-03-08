@@ -28,7 +28,7 @@ This repository contains the mobile application
 ## Contributors
 
 * [Sam DeFrank](https://github.com/Sambiguous)
-* [Chris Ferral](https://github.com/CRFerrell77)
+* [Chris Ferrell](https://github.com/CRFerrell77)
 * [Emily Fritz](https://github.com/emfritz2)
 * [Rich Tranter](https://github.com/Richt2566/)
 
