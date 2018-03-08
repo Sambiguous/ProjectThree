@@ -32,13 +32,17 @@ class PlayingCards extends Component {
     for(var i=1; i < this.props.hand.length; i++){
       let fieldsOnCard = [];
       let numFields = Object.keys(this.props.hand[i]).length;
+      let bgCLR = {
+        backgroundColor: this.props.hand[i].bgColor
+        // backgroundColor: "purple"
+      }
 
       for(var k=0; k < numFields; k++){
         let field = "fieldInfo" + k.toString();
         fieldsOnCard.push(<h5 key={k}>{this.props.hand[i][field]}</h5>);
       };
 
-      cardsInHand.push(<div key={i} onClick={this.handleClick} className="playing-card">{fieldsOnCard}</div>);
+      cardsInHand.push(<div key={i} onClick={this.handleClick} className="playing-card" style={bgCLR}>{fieldsOnCard}</div>);
     };
 
 		return (
