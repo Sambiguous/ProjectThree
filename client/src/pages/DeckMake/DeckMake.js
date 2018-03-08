@@ -46,7 +46,7 @@ class DeckMake extends Component {
 
     return (
       <div>
-        <Navbar renderNewComponent={this.props.renderNewComponent}/>
+        <Navbar renderNewComponent={this.props.renderNewComponent} active={"proto"}/>
       <br />
         <form className="deck-form"> 
         
