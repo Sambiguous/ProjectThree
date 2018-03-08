@@ -61,3 +61,10 @@ button:hover {
 	background-color: #BC1515;
 }
 
+.radio {
+	display: inline;
+	color: white;
+	margin-left: 3%;
+	margin-right: 3%;
+	
+}
