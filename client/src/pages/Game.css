@@ -91,3 +91,54 @@ body {
 	display: inline;
 	margin-left: 350px;
 }
+
+@media screen and (orientation: landscape) {
+
+}
+
+@media screen and (orientation: portrait) {
+
+	h2.game-title {
+		margin-top: -70px;
+		display: block;
+	}
+
+	.message-div-media {
+		color: #a0a0a0;
+		/*font-size: 12px;*/
+		text-align: left;
+		margin-top: -50px;
+		margin-left: 250px;
+		float: right;
+	}
+
+	.card-container {
+		padding-bottom: 400px;
+	}
+
+	div.outer-div {
+		/*padding: 20px;*/
+	}
+
+	div.card-pile {
+		margin-right: 60px;
+		display: block;
+	}
+
+	div.btn-div {
+		position:absolute;
+   		bottom:0;
+   		margin-bottom: 80px;
+	}
+
+	div.playing-cards {
+		margin: 20px;
+
+	}
+
+	div.user-list {
+		position: absolute;
+   		bottom:0;
+   		margin-bottom: 90px;
+	}
+}
