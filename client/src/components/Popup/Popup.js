@@ -6,16 +6,21 @@ class Popup extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      cards: props.cardPile,
       showPopup: false,
-      dealvalue: ""
+      numCardsToDeal: ""
     }
   }
 
+  handleDeal = () => {
+    const numCards = parseInt(this.state.numCardsToDeal)
+    this.props.togglePopup()
+    this.props.deal(numCards);
+  }
+
   handleInputChange = event => {
-    const {name, value} = event.target;
+    const {name, value} = event.target
     this.setState({[name]: value});
-  };
+  }
 
   render() {
     return (
@@ -25,17 +30,14 @@ class Popup extends React.Component {
           <form className="deal-form">
            How many cards?
               <input 
+              value={this.state.numCardsToDeal} 
               type="text" 
-              className="deal-input" 
-              placeholder="..."
-              onChange={this.handleInputChange} 
-              dealvalue={this.state.dealvalue} 
-              />
-              <button 
-              type="submit"
-              className="deal-btn"
-              id="dealBtn"
-              onClick={this.props.closePopup}>DEAL</button>
+              className="dealy" 
+              placeholder="..." 
+              onChange={this.handleInputChange}
+              name="numCardsToDeal">
+              </input>
+              <button type="submit" onClick={this.handleDeal}>DEAL</button>
           </form>
         </div>
       </div>
