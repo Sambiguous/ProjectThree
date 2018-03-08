@@ -177,8 +177,8 @@ class Game extends Component {
 
           {/*<h6 className="game-players">{username}</h6>*/}
           <Row>
-            <CardPile cards={this.state.game.cardPile} deal={this.deal} canDeal={this.state.game.GM === username}/>
-            {/*<DiscardPile cards={this.state.game.discardPile}/>*/}
+            <CardPile cards={this.state.game.cardPile} deal={this.deal} canDeal={this.state.game.GM === username} isActive={this.state.isActive}/>
+            {/*<DiscardPile cards={this.state.game.discardPile}/> */}
             <PlayingCards hand={this.state.game.hands[username]} activate={this.activateCard}/>
             <GameButtons isActive={this.state.isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
             <PlayerList username={username} players={this.state.game.players} active={this.state.game.active} />
