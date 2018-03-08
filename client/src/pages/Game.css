@@ -34,9 +34,14 @@ body {
 	margin-right: auto;
 }
 
-.btn-secondary:hover{
+.deckExpand:hover{
 	background-color: #D4D4D4;
 	color: #181717;
+}
+
+.deckExpand:active{
+	background-color: #D4D4D4 !important;
+	color: #181717 !important;
 }
 
 .wrapper {

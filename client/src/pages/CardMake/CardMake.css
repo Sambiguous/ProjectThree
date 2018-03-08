@@ -45,28 +45,11 @@ input[type="text"], [type="number"], textarea {
 	text-transform: none;
 }
 
-h2 {
-	font-size: 60px;
-	font-family: 'Pathway Gothic One', sans-serif;
-	color: white;
-	text-transform: uppercase;
-	text-align: center;
-}
-
-h4 {
-	font-size: 20px;
-	font-family: 'Pathway Gothic One', sans-serif;
-	color: white;
-	text-transform: uppercase;
-	text-align: center;
-}
-
 form.deck-form {
 	overflow: auto;
 	text-transform: none;
 	margin-left: 55px;
 	margin-right: 55px;
-	margin-top: 30px;
 
 }
 
@@ -85,7 +68,7 @@ button {
 
 
 .deck { 
-	margin-bottom: 15px;
+	margin-bottom: 12px;
 	background-color: #181717;
 	text-align: center;
 	width: 100%;
