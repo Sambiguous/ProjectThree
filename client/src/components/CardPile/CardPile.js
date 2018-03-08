@@ -25,7 +25,8 @@ class CardPile extends Component {
   }
 
   togglePopup() {
-    this.props.deal(this.props.value);
+
+    if(!this.props.canDeal || !this.props.isActive){return};
     console.log(this.props.value);
     this.setState({
       showPopup: !this.state.showPopup
@@ -39,10 +40,7 @@ class CardPile extends Component {
 					{/*<h5>{this.state.cards.cardPile.length}</h5>*/}
 				</div>
         {this.state.showPopup ? 
-          <Popup
-            closePopup={this.togglePopup}
-
-          />
+          <Popup deal={this.props.deal} togglePopup={this.togglePopup}/>
           : null
         }
 			</div>

@@ -1,9 +1,9 @@
 .discard-pile {
-	margin-top: -10px;
+	margin-top: -15px;
 	display: flex;
 	width: 120px;
-	height: 185px;
-	margin-left: 10px;
+	height: 180px;
+	margin-left: 60px;
 	background-color: white;
 	box-shadow: 5px;
 	border-radius: 10px !important;
