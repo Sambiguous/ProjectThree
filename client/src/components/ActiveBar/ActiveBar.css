@@ -1,11 +1,11 @@
 .active-bar {
-    height: 20px; 
-    position: fixed; 
-    bottom:0%;
-    margin-left: -20px;
-    width:110%; 
-    background-color: #762217; 
-    opacity: 1;
+  height: 20px; 
+  position: fixed; 
+  bottom:0%;
+  margin-left: -20px;
+  width:110%; 
+  background-color: #762217; 
+  opacity: 1;
 	
 }
 .green-bar {
