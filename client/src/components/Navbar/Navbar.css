@@ -32,14 +32,12 @@
 
 }
 
-#play:hover {
-	background-color: #232323 !important;
-	color: white !important;
+#prototype.active {
+	color: red !important;
 }
 
-#deckmake:active {
-	background-color: #232323 !important;
-	color: white !important;
+#play.active {
+	color: red !important;
 }
 
 
