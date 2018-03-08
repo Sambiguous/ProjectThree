@@ -97,12 +97,12 @@ h6 {
 	margin-left: -50px !important;
 }
 
-.signin:hover {
-	color: #D4D4D4 !important;
+.signin.selected {
+	color: white !important;
 	text-decoration: underline;
 }
 
-.signup:hover {
-	color: #D4D4D4 !important;
+.signup.selected {
+	color: white !important;
   	text-decoration: underline;
 }

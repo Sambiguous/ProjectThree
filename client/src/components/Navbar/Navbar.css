@@ -19,24 +19,22 @@
 	font-size: 35px !important;
 	text-transform: uppercase;
 	font-family: 'Pathway Gothic One', sans-serif !important;
-
 }
 
-#deckmake {
+#prototype {
 	width: 50%;
 	background-color: #181717!important;
 	color: #D4D4D4 !important;
 	font-size: 35px !important;
 	text-transform: uppercase;
 	font-family: 'Pathway Gothic One', sans-serif !important;
-
 }
 
-#play:hover {
-	background-color: #232323 !important;
-	color: white !important;
+#play.selected {
+	color: red !important;
 }
 
+<<<<<<< HEAD
 #deckmake:hover {
 	background-color: #232323 !important;
 	color: white !important;
@@ -47,6 +45,12 @@
 	color: white !important;
 }
 
+=======
+#prototype.selected {
+	color: red !important;
+}
+
+>>>>>>> de7b9b82a4b2cfcc5b2a6ba53860a4f85f68bb0a
 #logout {
 	background-color: #181717!important;
 	font-size: 25px !important;
