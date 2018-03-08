@@ -19,10 +19,10 @@ export default class Example extends React.Component {
     this.state = {
       isOpen: false,
       playClass: playClass,
-      ProtoClass: protoClass
+      protoClass: protoClass
     };
   }
-
+  
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -38,11 +38,11 @@ export default class Example extends React.Component {
   };
 
   handlePlayClick = () => {
-    this.props.renderNewComponent("home", {activeNav: 'play'});
+    this.props.renderNewComponent("home", {});
   }
 
   handleCreateClick = () => {
-    this.props.renderNewComponent('deckmake', {activeNav: 'proto'})
+    this.props.renderNewComponent('deckmake', {})
   }
 
  render() {
@@ -56,8 +56,8 @@ export default class Example extends React.Component {
                 <Nav className= "nav" navbar>
                   <ul className="nav nav-tabs">
 
-                    <button id="play" onClick={this.handlePlayClick}>Play</button>
-                    <button id="prototype" onClick={this.handleCreateClick}>Prototype</button>
+                    <button id="play" className={this.state.playClass} onClick={this.handlePlayClick}>Play</button>
+                    <button id="deckmake" className={this.state.protoClass} onClick={this.handleCreateClick}>Prototype</button>
                     
                     <hr />
 
