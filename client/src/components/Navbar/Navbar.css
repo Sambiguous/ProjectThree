@@ -30,7 +30,11 @@
 	font-family: 'Pathway Gothic One', sans-serif !important;
 }
 
-.active {
+#prototype.active {
+	color: red !important;
+}
+
+#play.active {
 	color: red !important;
 }
 

@@ -22,7 +22,7 @@ export default class Example extends React.Component {
       protoClass: protoClass
     };
   }
-  
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -57,7 +57,7 @@ export default class Example extends React.Component {
                   <ul className="nav nav-tabs">
 
                     <button id="play" className={this.state.playClass} onClick={this.handlePlayClick}>Play</button>
-                    <button id="deckmake" className={this.state.protoClass} onClick={this.handleCreateClick}>Prototype</button>
+                    <button id="prototype" className={this.state.protoClass} onClick={this.handleCreateClick}>Prototype</button>
                     
                     <hr />
 
