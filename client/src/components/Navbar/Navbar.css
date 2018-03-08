@@ -15,7 +15,7 @@
 #play {
 	width: 50%;
 	background-color: #181717!important;
-	color: #D4D4D4 !important;
+	color: #7c7b7b !important;
 	font-size: 35px !important;
 	text-transform: uppercase;
 	font-family: 'Pathway Gothic One', sans-serif !important;
@@ -24,18 +24,18 @@
 #prototype {
 	width: 50%;
 	background-color: #181717!important;
-	color: #D4D4D4 !important;
+	color: #7c7b7b !important;
 	font-size: 35px !important;
 	text-transform: uppercase;
 	font-family: 'Pathway Gothic One', sans-serif !important;
 }
 
 #prototype.active {
-	color: red !important;
+	color: white !important;
 }
 
 #play.active {
-	color: red !important;
+	color: white !important;
 }
 
 #logout {
