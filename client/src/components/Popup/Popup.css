@@ -16,7 +16,7 @@
   right: 30%;
   top: 10%;
   bottom: 30%;
-  background: grey;
+  background-color: grey !important;
   text-align: center;
   color: black;
 }
@@ -24,8 +24,12 @@
 input.deal-input {
   margin-left: 55px;
   color: red;
-  background-color: grey;
+  background-color: grey !important;
+  margin-left: 55px;
+}
 
+.deal-form > button {
+  background-color: green;
 }
 
 .deal-input {
@@ -34,4 +38,5 @@ input.deal-input {
   color: black;
   display: block;
   color: red;
+  background-color: grey !important;
 }
