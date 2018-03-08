@@ -12,7 +12,6 @@ class About extends Component {
         this.toggle = this.toggle.bind(this);
         this.state = { 
           collapse: false,
-          activeNav: props.activeNav
         };
 
       }
@@ -47,7 +46,7 @@ class About extends Component {
     
         return (
           <div>
-            <Navbar renderNewComponent={this.props.renderNewComponent} active={this.state.activeNav}/>
+            <Navbar renderNewComponent={this.props.renderNewComponent} active={"play"}/>
             <Container style={{ marginTop: 30 }}>
             <JoinForm {...this.props} />
             </Container>
