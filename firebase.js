@@ -2,7 +2,15 @@
 //THIS IS THE API SERVER FIREBASE CONNECTION FILE
 //================================================
 var firebase = require('firebase')
-var credentials = require("./credentials.json");
+
+
+try {
+  const {email, password} = require("./credentials.json");
+} catch (err) {
+  const email = "apiserver@notarealemail.com";
+  const password = "PO)(IU*&po09iu87";
+}
+
 
 var config = {
     apiKey: "AIzaSyDPwMmbvrCll1xgRRMjMAUFgwUA6_b_c14",
@@ -15,7 +23,7 @@ let activeGameCodes = [];
 
 firebase.initializeApp(config);
 
-firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
+firebase.auth().signInWithEmailAndPassword(email, password)
 .catch(e => {
     console.log(e);
 })
