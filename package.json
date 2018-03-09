@@ -15,11 +15,9 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
-  },
   "dependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "firebase": "^4.10.1",
