@@ -3,12 +3,17 @@
 //================================================
 var firebase = require('firebase')
 
+var email;
+var pass;
 
 try {
-  const {email, password} = require("./credentials.json");
+  const credentials = require("./credentials.json");
+  email = credentials.email;
+  pass = credentials.password;
+  console.log("workds");
 } catch (err) {
-  const email = "apiserver@notarealemail.com";
-  const password = "PO)(IU*&po09iu87";
+  email = "apiserver@notarealemail.com";
+  pass = "PO)(IU*&po09iu87";
 }
 
 
@@ -23,7 +28,7 @@ let activeGameCodes = [];
 
 firebase.initializeApp(config);
 
-firebase.auth().signInWithEmailAndPassword(email, password)
+firebase.auth().signInWithEmailAndPassword(email, pass)
 .catch(e => {
     console.log(e);
 })
