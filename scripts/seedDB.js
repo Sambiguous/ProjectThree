@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/onDeck_DB");
-
+//mongoose.connect("mongodb://heroku_x6fqxrdj:bhjko6k9c3d5asopm2hdhiq2g6@ds261838.mlab.com:61838/heroku_x6fqxrdj");
 const userSeed = [
   {
     username: 'OnDeck',

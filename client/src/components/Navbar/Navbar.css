@@ -19,15 +19,17 @@
 	font-size: 35px !important;
 	text-transform: uppercase;
 	font-family: 'Pathway Gothic One', sans-serif !important;
+
 }
 
-#prototype {
+#deckmake {
 	width: 50%;
 	background-color: #181717!important;
 	color: #7c7b7b !important;
 	font-size: 35px !important;
 	text-transform: uppercase;
 	font-family: 'Pathway Gothic One', sans-serif !important;
+
 }
 
 #prototype.active {
@@ -37,6 +39,7 @@
 #play.active {
 	color: white !important;
 }
+
 
 #logout {
 	background-color: #181717!important;

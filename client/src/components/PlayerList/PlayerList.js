@@ -23,7 +23,6 @@ class PlayerList extends Component {
 
 	render() {
     let playersInGame = this.yourNameFirst(this.props.players);
-    console.log(playersInGame)
     let playerList = [];
 
     for (let i = 0; i < playersInGame.length; i++){

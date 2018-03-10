@@ -9,11 +9,14 @@
 	margin-top: -15px;
 	width: 120px;
 	height: 180px;
-	background-color: white;
 	margin-left: -80px;
 	border-radius: 8px !important;
 	color: black;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.active {
+/* emily put active card styling here */
 }
 
 .expand-card {
