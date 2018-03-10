@@ -24,3 +24,12 @@
 .shuffle-btn {
 	margin-left: 20px;
 }
+
+@media screen and (orientation: portrait) {
+	
+	.done-btn {
+		width: 55px;
+
+	}
+
+}

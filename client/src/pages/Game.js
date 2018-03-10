@@ -169,7 +169,7 @@ class Game extends Component {
       ?
         <Container className="card-container">
           <Button className="back" onClick={this.handleBackClick}/>
-            <div className="message-div">
+            <div className="message-div message-div-media">
               {this.state.game.message}
             </div>
           <h2 className="game-title">{this.state.name}</h2>

@@ -25,9 +25,7 @@ class CardPile extends Component {
   }
 
   togglePopup() {
-
     if(!this.props.canDeal || !this.props.isActive){return};
-    console.log(this.props.value);
     this.setState({
       showPopup: !this.state.showPopup
     });
