@@ -35,6 +35,8 @@ class CardPile extends Component {
 
 	render() {
 		return (
+      this.props.shouldRender
+      ?
 			<div>
 				<div className="card-pile" onClick={this.togglePopup}>
 					{/*<h5>{this.state.cards.cardPile.length}</h5>*/}
@@ -44,6 +46,8 @@ class CardPile extends Component {
           : null
         }
 			</div>
+      :
+      null
 		)
 	}
 }
