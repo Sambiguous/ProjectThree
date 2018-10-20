@@ -195,7 +195,6 @@ class Game extends Component {
             <GameButtons isActive={this.state.isActive} draw={this.drawCard} discard={this.discard} shuffle={this.shuffle} done={this.done}/>
             <PlayerList username={username} players={this.state.game.players} active={this.state.game.active} />
             <ActiveBar isActive={this.state.isActive} />
-
           </Row>
         </Container>
       :
