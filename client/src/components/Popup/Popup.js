@@ -32,7 +32,7 @@ class Popup extends React.Component {
               <input 
               value={this.state.numCardsToDeal} 
               type="text" 
-              className="dealy" 
+              className="deal-input" 
               placeholder="..." 
               onChange={this.handleInputChange}
               name="numCardsToDeal">

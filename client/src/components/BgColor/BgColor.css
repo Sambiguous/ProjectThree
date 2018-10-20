@@ -68,3 +68,19 @@ button:hover {
 	margin-right: 3%;
 	
 }
+
+.radio-y {
+	color: yellow;
+}
+
+.radio-g {
+	color: green;
+}
+
+.radio-r {
+	color: red;
+}
+
+.radio-b {
+	color: blue;
+}
