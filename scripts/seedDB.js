@@ -2,9 +2,17 @@ const mongoose = require("mongoose");
 const db = require("../models");
 mongoose.Promise = global.Promise;
 
+const instance = process.argv[2];
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/onDeck_DB");
-//mongoose.connect("mongodb://heroku_x6fqxrdj:bhjko6k9c3d5asopm2hdhiq2g6@ds261838.mlab.com:61838/heroku_x6fqxrdj");
+if(instance === "dev"){
+  mongoose.connect("mongodb://localhost/onDeck_DB");
+  console.log("Seeding development database");
+}else if(instance === "production"){
+  mongoose.connect("mongodb://heroku_x6fqxrdj:bhjko6k9c3d5asopm2hdhiq2g6@ds261838.mlab.com:61838/heroku_x6fqxrdj");
+  console.log("Seeding Production Database (I hope that's what you meant to do)");
+}
+
+
 const userSeed = [
   {
     username: 'OnDeck',
