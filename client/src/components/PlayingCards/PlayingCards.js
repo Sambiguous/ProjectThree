@@ -5,22 +5,12 @@ class PlayingCards extends Component {
 
 	constructor(props) {
     	super(props);
-    	this.state = {
-    		isToggleOn: false,
-    	};
-    }
+  }
     
-    componentDidMount(){
-      console.log("playing cards props:", this.props);
-    }
 
-  //Not currently called
-  handleClick = () => {
-    // this.setState(prevState => ({
-    //     isToggleOn: !prevState.isToggleOn
-    // }));
-    
-    console.log("click happened");
+  handleClick = event => {
+    const index = event.target.dataset.index;
+    this.props.activate(index);
   }	
 
 	render() {
@@ -31,18 +21,18 @@ class PlayingCards extends Component {
     //let us store empty arrays, so the cards array always has a dummy element at index 0
     for(var i=1; i < this.props.hand.length; i++){
       let fieldsOnCard = [];
-      let numFields = Object.keys(this.props.hand[i]).length;
+      let info = Object.keys(this.props.hand[i]).filter(key => key.indexOf('fieldInfo') === 0);
       let bgCLR = {
         backgroundColor: this.props.hand[i].bgColor
-        // backgroundColor: "purple"
       }
+      const cardClass = this.props.activeIndexes.indexOf(i.toString()) === -1 ? "playing-card" : "playing-card active";
 
-      for(var k=0; k < numFields; k++){
-        let field = "fieldInfo" + k.toString();
-        fieldsOnCard.push(<h5 key={k}>{this.props.hand[i][field]}</h5>);
+      for(var k=0; k < info.length; k++){
+        let field = this.props.hand[i][info[k]]
+        fieldsOnCard.push(<h5 key={k}>{field}</h5>);
       };
 
-      cardsInHand.push(<div key={i} onClick={this.handleClick} className="playing-card" style={bgCLR}>{fieldsOnCard}</div>);
+      cardsInHand.push(<div key={i} data-index={i} onClick={this.handleClick} className={cardClass} style={bgCLR}>{fieldsOnCard}</div>);
     };
 
 		return (

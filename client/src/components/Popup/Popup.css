@@ -1,4 +1,3 @@
-
 .popup {
   position: fixed;
   width: 100%;
@@ -11,26 +10,34 @@
   background-color: rgba(0,0,0, 0.5);
   color: red;
 }
+
 .popup_inner {
   position: absolute;
   left: 30%;
   right: 30%;
   top: 10%;
   bottom: 30%;
-  background: white;
+  background-color: grey !important;
   text-align: center;
-  color: red;
+  color: black;
 }
 
-input.dealy {
+input.deal-input {
   margin-left: 55px;
   color: red;
+  background-color: grey !important;
+  margin-left: 55px;
 }
 
-.dealy {
+.deal-form > button {
+  background-color: green;
+}
+
+.deal-input {
   padding: 0;
   text-align: center;
   color: black;
   display: block;
   color: red;
+  background-color: grey !important;
 }

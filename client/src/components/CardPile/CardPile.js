@@ -25,9 +25,7 @@ class CardPile extends Component {
   }
 
   togglePopup() {
-
     if(!this.props.canDeal || !this.props.isActive){return};
-    console.log(this.props.value);
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -35,6 +33,8 @@ class CardPile extends Component {
 
 	render() {
 		return (
+      this.props.shouldRender
+      ?
 			<div>
 				<div className="card-pile" onClick={this.togglePopup}>
 					{/*<h5>{this.state.cards.cardPile.length}</h5>*/}
@@ -44,6 +44,8 @@ class CardPile extends Component {
           : null
         }
 			</div>
+      :
+      null
 		)
 	}
 }
